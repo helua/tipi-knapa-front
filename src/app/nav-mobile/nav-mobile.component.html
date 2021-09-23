@@ -1,0 +1,39 @@
+<div class="mobile">
+  <ul>
+    <li>
+      <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
+      <fa-icon [icon]="menuIcon" (click)="sidenav.toggle()"></fa-icon>
+    </li>
+    <li><a href="https://vimeo.com/inohmus" target="_blank">
+      <!-- <i class="fa fa-vimeo" aria-hidden="true"></i> -->
+      <fa-icon [icon]="vimeoIcon"></fa-icon>
+    </a></li>
+    <li><a href="https://www.facebook.com/inohmus" target="_blank">
+      <!-- <i class="fa fa-facebook" aria-hidden="true"></i> -->
+      <fa-icon [icon]="facebookIcon"></fa-icon>
+
+    </a></li>
+    <li><a href="https://www.instagram.com/inohmus" target="_blank">
+      <!-- <i class="fa fa-instagram" aria-hidden="true"></i> -->
+      <fa-icon [icon]="instagramIcon"></fa-icon>
+
+    </a></li>
+  </ul>
+  </div>
+  <mat-sidenav-container>
+      <mat-sidenav #sidenav>
+        <mat-nav-list>
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/info" routerLinkActive="active">INFO</a>
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/cennik" routerLinkActive="active">CENNIK</a>
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/kontakt" routerLinkActive="active">KONTAKT</a>
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/galeria" routerLinkActive="active">GALERIA</a>
+          <a (click)="sidenav.toggle()" mat-list-item href="http://helio.webd.pl/inomhus" target="_blank">GRAFIKA</a>
+
+        </mat-nav-list>
+      </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="router-wrapper">
+          <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
