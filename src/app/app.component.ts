@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { faFacebookF, faInstagram, faVimeoV } from '@fortawesome/free-brands-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +7,6 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'INOMHUS-SKATESCHOOL';
-  vimeoIcon = faVimeoV;
-  instagramIcon = faInstagram;
-  facebookIcon = faFacebookF;
-  menuIcon = faBars;
+
 
 }

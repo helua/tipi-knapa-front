@@ -16,6 +16,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { KontaktComponent } from './kontakt/kontakt.component';
+import { CennikComponent } from './cennik/cennik.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { MatListModule } from '@angular/material/list';
     NavComponent,
     InfoComponent,
     GaleriaComponent,
-    NavMobileComponent
+    NavMobileComponent,
+    KontaktComponent,
+    CennikComponent
   ],
   imports: [
     BrowserModule,

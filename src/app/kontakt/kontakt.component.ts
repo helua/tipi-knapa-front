@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-info',
-  templateUrl: './info.component.html',
-  styleUrls: ['./info.component.scss']
+  selector: 'app-kontakt',
+  templateUrl: './kontakt.component.html',
+  styleUrls: ['./kontakt.component.scss']
 })
-export class InfoComponent implements OnInit {
+export class KontaktComponent implements OnInit {
 
-  title = 'INOMHUS Skate School';
-  keywords: MetaDefinition = {name: 'keywords', content: 'skate, deskorolka'};
-  description: MetaDefinition = {name: 'description', content: 'Strona szkoły jazdy na deskorolce dla skateów'};
+  title = 'Konktakt | INOMHUS Skate School';
+  keywords: MetaDefinition = {name: 'keywords', content: 'jakieś keywords'};
+  description: MetaDefinition = {name: 'description', content: 'jakiś opis'};
 
   constructor(private titleService: Title, private metaService: Meta){}
 
