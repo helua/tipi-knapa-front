@@ -1,6 +1,5 @@
-$color:#f7695a;
-$color-2: #84fb54;
-$white: #fafff6;
+@import '/src/sass/styles';
+
 
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -10,7 +9,7 @@ body{
     margin: 0px;
 
     & ::selection{
-        background-color: $color-2;
+        background-color: $selection;
     }
 }
 
@@ -50,7 +49,7 @@ span#question-mark, span#allora{
     font-size: 2.3rem;
     text-transform: uppercase;
     transform: rotate(-7.2deg);
-    color: $color-2;
+    color: $color;
     z-index: 10;
     @media screen and (max-width: 405px){
         font-size: 1.5rem;
@@ -85,10 +84,10 @@ h1, h2{
 a{
     text-decoration: none;
     color: black;
-    text-shadow: 2px 2px rgba($color-2, .2);
+    text-shadow: 2px 2px rgba($color, .2);
     @media screen and (min-width: 600px){
         &:hover{
-            background-color: rgba($color-2, 0.8);
+            background-color: rgba($color, 0.8);
         }
     }
 
@@ -166,7 +165,7 @@ button{
     background-color: red;
 }
 .mat-drawer-backdrop.mat-drawer-shown{
-    background-color: rgba($color-2, .6);
+    background-color: rgba($color, .6);
 }
 
 

@@ -1,7 +1,7 @@
-$color-2: #84fb54;
+@import './../../sass/styles';
 
 .active{
-    background-color: $color-2;
+    background-color: $color;
     border-style: solid;
     box-shadow: black 5px 5px;
 }
