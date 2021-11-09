@@ -1,7 +1,7 @@
 [build]
   command = "npm run build --prod"
   functions = "./functions"
-  publish = "dist/tipi-knapa"
+  publish = "dist/TIPI-KNAPA"
 [dev]
   command = "npm run start"
   functions = "./functions"
