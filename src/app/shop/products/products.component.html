@@ -1,0 +1,6 @@
+<main *ngIf="products | async as products; else loadingBlock">
+  <div *ngFor="let product of products">
+    <app-product [product]="product" [price]="price"></app-product>
+  </div>
+</main>
+<ng-template #loadingBlock>nichujet</ng-template>
