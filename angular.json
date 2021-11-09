@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "INOMHUS-SKATESCHOOL": {
+    "TIPI-KNAPA": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/INOMHUS-SKATESCHOOL",
+            "outputPath": "dist/TIPI-KNAPA",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "INOMHUS-SKATESCHOOL:build:production"
+              "browserTarget": "TIPI-KNAPA:build:production"
             },
             "development": {
-              "browserTarget": "INOMHUS-SKATESCHOOL:build:development"
+              "browserTarget": "TIPI-KNAPA:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "INOMHUS-SKATESCHOOL:build"
+            "browserTarget": "TIPI-KNAPA:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "INOMHUS-SKATESCHOOL"
+  "defaultProject": "TIPI-KNAPA"
 }

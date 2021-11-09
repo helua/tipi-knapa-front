@@ -17,6 +17,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { KontaktComponent } from './kontakt/kontakt.component';
 import { CennikComponent } from './cennik/cennik.component';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CennikComponent } from './cennik/cennik.component';
     MatSidenavModule,
     MatListModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ScullyLibModule
   ],
   providers: [],
   bootstrap: [AppComponent],
