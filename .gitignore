@@ -55,3 +55,6 @@ src/assets/nóż_tipi_prod-6.jpg
 src/assets/nóż_tipi_prod-7.jpg
 src/assets/nóż_tipi_prod-9.jpg
 src/assets/nóż_tipi_prod-10.jpg
+
+# Local Netlify folder
+.netlify

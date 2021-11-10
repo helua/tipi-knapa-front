@@ -34,7 +34,10 @@ nav .nav-main{
 
     & ul{
         display: flex;
-        justify-content: space-between;
+        justify-content: end;
+        & li{
+          margin-left: 17px;
+        }
     }
     & a{
         transition: .2s ease-out;

@@ -1,20 +1,16 @@
 <div class="mobile">
   <ul>
     <li>
-      <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
       <fa-icon [icon]="menuIcon" (click)="sidenav.toggle()"></fa-icon>
     </li>
-    <li><a href="https://vimeo.com/inohmus" target="_blank">
-      <!-- <i class="fa fa-vimeo" aria-hidden="true"></i> -->
+    <li><a href="https://vimeo.com/tipiknapa" target="_blank">
       <fa-icon [icon]="vimeoIcon"></fa-icon>
     </a></li>
-    <li><a href="https://www.facebook.com/inohmus" target="_blank">
-      <!-- <i class="fa fa-facebook" aria-hidden="true"></i> -->
+    <li><a href="https://www.facebook.com/tipiknapa" target="_blank">
       <fa-icon [icon]="facebookIcon"></fa-icon>
 
     </a></li>
-    <li><a href="https://www.instagram.com/inohmus" target="_blank">
-      <!-- <i class="fa fa-instagram" aria-hidden="true"></i> -->
+    <li><a href="https://www.instagram.com/tipiknapa" target="_blank">
       <fa-icon [icon]="instagramIcon"></fa-icon>
 
     </a></li>
@@ -23,11 +19,10 @@
   <mat-sidenav-container>
       <mat-sidenav #sidenav>
         <mat-nav-list>
-          <a (click)="sidenav.toggle()" mat-list-item routerLink="/info" routerLinkActive="active">INFO</a>
-          <a (click)="sidenav.toggle()" mat-list-item routerLink="/cennik" routerLinkActive="active">CENNIK</a>
-          <a (click)="sidenav.toggle()" mat-list-item routerLink="/kontakt" routerLinkActive="active">KONTAKT</a>
-          <a (click)="sidenav.toggle()" mat-list-item routerLink="/galeria" routerLinkActive="active">GALERIA</a>
-          <a (click)="sidenav.toggle()" mat-list-item href="http://helio.webd.pl/inomhus" target="_blank">GRAFIKA</a>
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/" routerLinkActive="active">LOGO</a>
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/o-nas" routerLinkActive="active">O NAS</a>
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/sklep" routerLinkActive="active">SKLEP</a>
+          <a (click)="sidenav.toggle()" mat-list-item href="https://instagram.com/knapiwo" target="_blank">MUZYCZKA</a>
 
         </mat-nav-list>
       </mat-sidenav>
