@@ -1,6 +1,6 @@
 const sanityClient = require("@sanity/client");
 const imageUrlBuilder = require("@sanity/image-url");
-// const blocksToHtml = require("@sanity/block-content-to-html");
+const blocksToHtml = require("@sanity/block-content-to-html");
 
 const sanity = sanityClient({
   projectId: 'reekcfrj',
@@ -19,20 +19,20 @@ const sanity = sanityClient({
 // });
 
 exports.handler = async () => {
-  const query = '*[_type=="product"]{title, slug, sku, defaultProductVariant, tags, "categoryTitles": categories[]->title, "vendor": vendor->title}'
+  const query = '*[_type=="product"]{title, slug, sku, weight, defaultProductVariant, tags, "categoryTitles": categories[]->title, "vendor": vendor->title, body}'
   console.log(query);
   const products = await sanity.fetch(query).then((results) => {
     const allProducts = results.map((product) => {
       const output = {
         title: product.title,
         slug: product.slug.current,
-        // url: `${process.env.URL}/.netlify/functions/getproducts`,
-        // categories: product.categoryTitles,
-        // tags: product.tags,
-        // vendor: product.vendor,
-        // body: blocksToHtml({ blocks: product.body }),
+        url: `${process.env.URL}/.netlify/functions/getproducts`,
+        categories: product.categoryTitles,
+        vendor: product.vendor,
+        body: blocksToHtml({ blocks: product.body }),
         images: [],
-        sku: product.defaultProductVariant.sku
+        sku: product.defaultProductVariant.sku,
+        weight: product.defaultProductVariant.grams
       };
 
 

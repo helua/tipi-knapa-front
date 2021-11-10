@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EcommerceService } from '../ecommerce.service';
+import { TokenService } from '../token.service';
 
 @Component({
   selector: 'app-shop',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopComponent implements OnInit {
 
-  constructor() { }
+  constructor(private token: TokenService, private ecomm: EcommerceService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.token.getToken();
   }
 
 }

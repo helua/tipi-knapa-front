@@ -7,34 +7,29 @@ import { EcommerceService } from './ecommerce.service';
 })
 export class TokenService {
 
-  // const token = {
-  //   accessToken: 'eyJhbGciOiJIUzUxMiJ9.eyJvcmdhbml6YXRpb24iOnsiaWQiOiJPWEttVkZHYWdSIiwic2x1ZyI6InRoZS10ZWFsLWJyYW5kLTE4MCJ9LCJhcHBsaWNhdGlvbiI6eyJpZCI6IllHeWFxaUJ2b0ciLCJraW5kIjoic2FsZXNfY2hhbm5lbCIsInB1YmxpYyI6dHJ1ZX0sInRlc3QiOnRydWUsImV4cCI6MTYzNjQ5ODU3NiwibWFya2V0Ijp7ImlkIjpbIlhsQmR5aFlWZWoiXSwicHJpY2VfbGlzdF9pZCI6IllrWFFhQ3FFYmwiLCJzdG9ja19sb2NhdGlvbl9pZHMiOlsiYm5FZVF1elJ2biIsImVuYnFRdVJlQU0iXSwiZ2VvY29kZXJfaWQiOm51bGwsImFsbG93c19leHRlcm5hbF9wcmljZXMiOmZhbHNlfSwicmFuZCI6MC4yMjUxNDI0NTYxODcwMTE3fQ.2PwL2bEOK1mpbMCuOiPxfD5mar5RLzYEHaC8PUlYWPLviVPXgL0ogNsrKNY9tzaWpWLWvMLQzIuMygTqxOJXSA',
-  //   expires: 'Date Tue Nov 09 2021 23:56:15 GMT+0100 (czas środkowoeuropejski standardowy)'}
-
-  url: string = 'https://the-teal-brand-180.commercelayer.io'
-  clientID: string = 'OAMcie37PMeilXSGUfsF0LY4Ry9nUi9Em2Yx-LzhcNU';
-  scope: string ="market:6369";
-  // scope: string ="market:6421";
-  // url: string = 'https://tipi-knapa.commercelayer.io'
-  // clientID: string = 'HnNc90yMw7y86SONLNFTDHhN8kThJRBi1BxY_fBrtbo';
-  constructor(private ecomm: EcommerceService) { }
+  url: string = 'https://tipi-knapa-shop.commercelayer.io'
+  clientID: string = 'N7V8FFNMG8ylXYju_6RrcH7qRostvS8MY8ahWlulJVE';
+  scope: string ="market:7273";
+  stock: string = "stock_location:6551";
+  token: string = "";
+  constructor() { }
 
   async getToken(){
 
     const token = await getSalesChannelToken({
       clientId: this.clientID,
       endpoint: this.url,
-      scope: this.scope
+      scope: this.scope,
     })
-    // const token = await getSalesChannelToken({
-    //   clientId: 'N7V8FFNMG8ylXYju_6RrcH7qRostvS8MY8ahWlulJVE',
-    //   endpoint: 'https://tipi-knapa-shop.commercelayer.io',
-    //   scope: 'market:7273'
-    // })
+    if(token){
+      console.log('My access token: ', token.accessToken)
+      this.token = token.accessToken;
+      console.log('Expiration date: ', token.expires);
+      return token;
 
-  // console.log('My access token: ', token.accessToken)
-  // console.log('Expiration date: ', token.expires)
-  return token
+    }
+    else return {accessToken: 'eyJhbGciOiJIUzUxMiJ9.eyJvcmdhbml6YXRpb24iOnsiaWQiOiJZbnJRWUZES0tYIiwic2x1ZyI6InRpcGkta25hcGEtc2hvcCJ9LCJhcHBsaWNhdGlvbiI6eyJpZCI6ImRObldtaXd2WEciLCJraW5kIjoic2FsZXNfY2hhbm5lbCIsInB1YmxpYyI6dHJ1ZX0sInRlc3QiOnRydWUsImV4cCI6MTYzNjU3MTk2MCwibWFya2V0Ijp7ImlkIjpbInZsR1JtaG5wTmciXSwicHJpY2VfbGlzdF9pZCI6ImRsd1F5Q0pZZ0IiLCJzdG9ja19sb2NhdGlvbl9pZHMiOlsiTkdOUkV1V1ZSRyJdLCJnZW9jb2Rlcl9pZCI6bnVsbCwiYWxsb3dzX2V4dGVybmFsX3ByaWNlcyI6ZmFsc2V9LCJyYW5kIjowLjcyMjkwNjI2ODQyNTU1NDl9.SGqwwh2Op0xDQ-RPxEsVgzkMxJxgS5X3GZtaLo1cbAGqxUcqyeeyKTt0bb930nSuosbNXYX5EGXeN9_jCnl-KQ'};
+
   }
 
 }

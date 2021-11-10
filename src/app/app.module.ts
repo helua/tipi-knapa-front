@@ -20,6 +20,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ScullyLibModule } from '@scullyio/ng-lib';
+import { SlideshowComponent } from './components/slideshow/slideshow.component';
+import { ButtonComponent } from './components/button/button.component';
 
 
 
@@ -33,6 +35,8 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
     MainComponent,
     ProductsComponent,
     ProductComponent,
+    SlideshowComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

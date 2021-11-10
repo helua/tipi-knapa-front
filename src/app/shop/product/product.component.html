@@ -1,20 +1,25 @@
 <main>
-  <h1>{{ product.title }}</h1>
-  <img [src]="product.images[0]" alt="">
-  <p>{{ productPrice() }}</p>
-  <span>{{ product.sku }}</span>
-  <input id="add-to-bag-quantity-HEJdjbsjhdvbsf87y8435" type="number" value="1" class="input clayer-add-to-bag-quantity" data-sku-code="HEJdjbsjhdvbsf87y8435">
-    <button
-      (click)="createOrder();"
-      >
-      kup nóż
-    </button>
-    <a [href]="'https://tipi-knapa-checkout.netlify.app/'+ord">
-      <button>idź do checkoutu</button>
-    </a>
+  <h2>{{ product.title }}</h2>
+  <div class="holder">
 
-  <div class="clayer-availability-message-container" id="availability-message-BABYONBU000000E63E74NBXX"></div>
+    <div class="holder-slides">
+        <app-slideshow [slidesId]="product.slug" [slidesSet]="product.images"></app-slideshow>
+    </div>
 
+    <div class="holder-info">
+      <!-- <h3>{{product.vendor}}</h3> -->
+      <div class="body-wrapper" [innerHTML]="product.body"></div>
+      <p>{{ productPrice() }}</p>
+      <ul>
+        <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></li>
+        <li>kod produktu: {{ product.sku }}</li>
+        <li>waga: {{product.weight}} g</li>
+      </ul>
+      <!-- <input id="add-to-bag-quantity-HEJdjbsjhdvbsf87y8435" type="number" value="1" class="input clayer-add-to-bag-quantity" data-sku-code="HEJdjbsjhdvbsf87y8435"> -->
+        <app-button (click)="createOrder();" text="KUP NÓŻ"></app-button>
+        <a [href]="checkout + ord"><app-button text="idź do checkoutu"></app-button></a>
+    </div>
+  </div>
 </main>
 <!-- <a href="https://tipi-knapa-checkout.netlify.app/wmzKhAlbeR"> -->
 

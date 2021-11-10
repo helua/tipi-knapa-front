@@ -1,0 +1,24 @@
+@import '../../../sass/styles';
+
+.holder{
+  width: 100%;
+  display: flex;
+}
+.holder-slides{
+  width: 37%;
+
+}
+.holder-info{
+  width: 57%;
+  & ul{
+    list-style-type: none;
+  }
+}
+.label{
+  position: relative;
+  border-radius: 2px;
+  font-size: 1rem;
+  padding: 4px;
+  margin: 0 4px;
+  background-color: $selection;
+}

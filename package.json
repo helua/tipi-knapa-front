@@ -26,6 +26,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@sanity/block-content-to-html": "^2.0.0",
     "@sanity/client": "^2.21.10",
     "@sanity/image-url": "^1.0.1",
     "@scullyio/init": "^2.0.1",

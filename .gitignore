@@ -46,6 +46,7 @@ Thumbs.db
 
 # Sanity files
 /feed/node_modules
+/feed/dist
 
 # Other files
 src/assets/nóż_tipi_prod-1.jpg

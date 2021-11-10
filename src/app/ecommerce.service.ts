@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class EcommerceService {
 
-  url: string = 'https://the-teal-brand-180.commercelayer.io'
+  url: string = 'https://tipi-knapa-shop.commercelayer.io'
   checkoutUrl: string = 'https://tipi-knapa-checkout.netlify.app/';
   orderCreated: string = '';
 
@@ -27,7 +27,7 @@ export class EcommerceService {
 
   getPrices(token: string){
 
-    return  this.http.get<any>(this.url+'/api/skus?filter[q][code_in]=HEJdjbsjhdvbsf87y8435&include=prices', {
+    return  this.http.get<any>(this.url+'/api/skus?include=prices', {
       headers: {
         'Accept': 'application/vnd.api+json',
         'Authorization': 'Bearer '+token
@@ -47,7 +47,7 @@ export class EcommerceService {
         "data": {
             "type": "orders",
             "attributes": {
-              "language_code": "en",
+              "language_code": "pl",
               "customer_email": "heliooooo@pelio.pl"
             }
           }
@@ -69,8 +69,6 @@ export class EcommerceService {
           "quantity": 1,
           "_update_quantity": true,
           "sku_code": sku,
-          "name": " Nóż typu finka Tipi Knapa ",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Red_rectangle.svg/1200px-Red_rectangle.svg.png",
         },
         "relationships": {
           "order": {
@@ -80,7 +78,7 @@ export class EcommerceService {
             },
             "market": {
               "type": "market",
-              "id": "XlBdyhYVej"
+              "id": "vlGRmhnpNg"
               }
           }
         }

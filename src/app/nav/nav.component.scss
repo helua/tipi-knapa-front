@@ -28,15 +28,16 @@ nav .nav-main{
     display: inline-block;
     width: 96%;
     position: fixed;
-    top: 2%;
-    left: 2%;
+    top: calc(5% + 3rem);
+    line-height: 0rem;
+    right: 5%;
 
 
     & ul{
         display: flex;
         justify-content: end;
         & li{
-          margin-left: 17px;
+          margin-left: 1.5rem;
         }
     }
     & a{
