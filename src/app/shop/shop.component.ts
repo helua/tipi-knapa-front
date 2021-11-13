@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
-import { EcommerceService } from '../ecommerce.service';
 import { TokenService } from '../token.service';
 
 @Component({
@@ -13,7 +12,7 @@ export class ShopComponent implements OnInit {
   title = 'SKLEP | TIPI KNAPA';
   keywords: MetaDefinition = {name: 'keywords', content: 'jakieś keywords'};
   description: MetaDefinition = {name: 'description', content: 'jakiś opis'};
-  constructor(private token: TokenService, private ecomm: EcommerceService, private titleService: Title, private metaService: Meta) { }
+  constructor(private token: TokenService, private titleService: Title, private metaService: Meta) { }
 
   ngOnInit() {
     this.token.getToken();

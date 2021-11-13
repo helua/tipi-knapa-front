@@ -1,6 +1,11 @@
+<div class="cart" [matBadge]="cart.data.attributes.skus_count" matBadgeColor="warn" matBadgePosition="above after">
+  <fa-icon  [icon]="cartIcon" (click)="openDialog()"></fa-icon>
+</div>
+
 <main *ngIf="products | async as products; else loadingBlock">
   <div *ngFor="let product of products">
-    <app-product [product]="product" [price]="price"></app-product>
+    <app-product [product]="product" [price]="price" (newCart)="onNewCart($event)"></app-product>
   </div>
 </main>
 <ng-template #loadingBlock>nichujet</ng-template>
+<!-- <app-cart [cart]="cart"></app-cart> -->

@@ -1,3 +1,4 @@
+
 <main>
   <h2>{{ product.title }}</h2>
   <div class="holder">
@@ -12,21 +13,12 @@
       <p>{{ productPrice() }}</p>
       <ul>
         <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></li>
-        <li>kod produktu: {{ product.sku }}</li>
         <li>waga: {{product.weight}} g</li>
+        <li>kod produktu: {{ product.sku }}</li>
       </ul>
       <!-- <input id="add-to-bag-quantity-HEJdjbsjhdvbsf87y8435" type="number" value="1" class="input clayer-add-to-bag-quantity" data-sku-code="HEJdjbsjhdvbsf87y8435"> -->
-        <app-button (click)="createOrder();" text="KUP NÓŻ"></app-button>
+        <app-button (click)="createOrder();" text="DODAJ DO KOSZYKA"></app-button>
         <a [href]="checkout + ord"><app-button text="idź do checkoutu"></app-button></a>
     </div>
   </div>
 </main>
-<!-- <a href="https://tipi-knapa-checkout.netlify.app/wmzKhAlbeR"> -->
-
-
-<!-- class="clayer-add-to-bag"
-data-sku-code="djfhskdjfbskdjskjdbvksjdbv8428r"
-data-sku-name="Nóż typu finka Tipi Knapa"
-data-sku-reference="Any reference"
-data-sku-image-url="https://img.commercelayer.io/skus/BABYONBU000000E63E74NBXX.png?fm=jpg&q=90&w=400"
-data-availability-message-container-id="availability-message-djfhskdjfbskdjskjdbvksjdbv8428r" -->

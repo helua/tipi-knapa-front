@@ -10,3 +10,7 @@ export interface Product {
   price: number;
   sku: string;
 }
+
+export interface CartData {
+  cart: any;
+}

@@ -11,18 +11,6 @@ export class EcommerceService {
   checkoutUrl: string = 'https://tipi-knapa-checkout.netlify.app/';
   orderCreated: string = '';
 
-  // async getAccess(token: string){
-  //   var f = require('@commercelayer/sdk');
-  //   var cl = new f({
-  //     organization: 'the-teal-brand-180',
-  //     accessToken: token
-  //   });
-  //   console.log(cl);
-
-  //   const sku = await cl.skus.retrieve('WvAJSDdpeZ');
-  //   console.log(sku);
-
-  // }
   constructor(private http: HttpClient ) { }
 
   getPrices(token: string){
@@ -35,7 +23,6 @@ export class EcommerceService {
     });
   }
   createEmptyOrder(token: string){
-    console.log(token);
     const headersData = {
       'Accept': 'application/vnd.api+json',
       'Content-Type': 'application/vnd.api+json',
@@ -47,21 +34,20 @@ export class EcommerceService {
         "data": {
             "type": "orders",
             "attributes": {
-              "language_code": "pl",
+              "language_code": "en",
               "customer_email": "heliooooo@pelio.pl"
             }
           }
         },
       headers);
   }
-  addProductAndPostOrder(token: string, orderId: string, sku: string){
+  addLineItems(token: string, orderId: string, sku: string, name: string, img: string){
     const headersData = {
       'Accept': 'application/vnd.api+json',
       'Content-Type': 'application/vnd.api+json',
       'Authorization': 'Bearer '+token,
     }
     const headers = { headers: new HttpHeaders(headersData)};
-    console.log(token, orderId, sku);
     return this.http.post<any>(this.url+'/api/line_items', {
       "data": {
         "type": "line_items",
@@ -69,6 +55,8 @@ export class EcommerceService {
           "quantity": 1,
           "_update_quantity": true,
           "sku_code": sku,
+          "name": name,
+          "image_url": img
         },
         "relationships": {
           "order": {
@@ -82,14 +70,18 @@ export class EcommerceService {
               }
           }
         }
-        // "item": {
-        //   "data": {
-        //     "type": "skus",
-        //     "id": productId
-        //   }
-        // }
       }
     },headers);
+  }
+  getCart(token: string, orderId: string){
+    const headersData = {
+      'Accept': 'application/vnd.api+json',
+      'Authorization': 'Bearer '+token,
+    }
+    const headers = { headers: new HttpHeaders(headersData)};
+
+    return this.http.get<any>(this.url+'/api/orders/'+orderId+'?include=line_items&fields[orders]=number,skus_count,formatted_subtotal_amount,formatted_discount_amount,formatted_shipping_amount,formatted_total_tax_amount,formatted_gift_card_amount,formatted_total_amount_with_taxes,line_items&fields[line_items]=item_type,image_url,name,sku_code,formatted_unit_amount,quantity,formatted_total_amount',
+      headers);
   }
   goToCheckout(id: string){
     return this.http.get(this.checkoutUrl+id);

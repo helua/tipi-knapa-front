@@ -20,7 +20,6 @@ const sanity = sanityClient({
 
 exports.handler = async () => {
   const query = '*[_type=="product"]{title, slug, sku, weight, defaultProductVariant, tags, "categoryTitles": categories[]->title, "vendor": vendor->title, body}'
-  console.log(query);
   const products = await sanity.fetch(query).then((results) => {
     const allProducts = results.map((product) => {
       const output = {

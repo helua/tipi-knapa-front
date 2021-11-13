@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta, MetaDefinition } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TIPI-KNAPA';
+  norobots: MetaDefinition = {robots: 'description', content: 'noindex, nofollow, noimageindex'};
 
+  constructor(private metaService: Meta){};
 
+  ngOnInit(){
+    this.metaService.updateTag(this.norobots);
+
+  }
 }

@@ -30,7 +30,7 @@ nav .nav-main{
     position: fixed;
     top: calc(5% + 3rem);
     line-height: 0rem;
-    right: 5%;
+    right: 8%;
 
 
     & ul{
@@ -38,12 +38,16 @@ nav .nav-main{
         justify-content: flex-end;
         & li{
           margin-left: 1.5rem;
+          &:last-child{
+            transform: translateY(-50%);
+          }
         }
     }
     & a{
         transition: .2s ease-out;
     }
 }
+
 
 nav .nav-sec{
     position: fixed;

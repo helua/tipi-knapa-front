@@ -14,14 +14,18 @@ import { ShopComponent } from './shop/shop.component';
 import { MainComponent } from './main/main.component';
 import { ProductsComponent } from './shop/products/products.component';
 import { ProductComponent } from './shop/product/product.component';
+import { CartComponent } from './shop/cart/cart.component';
+
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { ButtonComponent } from './components/button/button.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 
@@ -37,6 +41,7 @@ import { ButtonComponent } from './components/button/button.component';
     ProductComponent,
     SlideshowComponent,
     ButtonComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,9 @@ import { ButtonComponent } from './components/button/button.component';
     FormsModule,
     BrowserAnimationsModule,
     ScullyLibModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
