@@ -15,7 +15,7 @@
 .mySlides{
   display: none;
   & img{
-    height: 40rem;
+    height: 35rem;
   }
   @include respond(tab-port){
     & img{

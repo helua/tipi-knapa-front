@@ -7,5 +7,7 @@
     <app-product [product]="product" [price]="price" (newCart)="onNewCart($event)"></app-product>
   </div>
 </main>
-<ng-template #loadingBlock>nichujet</ng-template>
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>
 <!-- <app-cart [cart]="cart"></app-cart> -->

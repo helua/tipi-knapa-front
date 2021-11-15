@@ -49,13 +49,7 @@ Thumbs.db
 /feed/dist
 
 # Other files
-src/assets/nóż_tipi_prod-1.jpg
-src/assets/nóż_tipi_prod-4.jpg
-src/assets/nóż_tipi_prod-6.jpg
-src/assets/nóż_tipi_prod-6.jpg
-src/assets/nóż_tipi_prod-7.jpg
-src/assets/nóż_tipi_prod-9.jpg
-src/assets/nóż_tipi_prod-10.jpg
+src/assets/originals
 
 # Local Netlify folder
 .netlify

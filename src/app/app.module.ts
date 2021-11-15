@@ -27,6 +27,7 @@ import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { ButtonComponent } from './components/button/button.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     SlideshowComponent,
     ButtonComponent,
     CartComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

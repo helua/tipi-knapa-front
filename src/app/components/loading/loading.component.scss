@@ -1,0 +1,28 @@
+@import '../../../sass/styles';
+
+.loading{
+  width: 100%;
+  height: $router;
+  position: relative;
+  z-index: 10;
+  & img{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    animation: loading 1s linear .01s infinite alternate;
+  }
+}
+
+@keyframes loading {
+  0%{
+    transform: scale(1.4);
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.39);
+  }
+
+}
