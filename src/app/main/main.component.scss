@@ -1,1 +1,24 @@
 @import '../../sass/styles';
+
+.background{
+  background-image: url('../../assets/TIPI-KNAPA_bg.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: calc(100vh  - 13rem);
+  cursor: pointer;
+  transition: 2s;
+  filter: grayscale(.5);
+
+  &:hover{
+    filter: grayscale(0);
+  }
+}
+
+.tooltip{
+  background-color: $metal;
+  color: yellow;
+  font-size: 1.2rem;
+  height: 1.2rem;
+  font-family: $f;
+}

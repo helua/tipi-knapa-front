@@ -16,6 +16,8 @@ import { CartComponent } from '../cart/cart.component';
 export class ProductsComponent implements OnInit {
 
   cartIcon = faShoppingCart;
+  hidden = true;
+
 
 
   products!: Observable<Product[]>;
@@ -61,6 +63,12 @@ export class ProductsComponent implements OnInit {
   onNewCart(cart: any){
     this.cart = cart;
     console.log(this.cart);
+    this.toggleBadgeVisibility();
+  }
+  toggleBadgeVisibility() {
+    if(this.hidden = true){
+      this.hidden = !this.hidden;
+    }
   }
 
   openDialog() {

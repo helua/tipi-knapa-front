@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MainComponent implements OnInit {
 
