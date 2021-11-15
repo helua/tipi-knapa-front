@@ -34,8 +34,7 @@ export class EcommerceService {
         "data": {
             "type": "orders",
             "attributes": {
-              "language_code": "en",
-              "customer_email": "heliooooo@pelio.pl"
+              "language_code": "pl"
             }
           }
         },

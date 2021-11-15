@@ -17,7 +17,7 @@
     }
 
     & h3{
-        font-size: 1.7rem;
+        font-size: 2rem;
         padding: .3rem 0;
 
     }
@@ -45,6 +45,8 @@
       border-top: solid 2px black;
       list-style-type: none;
       width: 70%;
+      line-height: 2rem;
+      padding-top: 1rem;
       & li:last-child{
         font-size: 1.7rem;
       }

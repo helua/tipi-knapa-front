@@ -22,6 +22,7 @@
       <li>suma: {{cart.data.attributes.formatted_total_amount_with_taxes}}</li>
     </ul>
     {{cart.data.attributes.formatted_total_amount}}
+    <a [href]="checkout + cart.data.id"><app-button text="idź do checkoutu"></app-button></a>
 
 
   </div>

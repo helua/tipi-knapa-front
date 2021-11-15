@@ -14,6 +14,8 @@ export class CartComponent implements OnInit {
 
   closeIcon = faTimes;
   @Input() cart: any;
+  checkout: string = 'https://tipi-knapa-checkout.netlify.app/';
+
 
   constructor(public dialogRef: MatDialogRef<CartComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CartData,) {}

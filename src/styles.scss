@@ -52,7 +52,7 @@ body{
 }
 
 .router-wrapper{
-    margin: 10rem 0 0 0;
+    margin: 13rem 0 0 0;
     height: 100vh;
 }
 
@@ -96,6 +96,7 @@ h1{
 }
 h2{
   font-size: 3.5rem;
+  line-height: 6rem;
   letter-spacing: .15rem;
 
   @media screen and (max-width: 900px){
@@ -109,8 +110,9 @@ h2{
 
 }
 p{
-  font-size: 2rem;
+  font-size: 1.6rem;
   padding: 2rem 5%;
+  line-height: 1.89rem;
   @media screen and (max-width: 900px){
     font-size: 1.5rem;
     letter-spacing: .15rem;

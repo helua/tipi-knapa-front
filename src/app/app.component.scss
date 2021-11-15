@@ -1,2 +1,10 @@
 @import '../sass/styles';
 
+img{
+  width: 510px;
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 5;
+  mix-blend-mode: soft-light;
+}
