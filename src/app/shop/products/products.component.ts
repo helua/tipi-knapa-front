@@ -7,6 +7,7 @@ import { EcommerceService } from 'src/app/ecommerce.service';
 import { MatDialog } from '@angular/material/dialog';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartComponent } from '../cart/cart.component';
+import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-products',
@@ -16,9 +17,7 @@ import { CartComponent } from '../cart/cart.component';
 export class ProductsComponent implements OnInit {
 
   cartIcon = faShoppingCart;
-  hidden = true;
-
-
+  badgeHidden = true;
 
   products!: Observable<Product[]>;
   price: any ='';
@@ -45,7 +44,7 @@ export class ProductsComponent implements OnInit {
 //     }
 //   }
 // };
-  constructor(private feed: FeedService, private token: TokenService, private ecomm: EcommerceService, public dialog: MatDialog) { }
+  constructor(private feed: FeedService, private token: TokenService, private ecomm: EcommerceService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.products = this.feed.getProducts();
@@ -64,10 +63,12 @@ export class ProductsComponent implements OnInit {
     this.cart = cart;
     console.log(this.cart);
     this.toggleBadgeVisibility();
+    this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
+
   }
   toggleBadgeVisibility() {
-    if(this.hidden = true){
-      this.hidden = !this.hidden;
+    if(this.badgeHidden = true){
+      this.badgeHidden = !this.badgeHidden;
     }
   }
 
@@ -79,6 +80,14 @@ export class ProductsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+    });
+  }
+  openSnackBar(message: string, action: string) {
+    let ref = this._snackBar.open(message, action);
+    ref.afterDismissed().subscribe(() => {
+      // setTimeout();
+      this.openDialog();
+      console.log('snackbar dismissed');
     });
   }
 

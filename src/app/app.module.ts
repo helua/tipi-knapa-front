@@ -15,6 +15,7 @@ import { MainComponent } from './main/main.component';
 import { ProductsComponent } from './shop/products/products.component';
 import { ProductComponent } from './shop/product/product.component';
 import { CartComponent } from './shop/cart/cart.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -27,7 +28,7 @@ import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { ButtonComponent } from './components/button/button.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { LoadingComponent } from './components/loading/loading.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     HttpClientModule,
     MatDialogModule,
     MatBadgeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

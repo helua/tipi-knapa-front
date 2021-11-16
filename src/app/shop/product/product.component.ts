@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { EcommerceService } from 'src/app/ecommerce.service';
 import { TokenService } from 'src/app/token.service';
 
@@ -12,35 +13,44 @@ export class ProductComponent implements OnInit {
   @Input() product: any;
   @Input() price: any ='';
   @Output() newCart = new EventEmitter<any>();
-  // @Output() cartChanged: EventEmitter<any> = new EventEmitter();
-
-  checkout: string = 'https://tipi-knapa-checkout.netlify.app/';
-
   ord: string = '';
-  // cart: any;
-
   constructor(private ecomm: EcommerceService, private token: TokenService) { }
 
   ngOnInit() {
   }
 
   createOrder(){
-    this.token.getToken().then((t) => {
-      if(t){
-        this.ecomm.createEmptyOrder(t.accessToken).subscribe(o => {
-          this.ord = o.data.id;
+    if(!this.ord){
+      this.token.getToken().then((t) => {
+        if(t){
+          this.ecomm.createEmptyOrder(t.accessToken).subscribe(o => {
+            this.ord = o.data.id;
+            console.log(this.ord)
+            this.ecomm.addLineItems(t.accessToken, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
+              console.log(r);
+            });
+            this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
+              this.newCart.emit(c);
+              console.log(c);
+            });
+          });
+        }
+      });
+    }
+    if(this.ord){
+      this.token.getToken().then((t) => {
+        if(t){
           this.ecomm.addLineItems(t.accessToken, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
             console.log(r);
           });
           this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
-            // this.cart = c;
             this.newCart.emit(c);
-
             console.log(c);
           });
-        });
-      }
-    });
+        }
+      });
+    }
+
   }
 
   productPrice(){
