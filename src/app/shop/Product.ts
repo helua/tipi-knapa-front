@@ -12,5 +12,6 @@ export interface Product {
 }
 
 export interface CartData {
+  ord: any;
   cart: any;
 }

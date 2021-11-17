@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
-  @Input() text: string ="CTA";
+  @Input() text: string = "";
   @Input() orderId: string = '';
   @Input() link : string = '';
 

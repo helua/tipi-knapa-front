@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
 
   closeIcon = faTimes;
   @Input() cart: any;
+  @Input() ord: any;
   checkout: string = 'https://tipi-knapa-checkout.netlify.app/';
 
 
@@ -25,8 +26,7 @@ export class CartComponent implements OnInit {
   }
   ngOnInit(): void {
     this.cart = this.data.cart;
-    console.log(this.cart);
-    console.log(this.data.cart)
+    this.ord = this.data.ord;
   }
 
 }

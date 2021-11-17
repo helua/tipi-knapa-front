@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { EcommerceService } from 'src/app/ecommerce.service';
 import { TokenService } from 'src/app/token.service';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-product',
@@ -13,7 +14,10 @@ export class ProductComponent implements OnInit {
   @Input() product: any;
   @Input() price: any ='';
   @Output() newCart = new EventEmitter<any>();
+  @Output() updateCart = new EventEmitter<any>();
   ord: string = '';
+  cartIcon = faCartPlus;
+
   constructor(private ecomm: EcommerceService, private token: TokenService) { }
 
   ngOnInit() {
@@ -27,11 +31,9 @@ export class ProductComponent implements OnInit {
             this.ord = o.data.id;
             console.log(this.ord)
             this.ecomm.addLineItems(t.accessToken, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
-              console.log(r);
             });
             this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
-              this.newCart.emit(c);
-              console.log(c);
+              this.updateCart.emit({cart: c, ord: this.ord});
             });
           });
         }
@@ -44,7 +46,7 @@ export class ProductComponent implements OnInit {
             console.log(r);
           });
           this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
-            this.newCart.emit(c);
+            this.updateCart.emit({cart: c, ord: this.ord});
             console.log(c);
           });
         }

@@ -28,6 +28,7 @@ export class ProductsComponent implements OnInit {
       }
     }
   };
+  ord: string = '';
 // cart = {
 //   data: {
 //     attributes: {
@@ -59,9 +60,11 @@ export class ProductsComponent implements OnInit {
       }
     });
   }
-  onNewCart(cart: any){
-    this.cart = cart;
-    console.log(this.cart);
+
+  onUpdatedCart(cart: any){
+    this.cart = cart.cart;
+    this.ord = cart.ord;
+    console.log(cart.ord);
     this.toggleBadgeVisibility();
     this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
 
@@ -75,7 +78,7 @@ export class ProductsComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(CartComponent, {
       width: '600px',
-      data: {cart: this.cart},
+      data: {cart: this.cart, ord: this.ord},
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -83,11 +86,12 @@ export class ProductsComponent implements OnInit {
     });
   }
   openSnackBar(message: string, action: string) {
-    let ref = this._snackBar.open(message, action);
-    ref.afterDismissed().subscribe(() => {
-      // setTimeout();
+    let ref = this._snackBar.open(message, action, {
+      horizontalPosition: "center",
+      verticalPosition: "bottom",
+    });
+    ref.onAction().subscribe(() => {
       this.openDialog();
-      console.log('snackbar dismissed');
     });
   }
 

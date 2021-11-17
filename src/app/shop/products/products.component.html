@@ -4,10 +4,9 @@
 
 <main *ngIf="products | async as products; else loadingBlock">
   <div *ngFor="let product of products">
-    <app-product [product]="product" [price]="price" (newCart)="onNewCart($event)"></app-product>
+    <app-product [product]="product" [price]="price" (updateCart)="onUpdatedCart($event)"></app-product>
   </div>
 </main>
 <ng-template #loadingBlock>
   <app-loading></app-loading>
 </ng-template>
-<!-- <app-cart [cart]="cart"></app-cart> -->
