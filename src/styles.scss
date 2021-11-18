@@ -174,8 +174,10 @@ fa-icon{
 
 //mobile menu
 .mobile{
-    position: sticky;
+    position: fixed;
     z-index: 9;
+    left:4%;
+    top: 2%;
     & ul{
         display: flex;
         justify-content: space-between;
