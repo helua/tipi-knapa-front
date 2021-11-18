@@ -55,12 +55,12 @@ body{
     }
 }
 
-// .router-wrapper{
-//     margin: 13rem 0 0 0;
-//     @include respond(tab-port){
-//       margin: 65% 0 30% 0;
-//     }
-// }
+.router-wrapper{
+    margin: 13rem 0 0 0;
+    @include respond(tab-port){
+      margin: 65% 0 30% 0;
+    }
+}
 
 a{
     text-decoration: none;
@@ -176,11 +176,9 @@ fa-icon{
 .mobile{
     position: sticky;
     z-index: 9;
-    width: 80%;
-    top: 1%;
     & ul{
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         list-style: none;
         & li{
           padding-right: 20px;

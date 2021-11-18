@@ -1,18 +1,7 @@
 <div class="mobile">
-  <ul>
-    <li>
+
       <fa-icon [icon]="menuIcon" (click)="sidenav.toggle()"></fa-icon>
-    </li>
-    <li><a href="https://www.facebook.com/tipiknapa" target="_blank">
-      <fa-icon [icon]="facebookIcon"></fa-icon>
-    </a></li>
-    <li><a href="https://www.instagram.com/tipiknapa" target="_blank">
-      <fa-icon [icon]="instagramIcon"></fa-icon>
-    </a></li>
-    <li><a>
-      <fa-icon [icon]="instagramIcon"></fa-icon>
-    </a></li>
-  </ul>
+
   </div>
   <mat-sidenav-container>
       <mat-sidenav #sidenav>
@@ -22,6 +11,18 @@
           <a (click)="sidenav.toggle()" mat-list-item routerLink="/kontakt" routerLinkActive="active">KONTAKT</a>
           <a (click)="sidenav.toggle()" mat-list-item routerLink="/sklep" routerLinkActive="active">SKLEP</a>
         </mat-nav-list>
+        <ul class="social">
+          <li>
+            <a href="https://www.facebook.com/tipiknapa" target="_blank">
+              <fa-icon [icon]="facebookIcon"></fa-icon>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/tipiknapa" target="_blank">
+              <fa-icon [icon]="instagramIcon"></fa-icon>
+            </a>
+          </li>
+        </ul>
       </mat-sidenav>
     <mat-sidenav-content>
         <div class="router-wrapper">
