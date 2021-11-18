@@ -2,7 +2,7 @@
 
 .cart{
   position: fixed;
-  z-index: 11;
+  z-index: 200;
   top: 7.6%;
   right: 3%;
   @include respond(tab-port){
