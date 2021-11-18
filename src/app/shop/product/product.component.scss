@@ -5,14 +5,32 @@ h2{
     padding: 1rem 5%;
   }
 }
+
 p.code{
   color: $metal;
   width: 80%;
   text-align: left;
   padding: 0 10%;
   font-size: 1rem;
+  margin-bottom: 30px;
   @include respond(tab-port){
     padding: 0 6%;
+  }
+}
+p.price{
+  font-size: 1.5rem;
+}
+a.add-to-cart{
+  margin-left: 10%;
+
+  @include respond(tab-port){
+    margin-left: 5%;
+  }
+  &:hover{
+    cursor: pointer;
+  }
+  & fa-icon{
+    font-size: 1.2rem !important;
   }
 }
 .holder{

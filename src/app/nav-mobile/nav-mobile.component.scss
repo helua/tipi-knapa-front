@@ -18,11 +18,6 @@ mat-nav-list{
   background-color: $color;
 }
 
-fa-icon{
-  font-size: 2rem;
-  filter: drop-shadow( 2px 2px rgba($color, 0.2));
-  -webkit-filter: drop-shadow( 2px 2px rgba($color, 0.2));
-}
 ul.social{
   display: flex;
   flex-direction: row;
