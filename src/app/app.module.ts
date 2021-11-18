@@ -29,6 +29,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
     ButtonComponent,
     CartComponent,
     LoadingComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

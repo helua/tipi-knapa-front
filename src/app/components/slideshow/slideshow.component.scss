@@ -4,9 +4,6 @@
 
 /* Slideshow container */
 .slideshow-onclick {
-  @include respond(tab-land){
-    width: 95%;
-  }
   position: relative;
   margin: 2rem auto;
 }
@@ -19,7 +16,7 @@
   }
   @include respond(tab-port){
     & img{
-      height: 40rem;
+      height: 33rem;
     }
 }
 }

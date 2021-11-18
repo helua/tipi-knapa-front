@@ -3,9 +3,6 @@
     <li>
       <fa-icon [icon]="menuIcon" (click)="sidenav.toggle()"></fa-icon>
     </li>
-    <li><a href="https://vimeo.com/tipiknapa" target="_blank">
-      <fa-icon [icon]="vimeoIcon"></fa-icon>
-    </a></li>
     <li><a href="https://www.facebook.com/tipiknapa" target="_blank">
       <fa-icon [icon]="facebookIcon"></fa-icon>
 
@@ -18,8 +15,10 @@
   </div>
   <mat-sidenav-container>
       <mat-sidenav #sidenav>
+        <img src="../../assets/TIPI-KNAPA_sign.png" alt="TIPI-KNAPA" (click)="sidenav.toggle()" routerLink="/">
         <mat-nav-list>
           <a (click)="sidenav.toggle()" mat-list-item routerLink="/o-nas" routerLinkActive="active">O NAS</a>
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/kontakt" routerLinkActive="active">KONTAKT</a>
           <a (click)="sidenav.toggle()" mat-list-item routerLink="/sklep" routerLinkActive="active">SKLEP</a>
         </mat-nav-list>
       </mat-sidenav>

@@ -1,27 +1,56 @@
 @import '../../../sass/styles';
 
 h2{
-  padding: 0 10%;
+  @include respond(tab-port){
+    padding: 1rem 5%;
+  }
 }
 caption{
   color: $metal;
   width: 80%;
   text-align: left;
   padding: 0 10%;
+  @include respond(tab-port){
+    padding: 0 6%;
+  }
 }
 .holder{
   width: 80%;
   display: flex;
   margin: 0% 10%;
+  @include respond(tab-port){
+    width: 90%;
+    margin: 0% 5%;
+
+  }
+  @include respond(phone){
+    display: block;
+  }
 }
 .holder-slides{
   width: 37%;
+  @include respond(tab-port){
+    width: 45%;
+  }
+  @include respond(phone){
+    width: 100%;
+    height: auto;
+
+  }
 
 }
 .holder-info{
   width: 57%;
+  @include respond(phone){
+    width: 100%;
+    height: auto;
+
+  }
   & ul{
     list-style-type: none;
+  }
+  & fa-icon{
+    margin-left: 1rem;
   }
 }
 .label{

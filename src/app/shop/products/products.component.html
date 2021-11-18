@@ -1,5 +1,9 @@
 <div class="cart" [matBadge]="cart.data.attributes.skus_count" [matBadgeHidden]="badgeHidden" matBadgeColor="warn" matBadgePosition="above after">
-  <fa-icon  [icon]="cartIcon" (click)="openDialog()"></fa-icon>
+  <fa-icon  [icon]="cartIcon" (click)="openDialog()"
+  matTooltip="Zobacz koszyk"
+  matTooltipShowDelay="200"
+  matTooltipHideDelay="100"
+  ></fa-icon>
 </div>
 
 <main *ngIf="products | async as products; else loadingBlock">

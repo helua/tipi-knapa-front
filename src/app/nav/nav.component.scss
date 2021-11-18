@@ -26,11 +26,13 @@ nav{
 
 nav .nav-main{
     display: inline-block;
-    width: 96%;
     position: fixed;
     top: calc(5% + 3rem);
     line-height: 0rem;
-    right: 8%;
+    right: 10%;
+    @include respond(tab-port){
+      right: 14%;
+    }
 
 
     & ul{
@@ -64,7 +66,7 @@ nav .nav-tri{
 }
 
 nav .nav-qua{
-  font-size: 8.5px;
+  font-size: 11px;
   line-height: 11px;
   position: fixed;
   right: 2%;

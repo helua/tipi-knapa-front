@@ -35,7 +35,11 @@ $TIPI-KNAPA-theme: mat.define-light-theme((
 
 @import '/src/sass/styles';
 
-
+html{
+  top:0px;
+  left: 0px;
+  // position: fixed;
+}
 body{
     font-family: $f;
     font-size: 1.3rem;
@@ -53,6 +57,9 @@ body{
 
 .router-wrapper{
     margin: 13rem 0 0 0;
+    @include respond(tab-port){
+      margin: 65% 0 0 0;
+    }
 }
 
 a{
@@ -95,25 +102,30 @@ h1{
 }
 h2{
   font-size: 3.5rem;
-  line-height: 6rem;
+  line-height: 4rem;
   letter-spacing: .15rem;
+  padding: 0 10%;
 
-  @media screen and (max-width: 900px){
+
+  @include respond(tab-port){
       font-size: 3rem;
       letter-spacing: .3rem;
-  }
-  @media screen and (max-width: 600px){
-    font-size: 3rem;
-    letter-spacing: .3rem;
-  }
 
+  }
+  @include respond(phone){
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    line-height: 2.3rem;
+
+  }
 }
 p{
   font-size: 1.85rem;
   padding: 2rem 5%;
   line-height: 1.99rem;
-  @media screen and (max-width: 900px){
-    font-size: 1.5rem;
+  @include respond(tab-port){
+    font-size: 1.3rem;
+    line-height: 1.4rem;
     letter-spacing: .15rem;
   }
   @media screen and (max-width: 600px){
@@ -130,11 +142,32 @@ button{
     background-color: rgba($white, 0);
 }
 //responsive desktop menu
-@media only screen and (max-width: 599px) {
+@include respond(tab-port){
     .desktop{
         display: none;
         visibility: hidden;
     }
+}
+fa-icon{
+
+  font-size: 2.5rem;
+  cursor: pointer;
+  filter: drop-shadow(2px 2px $color, .5);
+  -webkit-filter: drop-shadow(2px 2px  $color, .5);
+  transition: .3s;
+  &:hover{
+    filter: drop-shadow(2px 2px $color);
+    -webkit-filter: drop-shadow(2px 2px  $color);
+  }
+
+  @include respond(tab-port){
+    filter: drop-shadow(2px 2px $color);
+    -webkit-filter: drop-shadow(2px 2px  $color);
+  }
+  @include respond(phone){
+    font-size: 2rem;
+
+  }
 }
 
 
@@ -142,16 +175,19 @@ button{
 //mobile menu
 .mobile{
     position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
+    z-index: 9;
+    width: 80%;
+    top: 1%;
     & ul{
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         list-style: none;
+        & li{
+          padding-right: 20px;
+        }
     }
 
-    @media only screen and (min-width: 599px) {
+    @media only screen and (min-width: 900px) {
     display: none;
     visibility: hidden;
     }
@@ -162,6 +198,8 @@ button{
 .mat-drawer{
     position: fixed !important;
     padding-top: 6rem;
+    width: 35%;
+    min-width: 200px;
 }
 .mat-drawer-container{
     background-color: rgba($white, 0);

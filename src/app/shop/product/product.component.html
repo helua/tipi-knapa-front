@@ -15,7 +15,11 @@
         <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></li>
         <li>waga: {{product.weight}} g</li>
       </ul>
-      <p>{{ productPrice() }} <fa-icon  [icon]="cartIcon" (click)="createOrder()" title="Dodaj do koszyka"></fa-icon>
+      <p>{{ productPrice() }} <fa-icon  [icon]="cartIcon" (click)="createOrder()"
+        matTooltip="Dodaj do koszyka"
+        matTooltipShowDelay="200"
+        matTooltipHideDelay="100"
+        ></fa-icon>
       </p>
         <!-- <app-button (click)="createOrder();" text="DODAJ DO KOSZYKA"></app-button> -->
 
