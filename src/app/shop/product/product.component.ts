@@ -13,7 +13,6 @@ export class ProductComponent implements OnInit {
 
   @Input() product: any;
   @Input() price: any ='';
-  @Output() newCart = new EventEmitter<any>();
   @Output() updateCart = new EventEmitter<any>();
   ord: string = '';
   cartIcon = faCartPlus;
@@ -29,7 +28,7 @@ export class ProductComponent implements OnInit {
         if(t){
           this.ecomm.createEmptyOrder(t.accessToken).subscribe(o => {
             this.ord = o.data.id;
-            console.log(this.ord)
+            // console.log(this.ord)
             this.ecomm.addLineItems(t.accessToken, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
             });
             this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
@@ -43,11 +42,11 @@ export class ProductComponent implements OnInit {
       this.token.getToken().then((t) => {
         if(t){
           this.ecomm.addLineItems(t.accessToken, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
-            console.log(r);
+            // console.log(r);
           });
           this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
             this.updateCart.emit({cart: c, ord: this.ord});
-            console.log(c);
+            // console.log(c);
           });
         }
       });

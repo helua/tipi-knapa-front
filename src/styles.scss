@@ -55,12 +55,12 @@ body{
     }
 }
 
-.router-wrapper{
-    margin: 13rem 0 0 0;
-    @include respond(tab-port){
-      margin: 65% 0 0 0;
-    }
-}
+// .router-wrapper{
+//     margin: 13rem 0 0 0;
+//     @include respond(tab-port){
+//       margin: 65% 0 30% 0;
+//     }
+// }
 
 a{
     text-decoration: none;

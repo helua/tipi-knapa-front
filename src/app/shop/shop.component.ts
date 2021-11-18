@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 import { TokenService } from '../token.service';
 
@@ -12,6 +12,7 @@ export class ShopComponent implements OnInit {
   title = 'SKLEP | TIPI KNAPA';
   keywords: MetaDefinition = {name: 'keywords', content: 'jakieś keywords'};
   description: MetaDefinition = {name: 'description', content: 'jakiś opis'};
+
   constructor(private token: TokenService, private titleService: Title, private metaService: Meta) { }
 
   ngOnInit() {

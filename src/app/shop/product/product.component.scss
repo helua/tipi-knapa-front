@@ -5,11 +5,12 @@ h2{
     padding: 1rem 5%;
   }
 }
-caption{
+p.code{
   color: $metal;
   width: 80%;
   text-align: left;
   padding: 0 10%;
+  font-size: 1rem;
   @include respond(tab-port){
     padding: 0 6%;
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenService } from 'src/app/token.service';
 import { FeedService } from 'src/app/feed.service';
@@ -64,10 +64,9 @@ export class ProductsComponent implements OnInit {
   onUpdatedCart(cart: any){
     this.cart = cart.cart;
     this.ord = cart.ord;
-    console.log(cart.ord);
+    // console.log(cart.ord);
     this.toggleBadgeVisibility();
     this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
-
   }
   toggleBadgeVisibility() {
     if(this.badgeHidden = true){
