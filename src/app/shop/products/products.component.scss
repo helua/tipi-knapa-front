@@ -1,4 +1,10 @@
 @import '../../../sass/styles';
+@include respond(tab-port){
+  main{
+    margin-bottom: 6rem;
+  }
+}
+
 
 .cart{
   position: fixed;

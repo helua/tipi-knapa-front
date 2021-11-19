@@ -1,3 +1,6 @@
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>
 <div class="cart" [matBadge]="cart.data.attributes.skus_count" [matBadgeHidden]="badgeHidden" matBadgeColor="warn" matBadgePosition="above after">
   <fa-icon  [icon]="cartIcon" (click)="openDialog()"
   matTooltip="Zobacz koszyk"
@@ -11,6 +14,4 @@
     <app-product [product]="product" [price]="price" (updateCart)="onUpdatedCart($event)"></app-product>
   </div>
 </main>
-<ng-template #loadingBlock>
-  <app-loading></app-loading>
-</ng-template>
+

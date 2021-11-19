@@ -1,4 +1,8 @@
 .holder{
   text-align: center;
   height: calc(100vh);
+  & img{
+    border-radius: 50%;
+
+  }
 }

@@ -21,15 +21,5 @@ img{
       cursor: pointer;
     }
   }
-  &.mobile{
-    position: absolute;
-    z-index: -1;
-    width: 60%;
-    left: 20%;
-    top: 7%;
-    @media screen and (min-width: 900px){
-      display: none;
-    }
-  }
 
 }

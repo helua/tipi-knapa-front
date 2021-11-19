@@ -12,11 +12,11 @@
 .mySlides{
   display: none;
   & img{
-    height: 35rem;
+    height: 625px;
   }
-  @include respond(tab-port){
+  @include respond(phone){
     & img{
-      height: 33rem;
+      height: 125%;
     }
 }
 }
@@ -52,7 +52,6 @@
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   text-decoration: none;
-  transform: scale(1.3);
 }
 
 /* Caption text */

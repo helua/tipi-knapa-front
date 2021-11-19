@@ -47,14 +47,10 @@ a.add-to-cart{
   }
 }
 .holder-slides{
-  width: 37%;
-  @include respond(tab-port){
-    width: 45%;
-  }
+  width: 500px;
   @include respond(phone){
     width: 100%;
-    height: auto;
-
+    height: 125%;
   }
 
 }

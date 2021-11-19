@@ -46,6 +46,9 @@ body{
     font-weight: 600;
     letter-spacing: .1rem;
     margin: 0px;
+    @include respond(phone){
+      letter-spacing: .01rem;
+    }
 
     & ::selection{
         background-color: $selection;
@@ -58,7 +61,17 @@ body{
 .router-wrapper{
     margin: 13rem 0 0 0;
     @include respond(tab-port){
-      margin: 65% 0 30% 0;
+      margin: 65% 0 0 0;
+    }
+    & img#triangle{
+      position: absolute;
+      z-index: 5;
+      width: 60%;
+      left: 20%;
+      top: 2rem;
+      @media screen and (min-width: 900px){
+        display: none;
+      }
     }
 }
 
@@ -129,8 +142,9 @@ p{
     letter-spacing: .15rem;
   }
   @media screen and (max-width: 600px){
-    font-size: 1.1rem;
-    letter-spacing: .1rem;
+    font-size: 1rem;
+    letter-spacing: 0rem;
+    text-align: justify;
   }
 }
 

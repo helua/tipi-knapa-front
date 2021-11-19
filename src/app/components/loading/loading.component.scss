@@ -2,13 +2,12 @@
 
 .loading{
   width: 100%;
-  height: $router;
-  position: relative;
+  height: 100vh;
+  position: absolute;
   z-index: 10;
   & img{
     position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50vh;
+    top: 20vh;
     left: 50%;
     animation: loading 1s linear .01s infinite alternate;
   }
