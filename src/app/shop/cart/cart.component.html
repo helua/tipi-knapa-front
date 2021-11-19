@@ -1,24 +1,25 @@
  <main>
   <h3>Koszyk</h3>
   <div *ngIf="cart.data.attributes.skus_count !== 0; else emptyCart">
-    Zamówienie nr: {{cart.data.attributes.number}} <span class="cart_count-total">(liczba produktów: {{cart.data.attributes.skus_count}})</span>
+    <p class="cart_order-number">Zamówienie nr: {{cart.data.attributes.number}} <span class="cart_count-total">(liczba produktów: {{cart.data.attributes.skus_count}})</span>
+    </p>
     <div class="cart_product">
       <div class="cart_product-image">
         <img [src]="cart.included[0].attributes.image_url" alt="">
       </div>
       <div class="cart_product-title">
         <h4>{{cart.included[0].attributes.name}}</h4>
-        <p class="cart_product-price">{{cart.data.attributes.quantity}}{{cart.data.attributes.formatted_unit_amount}}
-        </p>
+        <!-- <p class="cart_product-price">{{cart.data.attributes.quantity}}{{cart.data.attributes.formatted_unit_amount}}
+        </p> -->
       </div>
 
     </div>
     <ul class="cart_totals">
-      <li>podsuma: {{cart.data.attributes.formatted_subtotal_amount}}</li>
+      <!-- <li>podsuma: {{cart.data.attributes.formatted_subtotal_amount}}</li>
       <li>zniżka: {{cart.data.attributes.formatted_discount_amount}}</li>
       <li>wysyłka: {{cart.data.attributes.formatted_shipping_amount}}</li>
       <li>podatek: {{cart.data.attributes.formatted_total_tax_amount}}</li>
-      <li>karta podarunkowa: {{cart.data.attributes.formatted_gift_card_amount}}</li>
+      <li>karta podarunkowa: {{cart.data.attributes.formatted_gift_card_amount}}</li> -->
       <li>suma: {{cart.data.attributes.formatted_total_amount_with_taxes}}</li>
     </ul>
     {{cart.data.attributes.formatted_total_amount}}

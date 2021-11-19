@@ -14,11 +14,11 @@
   & img{
     height: 625px;
   }
-  @include respond(phone){
+  @include respond(tab-land){
     & img{
       height: 125%;
     }
-}
+  }
 }
 
 /* Next & previous buttons */

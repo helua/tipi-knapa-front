@@ -86,8 +86,8 @@ export class ProductsComponent implements OnInit {
   }
   openSnackBar(message: string, action: string) {
     let ref = this._snackBar.open(message, action, {
-      horizontalPosition: "center",
-      verticalPosition: "bottom",
+      horizontalPosition: "right",
+      verticalPosition: "top",
     });
     ref.onAction().subscribe(() => {
       this.openDialog();

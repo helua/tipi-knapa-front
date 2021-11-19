@@ -136,14 +136,18 @@ p{
   font-size: 1.85rem;
   padding: 2rem 5%;
   line-height: 1.99rem;
+  @include respond(tab-land){
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    letter-spacing: 0rem;
+
+  }
   @include respond(tab-port){
     font-size: 1.3rem;
     line-height: 1.4rem;
-    letter-spacing: .15rem;
   }
   @media screen and (max-width: 600px){
-    font-size: 1rem;
-    letter-spacing: 0rem;
+    font-size: 1.1rem;
     text-align: justify;
   }
 }
@@ -191,15 +195,7 @@ fa-icon{
     position: fixed;
     z-index: 9;
     left:4%;
-    top: 2%;
-    & ul{
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
-        & li{
-          padding-right: 20px;
-        }
-    }
+    top: 3%;
 
     @media only screen and (min-width: 900px) {
     display: none;
@@ -207,11 +203,11 @@ fa-icon{
     }
 }
 .mat-nav-list{
-  margin-bottom: 50%;
+  margin: 33px 0;
 }
 .mat-drawer{
     position: fixed !important;
-    padding-top: 6rem;
+    padding-top: 3rem;
     width: 35%;
     min-width: 200px;
 }
