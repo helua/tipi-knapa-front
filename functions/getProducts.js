@@ -19,7 +19,7 @@ const sanity = sanityClient({
 // });
 
 exports.handler = async () => {
-  const query = '*[_type=="product"]{title, slug, sku, weight, defaultProductVariant, tags, "categoryTitles": categories[]->title, "vendor": vendor->title, body}'
+  const query = '*[_type=="product"]{title, slug, sku, weight, totalLength, bladeLength, bladeWidth, steelThickness, defaultProductVariant, tags, "categoryTitles": categories[]->title, "vendor": vendor->title, body}'
   const products = await sanity.fetch(query).then((results) => {
     const allProducts = results.map((product) => {
       const output = {
@@ -31,7 +31,11 @@ exports.handler = async () => {
         body: blocksToHtml({ blocks: product.body }),
         images: [],
         sku: product.defaultProductVariant.sku,
-        weight: product.defaultProductVariant.grams
+        weight: product.defaultProductVariant.grams,
+        length: product.defaultProductVariant.length,
+        bladeLength: product.defaultProductVariant.bladeLength,
+        bladeWidth: product.defaultProductVariant.bladeWidth,
+        steelThickness: product.defaultProductVariant.steelThickness
       };
 
 

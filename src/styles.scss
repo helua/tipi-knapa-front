@@ -35,11 +35,7 @@ $TIPI-KNAPA-theme: mat.define-light-theme((
 
 @import '/src/sass/styles';
 
-html{
-  top:0px;
-  left: 0px;
-  // position: fixed;
-}
+
 body{
     font-family: $f;
     font-size: 1.3rem;
@@ -52,9 +48,6 @@ body{
 
     & ::selection{
         background-color: $selection;
-    }
-    & mark{
-      background-color: $selection;
     }
 }
 
@@ -133,9 +126,9 @@ h2{
   }
 }
 p{
-  font-size: 1.85rem;
+  font-size: 1.65rem;
   padding: 2rem 5%;
-  line-height: 1.99rem;
+  line-height: 1.85rem;
   @include respond(tab-land){
     font-size: 1.5rem;
     line-height: 1.7rem;
@@ -152,12 +145,11 @@ p{
   }
 }
 
-
-
-button{
-    border: none;
-    cursor: pointer;
-    background-color: rgba($white, 0);
+blockquote{
+  font-style: italic;
+  color: $metal;
+  text-align: justify;
+  font-size: 1.2rem;
 }
 //responsive desktop menu
 @include respond(tab-port){

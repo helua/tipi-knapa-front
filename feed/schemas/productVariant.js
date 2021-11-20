@@ -14,9 +14,24 @@ export default {
       type: 'number',
     },
     {
-      title: 'Price',
-      name: 'price',
+      title: 'Total lenght in mm',
+      name: 'length',
       type: 'number',
+    },
+    {
+      title: 'Blade length in mm',
+      name: 'bladeLength',
+      type: 'number',
+    },
+    {
+      title: 'Blade width in mm',
+      name: 'bladeWidth',
+      type: 'number',
+    },
+    {
+      title: 'Steel thickness in mm',
+      name: 'steelThickness',
+      type: 'string',
     },
     {
       title: 'SKU',

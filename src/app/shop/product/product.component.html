@@ -14,11 +14,15 @@
     <div class="holder-info">
       <!-- <h3>{{product.vendor}}</h3> -->
       <div class="body-wrapper" [innerHTML]="product.body"></div>
-           <ul>
-        <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></li>
-        <li>waga: {{product.weight}} g</li>
+        <ul>
+          <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></li>
+          <li>waga: <b>{{product.weight}} g</b></li>
+          <li>długość całkowita: <b>{{product.length}} mm</b></li>
+          <li>długość ostrza: <b>{{product.bladeLength}} mm</b></li>
+          <li>szerokość ostrza: <b>{{product.bladeWidth}} mm</b></li>
+          <li>grubość stali: <b>{{product.steelThickness}} mm</b></li>
       </ul>
-      <p class="price">{{ productPrice() }} <fa-icon  [icon]="cartIcon" (click)="createOrder()"
+      <p class="price">cena: <b>{{ productPrice() }} </b><fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Dodaj do koszyka"
         matTooltipShowDelay="200"
         matTooltipHideDelay="100"

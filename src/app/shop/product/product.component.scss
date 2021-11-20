@@ -63,10 +63,20 @@ a.add-to-cart{
   }
   & ul{
     list-style-type: none;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    letter-spacing: .1px;
+    @include respond(phone){
+      font-size: 1rem;
+      margin: 0 auto;
+      // width: 50%;
+
+    }
   }
   & fa-icon{
     margin-left: 1rem;
   }
+
 }
 .label{
   position: relative;
@@ -76,3 +86,6 @@ a.add-to-cart{
   margin: 0 4px;
   background-color: $selection;
 }
+// .body-wrapper{
+
+// }
