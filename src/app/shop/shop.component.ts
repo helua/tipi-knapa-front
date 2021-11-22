@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
+import { getToken } from '../localStorage';
 import { TokenService } from '../token.service';
 
 @Component({
@@ -12,11 +13,13 @@ export class ShopComponent implements OnInit {
   title = 'SKLEP | TIPI KNAPA';
   keywords: MetaDefinition = {name: 'keywords', content: 'jakieś keywords'};
   description: MetaDefinition = {name: 'description', content: 'jakiś opis'};
+  token: any;
 
-  constructor(private token: TokenService, private titleService: Title, private metaService: Meta) { }
+  constructor( private titleService: Title, private metaService: Meta) { }
 
   ngOnInit() {
-    this.token.getToken();
+    this.token = JSON.parse(getToken());
+    
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.keywords);
     this.metaService.updateTag(this.description);

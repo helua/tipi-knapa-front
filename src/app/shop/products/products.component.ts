@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenService } from 'src/app/token.service';
 import { FeedService } from 'src/app/feed.service';
@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
+import { getToken } from 'src/app/localStorage';
 
 @Component({
   selector: 'app-products',
@@ -45,20 +46,39 @@ export class ProductsComponent implements OnInit {
 //     }
 //   }
 // };
-  constructor(private feed: FeedService, private token: TokenService, private ecomm: EcommerceService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  @Input() token: any;
+  constructor(private feed: FeedService, private ecomm: EcommerceService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.products = this.feed.getProducts();
-    this.token.getToken().then((t) =>{
-      if(t){
-        this.ecomm.getPrices(t.accessToken).subscribe(p => {
-          if(p){
-            this.price = p.included[0].attributes.formatted_amount;
-            console.log(this.price);
-          }
-        });
-      }
-    });
+    // this.token.getToken().then((t) =>{
+    //   if(t){
+    //     this.ecomm.getPrices(t.accessToken).subscribe(p => {
+    //       if(p){
+    //         this.price = p.included[0].attributes.formatted_amount;
+    //         console.log(this.price);
+    //       }
+    //     });
+    //   }
+    // });
+    if(this.token !== null){
+      this.ecomm.getPrices(this.token.access_token).subscribe(p => {
+        if(p){
+          this.price = p.included[0].attributes.formatted_amount;
+          console.log(this.price);
+        }
+      });
+    }
+    else{
+      this.token = {"access_token":"eyJhbGciOiJIUzUxMiJ9.eyJvcmdhbml6YXRpb24iOnsiaWQiOiJZbnJRWUZES0tYIiwic2x1ZyI6InRpcGkta25hcGEtc2hvcCJ9LCJhcHBsaWNhdGlvbiI6eyJpZCI6ImRObldtaXd2WEciLCJraW5kIjoic2FsZXNfY2hhbm5lbCIsInB1YmxpYyI6dHJ1ZX0sInRlc3QiOnRydWUsImV4cCI6MTYzNzYwNDQ0NSwibWFya2V0Ijp7ImlkIjpbInZsR1JtaG5wTmciXSwicHJpY2VfbGlzdF9pZCI6ImRsd1F5Q0pZZ0IiLCJzdG9ja19sb2NhdGlvbl9pZHMiOlsiTkdOUkV1V1ZSRyJdLCJnZW9jb2Rlcl9pZCI6bnVsbCwiYWxsb3dzX2V4dGVybmFsX3ByaWNlcyI6ZmFsc2V9LCJyYW5kIjowLjA5NDE5Mjg0ODE4Mzk1NzEyfQ.ldCc9DHd3ubkdSyk6lE-MFW7s655HuJHTkVLA8E8QwdxK_K38ok_cJPjdN4Rm4RpyApmVPIj59PyZaEPTsq01Q","token_type":"Bearer","expires_in":11727,"scope":"market:7273","created_at":1637590045};
+      this.ecomm.getPrices(this.token.access_token).subscribe(p => {
+        if(p){
+          this.price = p.included[0].attributes.formatted_amount;
+          console.log(this.price);
+        }
+      });
+    }
+
   }
 
   onUpdatedCart(cart: any){

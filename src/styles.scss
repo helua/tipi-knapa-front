@@ -109,7 +109,7 @@ h1{
 h2{
   font-size: 3.5rem;
   line-height: 4rem;
-  letter-spacing: .15rem;
+  letter-spacing: .11rem;
   padding: 0 10%;
 
 
@@ -132,32 +132,37 @@ p{
   @include respond(tab-land){
     font-size: 1.5rem;
     line-height: 1.7rem;
-    letter-spacing: 0rem;
+    letter-spacing: 0.05rem;
 
   }
   @include respond(tab-port){
     font-size: 1.3rem;
     line-height: 1.4rem;
+    letter-spacing: 0.02rem;
+
   }
   @media screen and (max-width: 600px){
     font-size: 1.1rem;
     text-align: justify;
+    letter-spacing: 0rem;
   }
+}
+ul{
+  font-family: $f2;
 }
 
 blockquote{
   font-style: italic;
   color: $metal;
-  text-align: justify;
+  // text-align: justify;
   font-size: 1.2rem;
+  margin: 2% 30%;
+  @include respond(tab-land){
+    margin: 1% 8%;
+
+  }
 }
-//responsive desktop menu
-@include respond(tab-port){
-    .desktop{
-        display: none;
-        visibility: hidden;
-    }
-}
+
 fa-icon{
 
   font-size: 2.5rem;
@@ -181,34 +186,3 @@ fa-icon{
 }
 
 
-
-//mobile menu
-.mobile{
-    position: fixed;
-    z-index: 9;
-    left:4%;
-    top: 3%;
-
-    @media only screen and (min-width: 900px) {
-    display: none;
-    visibility: hidden;
-    }
-}
-.mat-nav-list{
-  margin: 33px 0;
-}
-.mat-drawer{
-    position: fixed !important;
-    padding-top: 3rem;
-    width: 35%;
-    min-width: 200px;
-}
-.mat-drawer-container{
-    background-color: rgba($white, 0);
-}
-.mat-drawer-container-about{
-    background-color: red;
-}
-.mat-drawer-backdrop.mat-drawer-shown{
-    background-color: rgba($color, .6);
-}

@@ -1,5 +1,13 @@
 @import './../../sass/styles';
 
+//responsive desktop menu
+@include respond(tab-port){
+  .desktop{
+      display: none;
+      visibility: hidden;
+  }
+}
+
 .active{
     background-color: $color;
     border-style: solid;

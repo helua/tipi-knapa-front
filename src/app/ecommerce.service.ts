@@ -12,7 +12,10 @@ export class EcommerceService {
   orderCreated: string = '';
 
   constructor(private http: HttpClient ) { }
-
+  
+  getAccessToken(token: string): any{
+    return JSON.parse(token);
+  }
   getPrices(token: string){
 
     return  this.http.get<any>(this.url+'/api/skus?include=prices', {

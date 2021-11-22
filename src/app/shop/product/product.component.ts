@@ -13,45 +13,67 @@ export class ProductComponent implements OnInit {
 
   @Input() product: any;
   @Input() price: any ='';
+  @Input() token: any;
+
   @Output() updateCart = new EventEmitter<any>();
   ord: string = '';
   cartIcon = faCartPlus;
 
-  constructor(private ecomm: EcommerceService, private token: TokenService) { }
+  constructor(private ecomm: EcommerceService) { }
 
   ngOnInit() {
   }
 
   createOrder(){
     if(!this.ord){
-      this.token.getToken().then((t) => {
-        if(t){
-          this.ecomm.createEmptyOrder(t.accessToken).subscribe(o => {
-            this.ord = o.data.id;
-            // console.log(this.ord)
-            this.ecomm.addLineItems(t.accessToken, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
-            });
-            this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
-              this.updateCart.emit({cart: c, ord: this.ord});
-            });
-          });
-        }
+      this.ecomm.createEmptyOrder(this.token.access_token).subscribe(o => {
+        this.ord = o.data.id;
+        // console.log(this.ord)
+        this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
+        });
+        this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+          this.updateCart.emit({cart: c, ord: this.ord});
+        });
       });
     }
     if(this.ord){
-      this.token.getToken().then((t) => {
-        if(t){
-          this.ecomm.addLineItems(t.accessToken, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
-            // console.log(r);
-          });
-          this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
-            this.updateCart.emit({cart: c, ord: this.ord});
-            // console.log(c);
-          });
-        }
+      this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
+        // console.log(r);
+      });
+      this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+        this.updateCart.emit({cart: c, ord: this.ord});
+        // console.log(c);
       });
     }
-
+    // if(!this.ord){
+    //   this.token.getToken().then((t) => {
+    //     if(t){
+    //       this.ecomm.createEmptyOrder(t.accessToken).subscribe(o => {
+    //         this.ord = o.data.id;
+    //         // console.log(this.ord)
+    //         this.ecomm.addLineItems(t.accessToken, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
+    //         });
+    //         this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
+    //           this.updateCart.emit({cart: c, ord: this.ord});
+    //         });
+    //       });
+    //     }
+    //   });
+    // }
+    // if(this.ord){
+    //   this.token.getToken().then((t) => {
+    //     if(t){
+    //       this.ecomm.addLineItems(t.accessToken, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
+    //         // console.log(r);
+    //       });
+    //       this.ecomm.getCart(t.accessToken, this.ord).subscribe(c => {
+    //         this.updateCart.emit({cart: c, ord: this.ord});
+    //         // console.log(c);
+    //       });
+    //     }
+    //   });
+    // }
+    // return {};
   }
 
   productPrice(){

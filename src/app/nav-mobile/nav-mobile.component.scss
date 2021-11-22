@@ -1,5 +1,37 @@
 
 @import '../../sass/styles';
+
+//mobile menu
+.mobile{
+  position: fixed;
+  z-index: 9;
+  left:4%;
+  top: 3%;
+
+  @media only screen and (min-width: 900px) {
+  display: none;
+  visibility: hidden;
+  }
+}
+.mat-nav-list{
+margin: 33px 0;
+}
+.mat-drawer{
+  position: fixed !important;
+  padding-top: 3rem;
+  width: 35%;
+  min-width: 200px;
+}
+.mat-drawer-container{
+  background-color: rgba($white, 0);
+}
+.mat-drawer-container-about{
+  background-color: red;
+}
+.mat-drawer-backdrop.mat-drawer-shown{
+  background-color: rgba($color, .6);
+}
+
 mat-sidenav img{
   position: relative;
   left: 50%;

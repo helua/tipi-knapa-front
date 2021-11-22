@@ -3,12 +3,16 @@
   <h2>{{ product.title }}</h2>
   <p class="code">{{ product.sku }}</p>
   <a class="add-to-cart" (click)="createOrder()">
-    Dodaj do koszyka <fa-icon  [icon]="cartIcon" ></fa-icon>
+    Dodaj do koszyka
+    <fa-icon  [icon]="cartIcon" ></fa-icon>
   </a>
   <div class="holder">
 
     <div class="holder-slides">
-        <app-slideshow [slidesId]="product.slug" [slidesSet]="product.images"></app-slideshow>
+        <app-slideshow
+          [slidesId]="product.slug"
+          [slidesSet]="product.images"
+        ></app-slideshow>
     </div>
 
     <div class="holder-info">
@@ -16,22 +20,25 @@
       <div class="body-wrapper" [innerHTML]="product.body"></div>
         <ul>
           <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></li>
-          <li>waga: <b>{{product.weight}} g</b></li>
-          <li>długość całkowita: <b>{{product.length}} mm</b></li>
-          <li>długość ostrza: <b>{{product.bladeLength}} mm</b></li>
-          <li>szerokość ostrza: <b>{{product.bladeWidth}} mm</b></li>
-          <li>grubość stali: <b>{{product.steelThickness}} mm</b></li>
+          <li>waga: <u>{{product.weight}} g</u></li>
+          <li>długość całkowita: <u>{{product.length}} mm</u></li>
+          <li>długość ostrza: <u>{{product.bladeLength}} mm</u></li>
+          <li>szerokość ostrza: <u>{{product.bladeWidth}} mm</u></li>
+          <li>grubość stali: <u>{{product.steelThickness}} mm</u></li>
       </ul>
-      <p class="price">cena: <b>{{ productPrice() }} </b><fa-icon  [icon]="cartIcon" (click)="createOrder()"
+      <p class="price">
+        cena: <u>{{ productPrice() }} </u>
+        <fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Dodaj do koszyka"
         matTooltipShowDelay="200"
         matTooltipHideDelay="100"
         ></fa-icon>
       </p>
-        <!-- <app-button (click)="createOrder();" text="DODAJ DO KOSZYKA"></app-button> -->
-
         <div *ngIf="ord">
-          <app-button text="idź do checkoutu" link="https://tipi-knapa-checkout.netlify.app/" [orderId]="ord"></app-button>
+          <app-button
+            text="idź do checkoutu"
+            link="https://tipi-knapa-checkout.netlify.app/"
+            [orderId]="ord"></app-button>
         </div>
     </div>
   </div>
