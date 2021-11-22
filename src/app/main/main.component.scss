@@ -6,11 +6,11 @@
   background-size: cover;
   width: 100%;
   height: calc(100vh  - 13rem);
+  filter: grayscale(.5);
   cursor: pointer;
   transition: 2s;
-  filter: grayscale(.5);
-
-  &:hover{
+animation: enter 1.66s ease-in-out .01s backwards;
+&:hover{
     filter: grayscale(0);
   }
 }
@@ -22,4 +22,15 @@
   font-size: 1.2rem;
   height: 1.2rem;
   font-family: $f;
+}
+
+@keyframes enter {
+  0%{
+    height: calc(0vh);
+    filter: grayscale(.9);
+    }
+  100%{
+    height: calc(100vh  - 13rem);
+    filter: grayscale(.5);  }
+
 }

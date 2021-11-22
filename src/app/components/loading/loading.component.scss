@@ -2,16 +2,22 @@
 
 .loading{
   width: 100%;
-  height: 100vh;
-  position: absolute;
+  position: relative;
   z-index: 10;
-  & img{
-    position: absolute;
-    top: 20vh;
-    left: 50%;
-    animation: loading 1s linear .01s infinite alternate;
+  margin: 0 auto;
+  display: block;
+  & .loading-image{
+    width: 16vh;
+    margin: 42vh auto;
+    & img{
+      animation: loading 1s ease .0s infinite backwards;
+      transition: 0s;
+      width: 100px;
+    }
   }
+
 }
+
 
 @keyframes loading {
   0%{

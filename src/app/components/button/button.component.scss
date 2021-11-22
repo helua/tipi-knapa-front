@@ -38,12 +38,3 @@
     box-shadow: $color -5px -5px;
   }
 }
-@keyframes enter {
-  0%{
-    transform: scale(.5);
-  }
-  100%{
-    transform: scale(1);
-  }
-
-}

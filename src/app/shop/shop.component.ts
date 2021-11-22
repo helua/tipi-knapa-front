@@ -19,7 +19,7 @@ export class ShopComponent implements OnInit {
 
   ngOnInit() {
     this.token = JSON.parse(getToken());
-    
+
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.keywords);
     this.metaService.updateTag(this.description);

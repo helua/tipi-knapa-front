@@ -62,4 +62,4 @@ exports.handler = async () => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(products),
   };
-};
+}

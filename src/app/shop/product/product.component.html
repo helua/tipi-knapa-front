@@ -27,7 +27,7 @@
           <li>grubość stali: <u>{{product.steelThickness}} mm</u></li>
       </ul>
       <p class="price">
-        cena: <u>{{ productPrice() }} </u>
+        cena: <b>{{productPrice()}} </b>
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Dodaj do koszyka"
         matTooltipShowDelay="200"
