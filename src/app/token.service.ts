@@ -42,7 +42,8 @@ export class TokenService {
     }
     let currentDate = Math.round(new Date().getTime() / 1000);
     console.log(currentDate);
-    const tokenValidTimeRemaing =  tokObject.expires_in - ( currentDate - tokObject.created_at ) ;
+    const tokenValidTimeRemaing =  tokObject.expires_in;
+    // const tokenValidTimeRemaing =  tokObject.expires_in - ( currentDate - tokObject.created_at ) ;
     console.log(tokenValidTimeRemaing);
     if(tokenValidTimeRemaing > 0){
       return true;
