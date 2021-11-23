@@ -40,7 +40,7 @@ body{
     font-family: $f;
     font-size: 1.3rem;
     font-weight: 600;
-    letter-spacing: .1rem;
+    letter-spacing: .07rem;
     margin: 0px;
     @include respond(phone){
       letter-spacing: .01rem;
@@ -48,6 +48,7 @@ body{
 
     & ::selection{
         background-color: $selection;
+        color: $contrast  ;
     }
 }
 
@@ -126,9 +127,9 @@ h2{
   }
 }
 p{
-  font-size: 1.65rem;
+  font-size: 1.55rem;
   padding: 2rem 5%;
-  line-height: 1.85rem;
+  line-height: 1.65rem;
   @include respond(tab-land){
     font-size: 1.5rem;
     line-height: 1.7rem;

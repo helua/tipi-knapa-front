@@ -7,7 +7,7 @@ $mild2: #5ebb20;
 $neutral: #818181;
 $white: black;
 $metal: #bbb7b7;
-$selection: pink;
+$selection: #bbb7b7;
 
 $gap: 0px;
 $f: 'Bahnschrift';
@@ -18,14 +18,14 @@ $router: calc(100vh - 13rem);
 @font-face {
   font-family: 'Bahnschrift';
   src: url('../assets/fonts/BAHNSCHRIFT.TTF');
-  src: url('../assets/fonts/BAHNSCHRIFT.TTF') format('ttf');
+  src: url('../assets/fonts/BAHNSCHRIFT.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Lucida Console';
   src: url('../assets/fonts/LUCON.TTF');
-  src: url('../assets/fonts/LUCON.TTF') format('ttf');
+  src: url('../assets/fonts/LUCON.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

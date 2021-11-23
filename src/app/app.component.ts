@@ -17,9 +17,8 @@ export class AppComponent {
   ngOnInit(){
     this.metaService.updateTag(this.norobots);
     // clear();
-    console.log(getToken())
-    
-    if(getToken() == null){
+
+    if(this.token.checkIfTokenValid() === false){
       this.token.getToken();
     }
   }

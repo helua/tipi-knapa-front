@@ -19,6 +19,9 @@ p.code{
 }
 p.price{
   font-size: 1.5rem;
+  @include respond(tab-port){
+    text-align: right;
+  }
 }
 a.add-to-cart{
   margin-left: 10%;
@@ -84,7 +87,7 @@ a.add-to-cart{
     font-size: 1.2rem;
     line-height: 1.4rem;
     letter-spacing: .1px;
-    padding: 2rem 5%;
+    padding: 1rem 5%;
     @include respond(phone){
       font-size: 1rem;
       margin: 0 auto;
@@ -94,11 +97,6 @@ a.add-to-cart{
   }
   & fa-icon{
     margin-left: 1rem;
-    @include respond(tab-port){
-      position: absolute;
-      right: 5%;
-      bottom: 2rem;
-    }
   }
 
 }

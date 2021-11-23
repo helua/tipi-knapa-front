@@ -9,7 +9,11 @@
   filter: grayscale(.5);
   cursor: pointer;
   transition: 2s;
-animation: enter 1.66s ease-in-out .01s backwards;
+  animation: enter 1.66s ease-in-out .01s backwards;
+  @include respond(phone){
+    background-image: url('../../assets/TIPI-KNAPA_bg-mobile.jpg');
+
+  }
 &:hover{
     filter: grayscale(0);
   }

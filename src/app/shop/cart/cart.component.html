@@ -1,7 +1,8 @@
  <main>
   <h3>Koszyk</h3>
   <div *ngIf="cart.data.attributes.skus_count !== 0; else emptyCart">
-    <p class="cart_order-number">Zamówienie nr: {{cart.data.attributes.number}} <span class="cart_count-total">(liczba produktów: {{cart.data.attributes.skus_count}})</span>
+    <p class="cart_order-number">Zamówienie nr: {{cart.data.attributes.number}}<br>
+      <span class="cart_count-total">(liczba produktów: {{cart.data.attributes.skus_count}})</span>
     </p>
     <div class="cart_product">
       <div class="cart_product-image">
