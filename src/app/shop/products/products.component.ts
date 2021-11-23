@@ -1,6 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs';
-import { TokenService } from 'src/app/token.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { FeedService } from 'src/app/feed.service';
 import { Product } from '../Product'
 import { EcommerceService } from 'src/app/ecommerce.service';
@@ -8,8 +6,22 @@ import { MatDialog } from '@angular/material/dialog';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
-import { getToken } from 'src/app/localStorage';
 
+
+
+// const sanity = sanityClient({
+//   projectId: process.env.SANITY_PROJECT_ID,
+//   dataset: process.env.SANITY_DATASET,
+//   useCdn: true,
+// });
+
+const sanityClient = require("@sanity/client");
+const sanity = sanityClient({
+  projectId: 'hv4oxj7f',
+  dataset: 'production',
+  apiVersion: '2021-10-21',
+  useCdn: true,
+});
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -20,7 +32,23 @@ export class ProductsComponent implements OnInit {
   cartIcon = faShoppingCart;
   badgeHidden = true;
 
-  products!: Observable<Product[]>;
+  // products!: Observable<Product[]>;
+  productsRaw: any = [];
+  products: Product[] = [
+    // {title: "",
+    // slug: "",
+    // categories: "",
+    // vendor: "",
+    // body: "",
+    // // images: [{}],
+    // sku: "",
+    // weight: "",
+    // length: "",
+    // bladeLength: "",
+    // bladeWidth: "",
+    // steelThickness: ""}
+  ];
+
   price: any ='';
   cart: any = {
     data: {
@@ -50,7 +78,11 @@ export class ProductsComponent implements OnInit {
   constructor(private feed: FeedService, private ecomm: EcommerceService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.products = this.feed.getProducts();
+    this.feed.getProducts().subscribe( products => {
+      this.productsRaw = products;
+      console.log(products)
+      this.products.push(this.workResult(this.productsRaw.result[0]));
+    });
 
     if(this.token !== null){
       this.ecomm.getPrices(this.token.access_token).subscribe(p => {
@@ -65,11 +97,43 @@ export class ProductsComponent implements OnInit {
     }
 
   }
+  workResult(p: any): Product{
+    const blocksToHtml = require("@sanity/block-content-to-html");
+    const imageUrlBuilder = require("@sanity/image-url");
+    const output: Product = {
+      title: p.title,
+      slug: p.slug.current,
+      categories: p.categoryTitles,
+      vendor: p.vendor,
+      body: blocksToHtml({ blocks: p.body }),
+      sku: p.defaultProductVariant.sku,
+      weight: p.defaultProductVariant.grams,
+      length: p.defaultProductVariant.length,
+      bladeLength: p.defaultProductVariant.bladeLength,
+      bladeWidth: p.defaultProductVariant.bladeWidth,
+      steelThickness: p.defaultProductVariant.steelThickness,
+      images: []
 
+    }
+    for (let i = 0; i < p.defaultProductVariant.images.length; i++){
+
+      const image =
+      p.defaultProductVariant.images &&
+      p.defaultProductVariant.images.length > 0
+        ? p.defaultProductVariant.images[i].asset._ref
+        : null;
+
+      if (image) {
+        output.images?.push(imageUrlBuilder(sanity).image(image).url())
+      }
+    }
+    return output;
+  }
+
+//koszyk
   onUpdatedCart(cart: any){
     this.cart = cart.cart;
     this.ord = cart.ord;
-    // console.log(cart.ord);
     this.toggleBadgeVisibility();
     this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
   }

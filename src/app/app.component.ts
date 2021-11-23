@@ -18,6 +18,7 @@ export class AppComponent {
     this.metaService.updateTag(this.norobots);
     // clear();
     console.log(getToken())
+    
     if(getToken() == null){
       this.token.getToken();
     }

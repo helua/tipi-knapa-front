@@ -23,10 +23,6 @@ export class TokenService {
       scope: this.scope,
     })
     if(token){
-      // console.log('My access token: ', token.accessToken)
-      // this.token = token.accessToken;
-      // console.log('Expiration date: ', token.expires);
-      // return token;
       console.log(token);
       setToken(token);
 

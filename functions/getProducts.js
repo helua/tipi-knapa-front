@@ -2,21 +2,7 @@ const sanityClient = require("@sanity/client");
 const imageUrlBuilder = require("@sanity/image-url");
 const blocksToHtml = require("@sanity/block-content-to-html");
 
-const sanity = sanityClient({
-  projectId: 'hv4oxj7f',
-  dataset: 'production',
-  // apiVersion: '2021-09-10',
-  // token: 'skD2pTXl7x5uHLffvjXTWL6L5E978LrKStSEncucVl6kHCbo1JXFgnGq8Anzo0R2b13hogIuUSzaFVMu1ApMVJQdpv4878h58YByTBoYYXAxap8N4V1xa2bobHc65EdBISvAHfahQvoVM17aS7baIwBd6VM79ZSx9aUn8f73GkniVd95z19X',
-  useCdn: true,
-});
 
-
-
-// const sanity = sanityClient({
-//   projectId: process.env.SANITY_PROJECT_ID,
-//   dataset: process.env.SANITY_DATASET,
-//   useCdn: true,
-// });
 
 exports.handler = async () => {
   const query = '*[_type=="product"]{title, slug, sku, weight, totalLength, bladeLength, bladeWidth, steelThickness, defaultProductVariant, tags, "categoryTitles": categories[]->title, "vendor": vendor->title, body}'

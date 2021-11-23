@@ -16,6 +16,9 @@ import { ProductsComponent } from './shop/products/products.component';
 import { ProductComponent } from './shop/product/product.component';
 import { CartComponent } from './shop/cart/cart.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { SlideshowComponent } from './components/slideshow/slideshow.component';
+import { ButtonComponent } from './components/button/button.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -24,13 +27,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import { SlideshowComponent } from './components/slideshow/slideshow.component';
-import { ButtonComponent } from './components/button/button.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
-import { ContactComponent } from './contact/contact.component';
-
 
 @NgModule({
   declarations: [
@@ -62,7 +61,7 @@ import { ContactComponent } from './contact/contact.component';
     MatDialogModule,
     MatBadgeModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [{provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 3700}}],
   bootstrap: [AppComponent],

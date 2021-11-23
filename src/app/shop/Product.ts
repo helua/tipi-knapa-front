@@ -4,11 +4,18 @@ export interface Image {
 }
 
 export interface Product {
-  title: string;
-  slug: string;
-  images: Image[];
-  price: number;
-  sku: string;
+  title?: string;
+  slug?: string;
+  categories?: string[];
+  vendor?: string;
+  body?: string;
+  images?: string[];
+  sku?: string;
+  weight?: number;
+  length?: number;
+  bladeLength?: number;
+  bladeWidth?: number;
+  steelThickness?: string
 }
 
 export interface CartData {

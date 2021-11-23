@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 import { getToken } from '../localStorage';
 import { TokenService } from '../token.service';
@@ -8,7 +8,7 @@ import { TokenService } from '../token.service';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent implements OnInit, OnDestroy {
 
   title = 'SKLEP | TIPI KNAPA';
   keywords: MetaDefinition = {name: 'keywords', content: 'jakieś keywords'};
@@ -23,6 +23,17 @@ export class ShopComponent implements OnInit {
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.keywords);
     this.metaService.updateTag(this.description);
+
+    let logo = document.getElementById("tablet") as HTMLElement;
+    logo.style.position = 'absolute';
+
+  }
+
+  ngOnDestroy(){
+    let logo = document.getElementById("tablet") as HTMLElement;
+
+    logo.style.position = 'fixed';
+
   }
 
 
