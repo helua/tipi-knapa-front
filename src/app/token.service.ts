@@ -45,7 +45,8 @@ export class TokenService {
     const tokenValidTimeRemaing =  tokObject.expires_in;
     // const tokenValidTimeRemaing =  tokObject.expires_in - ( currentDate - tokObject.created_at ) ;
     console.log(tokenValidTimeRemaing);
-    if(tokenValidTimeRemaing > 0){
+    console.log(currentDate - tokObject.created_at)
+    if(tokenValidTimeRemaing > 0 && currentDate - tokObject.created_at < 14400){
       return true;
     }
     else{

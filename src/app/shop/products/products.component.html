@@ -5,7 +5,7 @@
   matTooltipHideDelay="100"
   ></fa-icon>
 </div>
-<main *ngIf="token && products; else loadingBlock">
+<main *ngIf="token && products && price; else loadingBlock">
   <div *ngFor="let product of products">
     <app-product
       [product]="product"
