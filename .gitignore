@@ -53,3 +53,8 @@ src/assets/originals
 
 # Local Netlify folder
 .netlify
+
+# Scully config
+/.scully
+scully.log
+/scully

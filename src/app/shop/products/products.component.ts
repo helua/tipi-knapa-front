@@ -80,22 +80,21 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.feed.getProducts().subscribe( products => {
       this.productsRaw = products;
-      console.log(products)
       //do poprawienia przy >1 produkcie
       this.products.push(this.workResult(this.productsRaw.result[0]));
     });
 
-    // if(this.token !== null){
+    if(this.token){
       this.ecomm.getPrices(this.token.access_token).subscribe(p => {
         if(p){
           this.price = p.included[0].attributes.formatted_amount;
           console.log(this.price);
         }
       });
-      // }
-      // else{
-      //   this.token = {"access_token":"eyJhbGciOiJIUzUxMiJ9.eyJvcmdhbml6YXRpb24iOnsiaWQiOiJZbnJRWUZES0tYIiwic2x1ZyI6InRpcGkta25hcGEtc2hvcCJ9LCJhcHBsaWNhdGlvbiI6eyJpZCI6ImRObldtaXd2WEciLCJraW5kIjoic2FsZXNfY2hhbm5lbCIsInB1YmxpYyI6dHJ1ZX0sInRlc3QiOnRydWUsImV4cCI6MTYzNzYxOTM4NSwibWFya2V0Ijp7ImlkIjpbInZsR1JtaG5wTmciXSwicHJpY2VfbGlzdF9pZCI6ImRsd1F5Q0pZZ0IiLCJzdG9ja19sb2NhdGlvbl9pZHMiOlsiTkdOUkV1V1ZSRyJdLCJnZW9jb2Rlcl9pZCI6bnVsbCwiYWxsb3dzX2V4dGVybmFsX3ByaWNlcyI6ZmFsc2V9LCJyYW5kIjowLjU0NDcyOTY1MDgwODg2Nzh9.5Jpb8MOoqX_CQT8_zYdFXI4km1pgtreVozJUTe7q_KD1Z9xxZLE4kPf4cuP6RTZTliXRr2eeNRyU1bo83oWM2A","token_type":"Bearer","expires_in":14391,"scope":"market:7273","created_at":1637604985};
-      // }
+    }
+    //   else{
+    //     this.token = {"access_token":"eyJhbGciOiJIUzUxMiJ9.eyJvcmdhbml6YXRpb24iOnsiaWQiOiJZbnJRWUZES0tYIiwic2x1ZyI6InRpcGkta25hcGEtc2hvcCJ9LCJhcHBsaWNhdGlvbiI6eyJpZCI6ImRObldtaXd2WEciLCJraW5kIjoic2FsZXNfY2hhbm5lbCIsInB1YmxpYyI6dHJ1ZX0sInRlc3QiOnRydWUsImV4cCI6MTYzNzYxOTM4NSwibWFya2V0Ijp7ImlkIjpbInZsR1JtaG5wTmciXSwicHJpY2VfbGlzdF9pZCI6ImRsd1F5Q0pZZ0IiLCJzdG9ja19sb2NhdGlvbl9pZHMiOlsiTkdOUkV1V1ZSRyJdLCJnZW9jb2Rlcl9pZCI6bnVsbCwiYWxsb3dzX2V4dGVybmFsX3ByaWNlcyI6ZmFsc2V9LCJyYW5kIjowLjU0NDcyOTY1MDgwODg2Nzh9.5Jpb8MOoqX_CQT8_zYdFXI4km1pgtreVozJUTe7q_KD1Z9xxZLE4kPf4cuP6RTZTliXRr2eeNRyU1bo83oWM2A","token_type":"Bearer","expires_in":14391,"scope":"market:7273","created_at":1637604985};
+    //   }
 
   }
   workResult(p: any): Product{

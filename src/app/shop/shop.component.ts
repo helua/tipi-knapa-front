@@ -15,27 +15,32 @@ export class ShopComponent implements OnInit, OnDestroy {
   description: MetaDefinition = {name: 'description', content: 'jakiś opis'};
   token: any;
 
-  constructor( private titleService: Title, private metaService: Meta) { }
+  constructor( private titleService: Title, private metaService: Meta, private tok: TokenService) { }
 
   ngOnInit() {
-    this.token = JSON.parse(getToken());
-    
+    if(this.tok.checkIfTokenValid() === true){
+      this.token = JSON.parse(getToken());
+    }
+
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.keywords);
     this.metaService.updateTag(this.description);
 
     let logo = document.getElementById("tablet") as HTMLElement;
     logo.style.position = 'absolute';
-
+    let navMain = Array.from(document.getElementsByClassName("nav-main") as HTMLCollectionOf<HTMLElement>);
+    for (let i = 0; i < navMain.length; i++) {
+      navMain[i].style.position = 'absolute';
+    }
   }
 
   ngOnDestroy(){
     let logo = document.getElementById("tablet") as HTMLElement;
-
     logo.style.position = 'fixed';
-
+    let navMain = Array.from(document.getElementsByClassName("nav-main") as HTMLCollectionOf<HTMLElement>);
+    for (let i = 0; i < navMain.length; i++) {
+      navMain[i].style.position = 'fixed';
+    }
   }
-
-
 }
 
