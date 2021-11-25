@@ -3,6 +3,9 @@
   text-align: center;
   height: 66vh;
   margin-top: 33vh;
+  @include respond(phone){
+    margin-bottom: 6rem;
+  }
   & img{
     border-radius: 50%;
   }
@@ -12,8 +15,8 @@
     line-height: 1rem;
     letter-spacing: 0rem;
     @include respond(phone){
-      font-size: 0.8rem;
-      line-height: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.1rem;
       letter-spacing: 0rem;
       word-spacing: 0px;
       text-align: left;

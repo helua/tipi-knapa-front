@@ -45,7 +45,6 @@ body{
     @include respond(phone){
       letter-spacing: .01rem;
     }
-
     & ::selection{
         background-color: $selection;
         color: $contrast  ;
@@ -78,7 +77,6 @@ a{
             background-color: rgba($color, 0.8);
         }
     }
-
 }
 
 p, h2, h1, h3, h4, ul {
@@ -99,8 +97,6 @@ h1{
   @media screen and (max-width: 900px){
     font-size: 4.5rem;
     letter-spacing: .45rem;
-
-
   }
   @media screen and (max-width: 600px){
     font-size: 3.5rem;
@@ -117,38 +113,34 @@ h2{
   @include respond(tab-port){
       font-size: 3rem;
       letter-spacing: .3rem;
-
   }
   @include respond(phone){
     font-size: 2rem;
     letter-spacing: .1rem;
     line-height: 2.3rem;
-
   }
 }
 p{
   font-size: 1.5rem;
   padding: 1rem 8%;
   line-height: 1.7rem;
+  text-align: justify;
+
   @include respond(tab-land){
     font-size: 1.35rem;
     line-height: 1.5rem;
     padding: 1rem 12%;
-
-
   }
   @include respond(tab-port){
     font-size: 1.2rem;
     line-height: 1.3rem;
     padding: 1rem 5%;
-
-
   }
   @include respond(phone){
     font-size: 1.15rem;
     line-height: 1.2rem;
     padding: 1rem 1.5%;
-
+    text-align:left;
   }
 }
 
@@ -183,16 +175,15 @@ blockquote{
   // text-align: justify;
   @include respond(tab-land){
     margin: 1% 13%;
-
   }
   @include respond(phone){
     font-size: 1.1rem;
-
+    text-align:left;
+    margin: 2% 6%;
   }
 }
 
 fa-icon{
-
   font-size: 2.5rem;
   cursor: pointer;
   filter: drop-shadow(2px 2px $color, .5);
@@ -209,7 +200,6 @@ fa-icon{
   }
   @include respond(phone){
     font-size: 2rem;
-
   }
 }
 
