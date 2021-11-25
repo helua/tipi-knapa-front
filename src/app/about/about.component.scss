@@ -1,3 +1,4 @@
+@import '../../sass/styles';
 img
 {
   width: 100%;
@@ -9,4 +10,7 @@ h2{
 p{
   text-align: justify;
   padding: 3rem 10%;
+  @include respond(phone){
+    padding: 3rem 6%;
+  }
 }
