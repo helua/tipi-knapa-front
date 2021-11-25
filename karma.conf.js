@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/TIPI-KNAPA'),
+      dir: require('path').join(__dirname, './coverage/tipi-knapa'),
       subdir: '.',
       reporters: [
         { type: 'html' },

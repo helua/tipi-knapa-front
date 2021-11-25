@@ -1,7 +1,7 @@
 [build]
-  command = "npm run build"
+  command = "ng build --prod && npm run scully"
   functions = "./functions"
-  publish = "dist/TIPI-KNAPA"
+  publish = "dist/static"
 [dev]
   command = "npm run start"
   functions = "./functions"

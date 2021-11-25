@@ -1,13 +1,9 @@
 @import '../../sass/styles';
 .holder{
   text-align: center;
-  height: calc( 66vh - 13rem );
+  height: 66vh;
   margin-top: 33vh;
   & img{
     border-radius: 50%;
-  }
-  @include respond(tab-port){
-    height: calc( 66vh );
-
   }
 }

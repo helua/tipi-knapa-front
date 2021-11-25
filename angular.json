@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TIPI-KNAPA": {
+    "tipi-knapa": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/TIPI-KNAPA",
+            "outputPath": "dist/tipi-knapa",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "TIPI-KNAPA:build:production"
+              "browserTarget": "tipi-knapa:build:production"
             },
             "development": {
-              "browserTarget": "TIPI-KNAPA:build:development"
+              "browserTarget": "tipi-knapa:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TIPI-KNAPA:build"
+            "browserTarget": "tipi-knapa:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "TIPI-KNAPA"
+  "defaultProject": "tipi-knapa"
 }

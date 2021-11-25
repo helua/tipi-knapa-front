@@ -12,26 +12,26 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$TIPI-KNAPA-primary: mat.define-palette(mat.$indigo-palette);
-$TIPI-KNAPA-accent: mat.define-palette(mat.$amber-palette, A400);
+$tipi-knapa-primary: mat.define-palette(mat.$indigo-palette);
+$tipi-knapa-accent: mat.define-palette(mat.$amber-palette, A400);
 
 // The warn palette is optional (defaults to red).
-$TIPI-KNAPA-warn: mat.define-palette(mat.$red-palette);
+$tipi-knapa-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$TIPI-KNAPA-theme: mat.define-light-theme((
+$tipi-knapa-theme: mat.define-light-theme((
   color: (
-    primary: $TIPI-KNAPA-primary,
-    accent: $TIPI-KNAPA-accent,
-    warn: $TIPI-KNAPA-warn,
+    primary: $tipi-knapa-primary,
+    accent: $tipi-knapa-accent,
+    warn: $tipi-knapa-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($TIPI-KNAPA-theme);
+@include mat.all-component-themes($tipi-knapa-theme);
 
 @import '/src/sass/styles';
 
