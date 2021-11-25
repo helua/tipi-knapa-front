@@ -1,1 +1,6 @@
-<app-products [token]="token" ></app-products>
+<main *ngIf="token | async ; else loadingBlock">
+  <app-products [token]="token"></app-products>
+</main>
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>

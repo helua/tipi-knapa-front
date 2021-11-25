@@ -55,6 +55,10 @@ src/assets/originals
 .netlify
 
 # Scully config
-/.scully
 scully.log
-/scully
+scullyStats.json
+.scully
+/scully/**/*.js
+/scully/**/*.js.map
+/scully/**/*.d.ts
+src/assets/scully-routes.json

@@ -12,11 +12,9 @@ export class AppComponent {
   title = 'TIPI-KNAPA';
   norobots: MetaDefinition = {robots: 'description', content: 'noindex, nofollow, noimageindex'};
 
-  constructor(private metaService: Meta, private token: TokenService){};
+  constructor(private metaService: Meta){};
 
   ngOnInit(){
     this.metaService.updateTag(this.norobots);
-    // clear();
-    this.token.getToken();
   }
 }

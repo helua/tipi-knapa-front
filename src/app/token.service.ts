@@ -23,13 +23,18 @@ export class TokenService {
         scope: this.scope,
       })
       if(tokenAPI){
-        console.log('token utworzony');
+        console.log('nowy token utworzony');
         console.log(tokenAPI);
         setToken(tokenAPI);
-
-        console.log('token w localStorage');
+        console.log('nowy token w localStorage');
         console.log(getToken());
+        return getToken();
       }
+
+    }
+    else{
+      
+      return getToken();
     }
 
   }

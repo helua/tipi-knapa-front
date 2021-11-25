@@ -11,6 +11,8 @@ const routes: Routes = [
   { path: 'o-nas', component: AboutComponent },
   { path: 'sklep', component: ShopComponent },
   { path: 'kontakt', component: ContactComponent },
+  { path: '**', component: MainComponent },
+
 
 ];
 

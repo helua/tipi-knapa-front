@@ -10,6 +10,14 @@
       </div>
       <div class="cart_product-title">
         <h4>{{cart.included[0].attributes.name}}</h4>
+        <fa-icon
+          [icon]="trashIcon"
+          (click)="trashSnackBar()"
+          matTooltip="Opróżnij koszyk"
+          matTooltipShowDelay="200"
+          matTooltipHideDelay="100">
+        </fa-icon>
+
         <!-- <p class="cart_product-price">{{cart.data.attributes.quantity}}{{cart.data.attributes.formatted_unit_amount}}
         </p> -->
       </div>

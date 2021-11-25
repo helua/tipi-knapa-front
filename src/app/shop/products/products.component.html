@@ -5,7 +5,6 @@
   matTooltipHideDelay="100"
   ></fa-icon>
 </div>
-<main *ngIf="token && products && price; else loadingBlock">
   <div *ngFor="let product of products">
     <app-product
       [product]="product"
@@ -13,8 +12,5 @@
       [token]="token"
       (updateCart)="onUpdatedCart($event)"></app-product>
   </div>
-</main>
-<ng-template #loadingBlock>
-  <app-loading></app-loading>
-</ng-template>
+
 

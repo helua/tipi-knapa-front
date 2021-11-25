@@ -18,14 +18,18 @@ export class ShopComponent implements OnInit, OnDestroy {
   constructor( private titleService: Title, private metaService: Meta, private tok: TokenService) { }
 
   ngOnInit() {
-    if(this.tok.checkIfTokenValid() === true){
-      this.token = JSON.parse(getToken());
-    }
 
+    this.token = this.tok.getToken();
+    console.log('Token pobrany = sklep otwarty')
+
+
+
+    //SEO
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.keywords);
     this.metaService.updateTag(this.description);
 
+    //STYLES MENU
     let logo = document.getElementById("tablet") as HTMLElement;
     logo.style.position = 'absolute';
     let navMain = Array.from(document.getElementsByClassName("nav-main") as HTMLCollectionOf<HTMLElement>);

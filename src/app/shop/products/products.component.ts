@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
+import { getToken } from 'src/app/localStorage';
 
 
 
@@ -84,6 +85,8 @@ export class ProductsComponent implements OnInit {
       this.products.push(this.workResult(this.productsRaw.result[0]));
     });
 
+    this.token = JSON.parse(getToken());
+
     if(this.token){
       this.ecomm.getPrices(this.token.access_token).subscribe(p => {
         if(p){
@@ -92,10 +95,6 @@ export class ProductsComponent implements OnInit {
         }
       });
     }
-    //   else{
-    //     this.token = {"access_token":"eyJhbGciOiJIUzUxMiJ9.eyJvcmdhbml6YXRpb24iOnsiaWQiOiJZbnJRWUZES0tYIiwic2x1ZyI6InRpcGkta25hcGEtc2hvcCJ9LCJhcHBsaWNhdGlvbiI6eyJpZCI6ImRObldtaXd2WEciLCJraW5kIjoic2FsZXNfY2hhbm5lbCIsInB1YmxpYyI6dHJ1ZX0sInRlc3QiOnRydWUsImV4cCI6MTYzNzYxOTM4NSwibWFya2V0Ijp7ImlkIjpbInZsR1JtaG5wTmciXSwicHJpY2VfbGlzdF9pZCI6ImRsd1F5Q0pZZ0IiLCJzdG9ja19sb2NhdGlvbl9pZHMiOlsiTkdOUkV1V1ZSRyJdLCJnZW9jb2Rlcl9pZCI6bnVsbCwiYWxsb3dzX2V4dGVybmFsX3ByaWNlcyI6ZmFsc2V9LCJyYW5kIjowLjU0NDcyOTY1MDgwODg2Nzh9.5Jpb8MOoqX_CQT8_zYdFXI4km1pgtreVozJUTe7q_KD1Z9xxZLE4kPf4cuP6RTZTliXRr2eeNRyU1bo83oWM2A","token_type":"Bearer","expires_in":14391,"scope":"market:7273","created_at":1637604985};
-    //   }
-
   }
   workResult(p: any): Product{
     const blocksToHtml = require("@sanity/block-content-to-html");
@@ -155,7 +154,7 @@ export class ProductsComponent implements OnInit {
   }
   openSnackBar(message: string, action: string) {
     let ref = this._snackBar.open(message, action, {
-      horizontalPosition: "right",
+      horizontalPosition: "center",
       verticalPosition: "top",
     });
     ref.onAction().subscribe(() => {
