@@ -1,7 +1,7 @@
 [build]
-  command = "npm run build && npm run scully"
+  command = "npm run build"
   functions = "./functions"
-  publish = "dist/TIPI-KNAPA/static"
+  publish = "dist/TIPI-KNAPA"
 [dev]
   command = "npm run start"
   functions = "./functions"
