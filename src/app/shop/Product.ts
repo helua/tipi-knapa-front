@@ -16,6 +16,9 @@ export interface Product {
   bladeLength?: number;
   bladeWidth?: number;
   steelThickness?: string
+  handle?: string;
+  blade?: string;
+  sheath?: string;
 }
 
 export interface CartData {

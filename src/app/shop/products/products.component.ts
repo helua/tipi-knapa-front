@@ -111,6 +111,9 @@ export class ProductsComponent implements OnInit {
       bladeLength: p.defaultProductVariant.bladeLength,
       bladeWidth: p.defaultProductVariant.bladeWidth,
       steelThickness: p.defaultProductVariant.steelThickness,
+      handle: p.defaultProductVariant.handle,
+      blade: p.defaultProductVariant.blade,
+      sheath: p.defaultProductVariant.sheath,
       images: []
 
     }
@@ -144,7 +147,7 @@ export class ProductsComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(CartComponent, {
-      width: '600px',
+      width: '466px',
       data: {cart: this.cart, ord: this.ord},
     });
 

@@ -6,4 +6,38 @@
   & img{
     border-radius: 50%;
   }
+  & p, fa-icon{
+    margin-top: 2rem;
+    font-size: .9rem;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    @include respond(phone){
+      font-size: 0.8rem;
+      line-height: 1rem;
+      letter-spacing: 0rem;
+      word-spacing: 0px;
+      text-align: left;
+    }
+  }
+  & fa-icon{
+    cursor: unset;
+    filter: none;
+    -webkit-filter: none;
+    transition: unset;
+    &:hover{
+      filter: none;
+      -webkit-filter: none;
+    }
+    @include respond(phoneUp){
+      display: none;
+      visibility: hidden;
+    }
+
+  }
+  & span{
+    @include respond(phone){
+      display: none;
+      visibility: hidden;
+    }
+  }
 }

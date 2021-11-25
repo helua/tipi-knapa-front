@@ -18,14 +18,18 @@
     <div class="holder-info">
       <!-- <h3>{{product.vendor}}</h3> -->
       <div class="body-wrapper" [innerHTML]="product.body"></div>
-        <ul>
-          <!-- <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></li> -->
-          <li>waga: <u>{{product.weight}} g</u></li>
-          <li>długość całkowita: <u>{{product.length}} mm</u></li>
-          <li>długość ostrza: <u>{{product.bladeLength}} mm</u></li>
-          <li>szerokość ostrza: <u>{{product.bladeWidth}} mm</u></li>
-          <li>grubość stali: <u>{{product.steelThickness}} mm</u></li>
-      </ul>
+        <table>
+          <!-- <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</td></li> -->
+          <tr><td>waga:</td><td>{{product.weight}} g</td></tr>
+          <tr><td>długość całkowita:</td> <td>{{product.length}} mm</td></tr>
+          <tr><td>długość ostrza:</td> <td>{{product.bladeLength}} mm</td></tr>
+          <tr><td>szerokość ostrza:</td> <td>{{product.bladeWidth}} mm</td></tr>
+          <tr><td>grubość stali:</td> <td>{{product.steelThickness}} mm</td></tr>
+          <tr><td>rękojeść:</td> <td>{{product.handle}}</td></tr>
+          <tr><td>ostrze:</td> <td>{{product.blade}}</td></tr>
+          <tr><td>pochwa:</td> <td>{{product.sheath}}</td></tr>
+        </table>
+
       <p class="price">
         cena: <b>{{productPrice()}} </b>
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"

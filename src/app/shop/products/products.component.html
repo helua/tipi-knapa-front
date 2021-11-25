@@ -5,12 +5,12 @@
   matTooltipHideDelay="100"
   ></fa-icon>
 </div>
-  <div *ngFor="let product of products">
+  <main *ngFor="let product of products">
     <app-product
       [product]="product"
       [price]="price"
       [token]="token"
       (updateCart)="onUpdatedCart($event)"></app-product>
-  </div>
+  </main>
 
 

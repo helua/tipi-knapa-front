@@ -1,7 +1,9 @@
 @import '../../../sass/styles';
-@include respond(tab-port){
   main{
     margin-bottom: 6rem;
+    @include respond(tab-land){
+
+    margin-bottom: 12rem;
   }
 }
 

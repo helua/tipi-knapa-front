@@ -22,6 +22,9 @@ p.price{
   @include respond(tab-port){
     text-align: right;
   }
+  @include respond(phone){
+    font-size: 1.2rem;
+  }
 }
 a.add-to-cart{
   margin-left: 10%;
@@ -64,6 +67,7 @@ a.add-to-cart{
 
 }
 .holder-info{
+  text-align: justify;
   max-width: calc(80vw - 500px);
   @include respond(tab-land){
     max-width: calc(100vw - 500px);
@@ -82,23 +86,26 @@ a.add-to-cart{
 
   }
 
-  & ul{
-    list-style-type: none;
-    font-size: 1.2rem;
-    line-height: 1.4rem;
-    letter-spacing: .1px;
-    padding: 1rem 5%;
-    @include respond(phone){
-      font-size: 1rem;
-      margin: 0 auto;
-      padding: 1rem 1%;
-      letter-spacing: 0px;
+  // & ul{
+  //   list-style-type: none;
+  //   font-size: 1.2rem;
+  //   line-height: 1.4rem;
+  //   letter-spacing: .1px;
+  //   padding: 1rem 5%;
+  //   @include respond(phone){
+  //     font-size: 1rem;
+  //     margin: 0 auto;
+  //     padding: 1rem 1%;
+  //     letter-spacing: 0px;
 
 
-    }
-  }
+  //   }
+  // }
   & fa-icon{
     margin-left: 1rem;
+    @include respond(phone){
+      margin-left: 0;
+    }
   }
 
 }

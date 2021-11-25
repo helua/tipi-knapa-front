@@ -23,15 +23,21 @@
       </div>
 
     </div>
-    <ul class="cart_totals">
-      <!-- <li>podsuma: {{cart.data.attributes.formatted_subtotal_amount}}</li>
+
+    <!-- <ul class="cart_totals">
+      <li>podsuma: {{cart.data.attributes.formatted_subtotal_amount}}</li>
       <li>zniżka: {{cart.data.attributes.formatted_discount_amount}}</li>
       <li>wysyłka: {{cart.data.attributes.formatted_shipping_amount}}</li>
       <li>podatek: {{cart.data.attributes.formatted_total_tax_amount}}</li>
-      <li>karta podarunkowa: {{cart.data.attributes.formatted_gift_card_amount}}</li> -->
+      <li>karta podarunkowa: {{cart.data.attributes.formatted_gift_card_amount}}</li>
       <li>suma: {{cart.data.attributes.formatted_total_amount_with_taxes}}</li>
-    </ul>
-    {{cart.data.attributes.formatted_total_amount}}
+    </ul> -->
+
+    <table>
+      <tr><td>suma:</td><td>{{cart.data.attributes.formatted_total_amount_with_taxes}}</td></tr>
+    </table>
+
+    <!-- {{cart.data.attributes.formatted_total_amount}} -->
     <app-button text="idź do checkoutu" link="https://tipi-knapa-checkout.netlify.app/" [orderId]="ord"></app-button>
 
 

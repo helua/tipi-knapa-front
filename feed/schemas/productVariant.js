@@ -9,6 +9,11 @@ export default {
       type: 'string',
     },
     {
+      title: 'SKU',
+      name: 'sku',
+      type: 'string',
+    },
+    {
       title: 'Weight in grams',
       name: 'grams',
       type: 'number',
@@ -34,8 +39,18 @@ export default {
       type: 'string',
     },
     {
-      title: 'SKU',
-      name: 'sku',
+      title: 'Handle',
+      name: 'handle',
+      type: 'string',
+    },
+    {
+      title: 'Blade',
+      name: 'blade',
+      type: 'string',
+    },
+    {
+      title: 'Sheath',
+      name: 'sheath',
       type: 'string',
     },
     {

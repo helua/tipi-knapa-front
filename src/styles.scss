@@ -37,10 +37,10 @@ $tipi-knapa-theme: mat.define-light-theme((
 
 
 body{
-    font-family: $f;
+    font-family: $f2;
     font-size: 1.3rem;
     font-weight: 600;
-    letter-spacing: .07rem;
+    letter-spacing: 0;
     margin: 0px;
     @include respond(phone){
       letter-spacing: .01rem;
@@ -127,39 +127,66 @@ h2{
   }
 }
 p{
-  font-size: 1.55rem;
-  padding: 1rem 5%;
-  line-height: 1.65rem;
+  font-size: 1.5rem;
+  padding: 1rem 8%;
+  line-height: 1.7rem;
   @include respond(tab-land){
-    font-size: 1.5rem;
-    line-height: 1.7rem;
-    letter-spacing: 0.05rem;
+    font-size: 1.35rem;
+    line-height: 1.5rem;
+    padding: 1rem 12%;
+
 
   }
   @include respond(tab-port){
-    font-size: 1.3rem;
-    line-height: 1.4rem;
-    letter-spacing: 0.02rem;
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+    padding: 1rem 5%;
+
 
   }
-  @media screen and (max-width: 600px){
+  @include respond(phone){
     font-size: 1.1rem;
-    text-align: justify;
-    letter-spacing: 0rem;
+    line-height: 1.2rem;
+    padding: 1rem 1%;
+
   }
 }
-ul{
-  font-family: $f2;
+
+table{
+  width: 100%;
+  padding: 1rem 8%;
+  font-size: 1.5rem;
+  & tr{
+    border-bottom: 1pt solid black;
+  }
+  & tr td:first-child{
+    font-family: $techLight;
+    text-align: start;
+  }
+  & tr td:last-child{
+    font-family: $tech;
+
+    text-align: end;
+  }
+  @include respond(phone){
+    font-size: 1.2rem;
+    padding: 1rem 3%;
+    letter-spacing: 0px;
+  }
 }
 
 blockquote{
-  font-style: italic;
   color: $metal;
+  font-family: $tech;
+  font-size: 1.4rem;
+  margin: 2% 12%;
   // text-align: justify;
-  font-size: 1.2rem;
-  margin: 2% 40% 2% 12%;
   @include respond(tab-land){
-    margin: 1% 8%;
+    margin: 1% 13%;
+
+  }
+  @include respond(phone){
+    font-size: 1.1rem;
 
   }
 }
