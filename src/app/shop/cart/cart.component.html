@@ -12,7 +12,7 @@
         <h4>{{cart.included[0].attributes.name}}</h4>
         <fa-icon
           [icon]="trashIcon"
-          (click)="trashSnackBar()"
+          (click)="trashItem(cart.included[0].id)"
           matTooltip="Opróżnij koszyk"
           matTooltipShowDelay="200"
           matTooltipHideDelay="100">

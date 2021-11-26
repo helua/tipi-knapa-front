@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Meta, MetaDefinition } from '@angular/platform-browser';
-import { getToken, clear } from '../app/localStorage'
+import { getToken, clear, setCart, setOrderId } from '../app/localStorage'
 import { TokenService } from './token.service';
 
 @Component({
@@ -15,6 +15,15 @@ export class AppComponent {
   constructor(private metaService: Meta){};
 
   ngOnInit(){
+    // clear();
     this.metaService.updateTag(this.norobots);
+    setCart({
+      data: {
+        attributes: {
+          skus_count: 0,
+        }
+      }
+    });
+    setOrderId('s');
   }
 }

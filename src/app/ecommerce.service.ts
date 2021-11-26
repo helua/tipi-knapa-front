@@ -17,8 +17,15 @@ export class EcommerceService {
   //   return JSON.parse(token);
   // }
   getPrices(token: string){
-
     return  this.http.get<any>(this.url+'/api/skus?include=prices', {
+      headers: {
+        'Accept': 'application/vnd.api+json',
+        'Authorization': 'Bearer '+token
+      },
+    });
+  }
+  getStock(token: string){
+    return  this.http.get<any>(this.url+'/api/stock_items', {
       headers: {
         'Accept': 'application/vnd.api+json',
         'Authorization': 'Bearer '+token
@@ -83,6 +90,17 @@ export class EcommerceService {
     const headers = { headers: new HttpHeaders(headersData)};
 
     return this.http.get<any>(this.url+'/api/orders/'+orderId+'?include=line_items&fields[orders]=number,skus_count,formatted_subtotal_amount,formatted_discount_amount,formatted_shipping_amount,formatted_total_tax_amount,formatted_gift_card_amount,formatted_total_amount_with_taxes,line_items&fields[line_items]=item_type,image_url,name,sku_code,formatted_unit_amount,quantity,formatted_total_amount',
+      headers);
+  }
+  deleteLineItem(token: string, lineItemId: string){
+    const headersData = {
+      'Accept': 'application/vnd.api+json',
+      'Content-Type': 'application/vnd.api+json',
+      'Authorization': 'Bearer '+token,
+    }
+    const headers = { headers: new HttpHeaders(headersData)};
+
+    return this.http.delete(this.url+'/api/line_items/'+lineItemId,
       headers);
   }
   goToCheckout(id: string){

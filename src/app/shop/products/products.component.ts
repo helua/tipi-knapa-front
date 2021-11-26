@@ -6,15 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
-import { getToken } from 'src/app/localStorage';
-
-
-
-// const sanity = sanityClient({
-//   projectId: process.env.SANITY_PROJECT_ID,
-//   dataset: process.env.SANITY_DATASET,
-//   useCdn: true,
-// });
+import { getCart, getToken, setCart, setOrderId } from 'src/app/localStorage';
 
 const sanityClient = require("@sanity/client");
 const sanity = sanityClient({
@@ -31,9 +23,8 @@ const sanity = sanityClient({
 export class ProductsComponent implements OnInit {
 
   cartIcon = faShoppingCart;
-  badgeHidden = true;
+  badgeHidden: boolean = false;
 
-  // products!: Observable<Product[]>;
   productsRaw: any = [];
   products: Product[] = [
     // {title: "",
@@ -51,13 +42,8 @@ export class ProductsComponent implements OnInit {
   ];
 
   price: any ='';
-  cart: any = {
-    data: {
-      attributes: {
-        skus_count: 0,
-      }
-    }
-  };
+  stock: any = '';
+  cart: any = '';
   ord: string = '';
 // cart = {
 //   data: {
@@ -79,6 +65,9 @@ export class ProductsComponent implements OnInit {
   constructor(private feed: FeedService, private ecomm: EcommerceService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.cart = JSON.parse(getCart());
+    // this.ord = JSON.parse(getOrderId());
+
     this.feed.getProducts().subscribe( products => {
       this.productsRaw = products;
       //do poprawienia przy >1 produkcie
@@ -90,12 +79,21 @@ export class ProductsComponent implements OnInit {
     if(this.token){
       this.ecomm.getPrices(this.token.access_token).subscribe(p => {
         if(p){
+          //do poprawienia przy >1 produkcie
           this.price = p.included[0].attributes.formatted_amount;
           console.log(this.price);
         }
       });
+      this.ecomm.getStock(this.token.access_token).subscribe(p => {
+        if(p){
+          //do poprawienia przy >1 produkcie
+          this.stock = p.data[0].attributes.quantity;
+          console.log(this.stock);
+        }
+      });
     }
   }
+
   workResult(p: any): Product{
     const blocksToHtml = require("@sanity/block-content-to-html");
     const imageUrlBuilder = require("@sanity/image-url");
@@ -134,11 +132,15 @@ export class ProductsComponent implements OnInit {
 
 //koszyk
   onUpdatedCart(cart: any){
-    this.cart = cart.cart;
     this.ord = cart.ord;
-    this.toggleBadgeVisibility();
+    setOrderId(cart.ord);
+    this.cart = cart.cart;
+    setCart(cart.cart);
+    console.log('dodano do koszyka');
+    console.log(getCart());
     this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
   }
+
   toggleBadgeVisibility() {
     if(this.badgeHidden = true){
       this.badgeHidden = !this.badgeHidden;
@@ -148,11 +150,12 @@ export class ProductsComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(CartComponent, {
       width: '466px',
-      data: {cart: this.cart, ord: this.ord},
+      data: { ord: this.ord },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.cart = JSON.parse(getCart());
     });
   }
   openSnackBar(message: string, action: string) {

@@ -137,10 +137,10 @@ p{
     padding: 1rem 5%;
   }
   @include respond(phone){
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.2rem;
     padding: 1rem 1.5%;
-    text-align:left;
+    text-align: left;
   }
 }
 
