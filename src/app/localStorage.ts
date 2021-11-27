@@ -17,7 +17,7 @@ export function getCart(): any {
   return localStorage.getItem('cart');
 }
 //ORDER ID
-export function setOrderId(orderId: any){
+export function setOrderId(orderId: string){
   localStorage.setItem('orderId', orderId);
 }
 export function getOrderId(): any {

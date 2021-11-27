@@ -6,7 +6,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { EcommerceService } from 'src/app/ecommerce.service';
-import { getCart, getToken, setCart } from 'src/app/localStorage';
+import { getCart, getToken, setCart, setOrderId } from 'src/app/localStorage';
 
 @Component({
   selector: 'app-cart',
@@ -52,6 +52,7 @@ export class CartComponent implements OnInit {
         console.log(o);
         setCart(o);
         this.cart = JSON.parse(getCart());
+        setOrderId('');
       });
     });
     // this.onClose();

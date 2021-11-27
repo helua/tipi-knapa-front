@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { EcommerceService } from 'src/app/ecommerce.service';
 import { TokenService } from 'src/app/token.service';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { getOrderId } from 'src/app/localStorage';
 
 
 @Component({
@@ -17,12 +18,15 @@ export class ProductComponent implements OnInit {
   @Input() stock: any;
 
   @Output() updateCart = new EventEmitter<any>();
-  ord: string = '';
+  @Input() ord: string = '';
   cartIcon = faCartPlus;
 
   constructor(private ecomm: EcommerceService) { }
 
   ngOnInit() {
+    if(getOrderId() !== undefined){
+      this.ord = getOrderId();
+    }
   }
 
   createOrder(){

@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
-import { getCart, getToken, setCart, setOrderId } from 'src/app/localStorage';
+import { getCart, getOrderId, getToken, setCart, setOrderId } from 'src/app/localStorage';
 
 const sanityClient = require("@sanity/client");
 const sanity = sanityClient({
@@ -66,7 +66,8 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = JSON.parse(getCart());
-    // this.ord = JSON.parse(getOrderId());
+    this.ord = getOrderId();
+    console.log(getOrderId());
 
     this.feed.getProducts().subscribe( products => {
       this.productsRaw = products;
@@ -134,6 +135,8 @@ export class ProductsComponent implements OnInit {
   onUpdatedCart(cart: any){
     this.ord = cart.ord;
     setOrderId(cart.ord);
+    console.log(cart.ord);
+    console.log(getOrderId());
     this.cart = cart.cart;
     setCart(cart.cart);
     console.log('dodano do koszyka');
@@ -156,6 +159,7 @@ export class ProductsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
       this.cart = JSON.parse(getCart());
+      this.ord = getOrderId();
     });
   }
   openSnackBar(message: string, action: string) {

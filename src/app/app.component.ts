@@ -24,6 +24,6 @@ export class AppComponent {
         }
       }
     });
-    setOrderId('s');
+    setOrderId('');
   }
 }
