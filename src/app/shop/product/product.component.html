@@ -25,8 +25,22 @@
           <tr><td>długość ostrza:</td> <td>{{product.bladeLength}} mm</td></tr>
           <tr><td>szerokość ostrza:</td> <td>{{product.bladeWidth}} mm</td></tr>
           <tr><td>grubość stali:</td> <td>{{product.steelThickness}} mm</td></tr>
-          <tr><td>rękojeść:</td> <td>{{product.handle}}</td></tr>
-          <tr><td>ostrze:</td> <td>{{product.blade}}</td></tr>
+          <tr><td>rękojeść:</td>
+            <td
+              class="info-holder"
+              matTooltipClass="info"
+              matTooltip="drewno sucupira: Przyleciało z Ameryki Południowej, jest to drewno ciężkie, o małej wilgotności włókien i małymi wartościami skurczów, za to sporą wytrzymałością na zgniatanie statyczne i ściskanie wzdłuż włókien - dla Was ważne, że bardzo ciężko je wypaczyć, a łączenia są bardzo trwałe.">
+              {{product.handle}}
+            </td>
+          </tr>
+          <tr><td>ostrze:</td>
+            <td
+              class="info-holder"
+              matTooltipClass="info"
+              matTooltip="stal D2 (NC11LV): Jest bardzo odporna na zużycie ścierne i cechuje ją wysoka hartowność, z kolei słonność do odkształceń jest mała - to sprawia, że ostrze jest trwałe i stępia się powoli. Polecamy ostrzałki diamentowe lub z węglika krzemu.">
+              {{product.blade}}
+            </td>
+          </tr>
           <tr><td>pochwa:</td> <td>{{product.sheath}}</td></tr>
         </table>
       <table>

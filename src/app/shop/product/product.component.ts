@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { EcommerceService } from 'src/app/ecommerce.service';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { getOrderId, setOrderId } from 'src/app/localStorage';
@@ -7,7 +7,9 @@ import { getOrderId, setOrderId } from 'src/app/localStorage';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+
 })
 export class ProductComponent implements OnInit {
 
