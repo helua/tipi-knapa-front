@@ -10,14 +10,12 @@ import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 export class MainComponent implements OnInit {
 
   title = 'TIPI KNAPA';
-  keywords: MetaDefinition = {name: 'keywords', content: 'jakieś keywords'};
-  description: MetaDefinition = {name: 'description', content: 'jakiś opis'};
+  description: MetaDefinition = {name: 'description', content: 'Sklep Kuby Knapa - nóż finka i więcej produktów już wkrótce'};
 
   constructor(private titleService: Title, private metaService: Meta){}
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
-    this.metaService.updateTag(this.keywords);
     this.metaService.updateTag(this.description);
   }
 

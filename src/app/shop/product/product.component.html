@@ -2,7 +2,7 @@
 <main>
   <h2>{{ product.title }}</h2>
   <p class="code">{{ product.sku }}</p>
-  <a class="add-to-cart" (click)="createOrder()">
+  <a class="add-to-cart" (click)="createOrder()" >
     Dodaj do koszyka
     <fa-icon  [icon]="cartIcon" ></fa-icon>
   </a>

@@ -6,35 +6,40 @@
   background-size: cover;
   width: 100%;
   height: calc(100vh  - 13rem);
-  filter: grayscale(.5);
   cursor: pointer;
   transition: 2s;
   animation: enter 1.66s ease-in-out .01s backwards;
+  position: relative;
   @include respond(phone){
     background-image: url('../../assets/TIPI-KNAPA_bg-mobile.jpg');
 
-  }
-&:hover{
-    filter: grayscale(0);
   }
 }
 
 .tooltip{
   position: relative !important;
-  top: 60px !important;
-  background-color: $color;
+  top: 75vh !important;
+  // background-color: $color;
   font-size: 1.2rem;
   height: 1.2rem;
+  width: 153px;
   font-family: $f2;
+  // transform: translateX(-50%);
 }
 
 @keyframes enter {
   0%{
     height: calc(0vh);
     filter: grayscale(.9);
+
     }
+  60%{
+      filter: grayscale(.8);
+
+      }
   100%{
     height: calc(100vh  - 13rem);
-    filter: grayscale(.5);  }
+    filter: grayscale(0);
+  }
 
 }

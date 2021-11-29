@@ -1,8 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { EcommerceService } from 'src/app/ecommerce.service';
-import { TokenService } from 'src/app/token.service';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { getOrderId } from 'src/app/localStorage';
+import { getOrderId, setOrderId } from 'src/app/localStorage';
 
 
 @Component({
@@ -33,7 +32,7 @@ export class ProductComponent implements OnInit {
     if(!this.ord){
       this.ecomm.createEmptyOrder(this.token.access_token).subscribe(o => {
         this.ord = o.data.id;
-        // console.log(this.ord)
+        setOrderId(this.ord);
         this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
         });
         this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
@@ -43,12 +42,19 @@ export class ProductComponent implements OnInit {
     }
     if(this.ord){
       this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
+        this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+          this.updateCart.emit({cart: c, ord: this.ord});
+        });
       });
-      this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
-        this.updateCart.emit({cart: c, ord: this.ord});
-      });
+
     }
   }
+  // getCurrentOrder(){
+  //   this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+  //     console.log(c);
+  //     console.log(getCart())
+  //   });
+  // }
 
   productPrice(){
     return this.price;

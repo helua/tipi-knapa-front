@@ -3,6 +3,11 @@
 <!-- <div class="test"></div> -->
 <div *ngFor="let about of abouts; let i = index">
   <p [innerHTML]="about"></p>
+  <div class="test">
+  </div>
+</div>
+<!-- <div *ngFor="let about of abouts; let i = index">
+  <p [innerHTML]="about"></p>
   <picture>
     <source
       [srcset]="smallPhotoUrl+(i+2)+'.jpg'"
@@ -12,5 +17,5 @@
       >
     <img  alt="TIPI KNAPA w sekcji 'O nas' ilustracja nr {{i+2}}">
   </picture>
-</div>
+</div> -->
 

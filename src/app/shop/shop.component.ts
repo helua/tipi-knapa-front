@@ -11,8 +11,7 @@ import { TokenService } from '../token.service';
 export class ShopComponent implements OnInit, OnDestroy {
 
   title = 'SKLEP | TIPI KNAPA';
-  keywords: MetaDefinition = {name: 'keywords', content: 'jakieś keywords'};
-  description: MetaDefinition = {name: 'description', content: 'jakiś opis'};
+  description: MetaDefinition = {name: 'description', content: 'Sprawdź, jakie produkty mamy aktualnie w sklepie Tipiknapa i spraw sobie ręcznie wykonywany nóż finka. Wolność i odpowiedzialność w najlepszym wydaniu.'};
   token: any;
 
   constructor( private titleService: Title, private metaService: Meta, private tok: TokenService) { }
@@ -26,7 +25,6 @@ export class ShopComponent implements OnInit, OnDestroy {
 
     //SEO
     this.titleService.setTitle(this.title);
-    this.metaService.updateTag(this.keywords);
     this.metaService.updateTag(this.description);
 
     //STYLES MENU
