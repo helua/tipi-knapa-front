@@ -120,10 +120,16 @@ a.add-to-cart{
 .info-holder{
   text-shadow: 2px 2px rgba($color, 0.2);
   cursor: help;
+  &:hover{
+    text-shadow: 2px 2px rgba($color, 0.9);
+  }
 }
 .info{
   font-size: 1.3rem;
   font-family: $tech;
   background-color: rgba($metal, .9);
   color: $contrast;
+  @include respond(phone){
+    font-size: 1rem;
+  }
 }

@@ -6,13 +6,14 @@
     </p>
     <div class="cart_product">
       <div class="cart_product-image">
-        <img [src]="cart.included[0].attributes.image_url" alt="">
+        <img [src]="line_items.attributes.image_url" alt="">
       </div>
       <div class="cart_product-title">
-        <h4>{{cart.included[0].attributes.name}}</h4>
+        <h4>{{line_items.attributes.name}}</h4>
         <fa-icon
+          *ngIf="isCheckoutEnabled"
           [icon]="trashIcon"
-          (click)="trashItem(cart.included[0].id)"
+          (click)="trashItem(line_items.id)"
           matTooltip="Opróżnij koszyk"
           matTooltipShowDelay="200"
           matTooltipHideDelay="100">
@@ -33,16 +34,46 @@
       <li>suma: {{cart.data.attributes.formatted_total_amount_with_taxes}}</li>
     </ul> -->
 
-    <table>
-      <tr><td>suma:</td><td>{{cart.data.attributes.formatted_total_amount_with_taxes}}</td></tr>
+    <table *ngIf="isCheckoutEnabled">
+      <tr><td>suma:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
     </table>
+    <table *ngIf="!isCheckoutEnabled && shipment">
+      <tr><td>zakupy:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
+      <tr><td>wysyłka:</td><td>{{ shipment.attributes.formatted_total_amount }}</td></tr>
+      <tr><td>suma:</td><td>{{ cart.data.attributes.formatted_total_amount_with_taxes }}</td></tr>
+    </table>
+    <div *ngIf="!isCheckoutEnabled && shipment" class="cart_confirm" >
+      <p>Twoje zamówienie zostało przyjęte, zostanie ono potwierdzone, kiedy zaksięgujemy przelew lub prześlesz potwierdzenie<br><br>
+        <span>P.P.H.U. WPIER POL JAKUB KNAP<br>
+        22 1160 2202 0000 0005 0974 7630</span>
+      </p>
+    </div>
+    <div *ngIf="isCheckoutUnfinished" class="cart_confirm">
+      <p>Zamówienie jest niedokończone.<br>Idź do checkoutu i dokończ je.</p>
+    </div>
+
 
     <!-- {{cart.data.attributes.formatted_total_amount}} -->
-    <app-button text="idź do checkoutu" link="https://tipi-knapa-checkout.netlify.app/" [orderId]="ord"></app-button>
+    <app-button
+      *ngIf="ord && isCheckoutEnabled"
+      text="idź do checkoutu"
+      link="https://tipi-knapa-checkout.netlify.app/"
+      [orderId]="ord"
+      >
+    </app-button>
 
+    <fa-icon class="refresh"
+      *ngIf="isRefreshEnabled"
+      [icon]="syncIcon"
+      (click)="getCurrentOrder()"
+      matTooltip="Odśwież status zamówienia"
+      matTooltipShowDelay="200"
+      matTooltipHideDelay="100">
+    </fa-icon>
 
   </div>
   <ng-template #emptyCart>Twój koszyk jest pusty</ng-template>
   <fa-icon [icon]="closeIcon" (click)="onClose()"></fa-icon>
  </main>
+
 

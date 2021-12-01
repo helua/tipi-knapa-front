@@ -1,12 +1,12 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CartData } from '../Product';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faSync } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { EcommerceService } from 'src/app/ecommerce.service';
-import { getCart, getToken, setCart, setOrderId } from 'src/app/localStorage';
+import { getCart, getCheckoutButton, getShipment, getToken, setCart, setCheckoutButton, setOrderId, setShipment } from 'src/app/localStorage';
 
 @Component({
   selector: 'app-cart',
@@ -17,11 +17,16 @@ export class CartComponent implements OnInit {
 
   closeIcon = faTimes;
   trashIcon = faTrashAlt;
+  syncIcon = faSync;
   @Input() cart: any;
   @Input() ord: any;
   @Input() token: any;
+  line_items: any;
+  shipment: any;
   checkout: string = 'https://tipi-knapa-checkout.netlify.app/';
-
+  isRefreshEnabled: boolean = true;
+  isCheckoutEnabled: boolean = true;
+  isCheckoutUnfinished: boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<CartComponent>,
@@ -31,15 +36,32 @@ export class CartComponent implements OnInit {
     private ecomm: EcommerceService) {}
 
   ngOnInit(): void {
-    this.cart = JSON.parse(getCart());
     this.ord = this.data.ord;
-    // this.ord = JSON.parse(getOrderId());
-
     console.log('pobieram koszyk z localStorage');
+    this.cart = JSON.parse(getCart());
     console.log(this.cart);
-  }
-  onClose(): void {
+    console.log('pobieram dane o wysyłce z localStorage');
+    this.shipment = JSON.parse(getShipment());
+    console.log(this.shipment);
+    console.log('pobieram daną o Checkout Button z localStorage');
+      var isTrueSet = (getCheckoutButton() === 'true');
+      this.isCheckoutEnabled = isTrueSet;
+      console.log(this.isCheckoutEnabled);
 
+    if(this.cart.data.attributes.skus_count != 0){
+      this.line_items = this.cart.included.find((e: { attributes: { item_type: string; }; }) => e.attributes.item_type === 'skus');
+      console.log(this.line_items);
+    }
+
+  }
+  // ngAfterViewChecked(): void{
+  //   this.ecomm.getCart(getToken(), this.ord).subscribe(c => {
+  //     console.log(c);
+  //     console.log(JSON.parse(getCart()));
+  //   });
+  // }
+
+  onClose(): void {
     this.dialogRef.close();
   }
   trashItem(id: string){
@@ -53,18 +75,44 @@ export class CartComponent implements OnInit {
         setCart(o);
         this.cart = JSON.parse(getCart());
         setOrderId('');
+        setCheckoutButton('false');
       });
     });
     // this.onClose();
     // this.openSnackBar('Koszyk jest pusty', 'Fajnie!');
   }
-  openSnackBar(message: string, action: string) {
-    let ref = this._snackBar.open(message, action, {
-      horizontalPosition: "center",
-      verticalPosition: "top",
-    });
-    ref.onAction().subscribe(() => {
-      // this.router.navigate(['o-nas']);
+  // openSnackBar(message: string, action: string) {
+  //   let ref = this._snackBar.open(message, action, {
+  //     horizontalPosition: "center",
+  //     verticalPosition: "top",
+  //   });
+  //   ref.onAction().subscribe(() => {
+  //     // this.router.navigate(['o-nas']);
+  //   });
+  // }
+  // enableRefreshOrder(){
+  //   if(this.isRefreshEnabled === false){
+  //     this.isRefreshEnabled = true;
+  //   }
+  // }
+  getCurrentOrder(){
+    this.token = JSON.parse(getToken());
+    this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+      console.log('pobieram koszyk z CL');
+      console.log(c);
+      setCart(c);
+      this.cart = c;
+      if(c.included.length === 3){
+        this.isCheckoutEnabled = false;
+        setCheckoutButton(this.isCheckoutEnabled.toString());
+        this.shipment = this.cart.included.find((e: { attributes: { item_type: string; }; }) => e.attributes.item_type === 'shipments');
+        setShipment(this.shipment);
+        this.isCheckoutUnfinished = false;
+        setOrderId('');
+      }
+      else{
+        this.isCheckoutUnfinished = true;
+      }
     });
   }
 

@@ -29,7 +29,7 @@
             <td
               class="info-holder"
               matTooltipClass="info"
-              matTooltip="drewno sucupira: Przyleciało z Ameryki Południowej, jest to drewno ciężkie, o małej wilgotności włókien i małymi wartościami skurczów, za to sporą wytrzymałością na zgniatanie statyczne i ściskanie wzdłuż włókien - dla Was ważne, że bardzo ciężko je wypaczyć, a łączenia są bardzo trwałe.">
+              matTooltip="Przyleciało z Ameryki Południowej, jest to drewno ciężkie, o małej wilgotności włókien i małymi wartościami skurczów, za to sporą wytrzymałością na zgniatanie statyczne i ściskanie wzdłuż włókien - dla Was ważne, że bardzo ciężko je wypaczyć, a łączenia są bardzo trwałe.">
               {{product.handle}}
             </td>
           </tr>
@@ -37,16 +37,13 @@
             <td
               class="info-holder"
               matTooltipClass="info"
-              matTooltip="stal D2 (NC11LV): Jest bardzo odporna na zużycie ścierne i cechuje ją wysoka hartowność, z kolei słonność do odkształceń jest mała - to sprawia, że ostrze jest trwałe i stępia się powoli. Polecamy ostrzałki diamentowe lub z węglika krzemu.">
+              matTooltip="Jest bardzo odporna na zużycie ścierne i cechuje ją wysoka hartowność, z kolei słonność do odkształceń jest mała - to sprawia, że ostrze jest trwałe i stępia się powoli. Polecamy ostrzałki diamentowe lub z węglika krzemu.">
               {{product.blade}}
             </td>
           </tr>
           <tr><td>pochwa:</td> <td>{{product.sheath}}</td></tr>
+          <tr><td>stan magazynu:</td><td>{{this.stock}}/20 sztuk</td></tr>
         </table>
-      <table>
-        <tr><td>stan magazynu:</td><td>{{this.stock}}/20 sztuk</td></tr>
-      </table>
-
       <p class="price">
         cena: <b>{{productPrice()}} </b>
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
@@ -59,7 +56,8 @@
           <app-button
             text="idź do checkoutu"
             link="https://tipi-knapa-checkout.netlify.app/"
-            [orderId]="ord"></app-button>
+            [orderId]="ord">
+          </app-button>
         </div>
     </div>
   </div>

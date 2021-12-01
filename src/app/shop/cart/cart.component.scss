@@ -20,6 +20,15 @@
       top: -12px;
       right: 1%;
     }
+    & fa-icon.refresh{
+      bottom: 4%;
+      right: unset;
+      top: unset;
+      left: 4%;
+      font-size: 1.4rem;
+      z-index: 1;
+      position: relative;
+    }
 
     & h3{
         font-size: 2rem;
@@ -58,23 +67,37 @@
       }
     }
 
-    & ul.cart_totals{
-      border-top: solid 2px black;
-      list-style-type: none;
-      width: 100%;
-      padding: 0;
-      line-height: 2rem;
-      padding-top: 1rem;
-      & li:last-child{
-        font-size: 1.7rem;
-      }
-      @include respond(phone){
-        font-size: 1.1rem;
-        line-height: 1.3rem;
-        & li:last-child{
-          font-size: 1.4rem;
+    // & ul.cart_totals{
+    //   border-top: solid 2px black;
+    //   list-style-type: none;
+    //   width: 100%;
+    //   padding: 0;
+    //   line-height: 2rem;
+    //   padding-top: 1rem;
+    //   & li:last-child{
+    //     font-size: 1.7rem;
+    //   }
+    //   @include respond(phone){
+    //     font-size: 1.1rem;
+    //     line-height: 1.3rem;
+    //     & li:last-child{
+    //       font-size: 1.4rem;
+    //     }
+    //   }
+    // }
+      .cart_confirm{
+        width: 100%;
+        background-color: $metal;
+        font-family: $techLight;
+        margin-bottom: 2rem;
+        & p{
+          text-align: center;
+
+        }
+        & span{
+          font-family: $tech;
         }
       }
-    }
   }
+
 }

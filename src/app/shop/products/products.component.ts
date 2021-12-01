@@ -5,8 +5,8 @@ import { EcommerceService } from 'src/app/ecommerce.service';
 import { MatDialog } from '@angular/material/dialog';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartComponent } from '../cart/cart.component';
-import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
-import { getCart, getOrderId, getToken, setCart, setOrderId } from 'src/app/localStorage';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { getCart, getOrderId, getToken, setCart, setCheckoutButton, setOrderId } from 'src/app/localStorage';
 
 const sanityClient = require("@sanity/client");
 const sanity = sanityClient({
@@ -68,15 +68,14 @@ export class ProductsComponent implements OnInit {
     this.cart = JSON.parse(getCart());
     this.ord = getOrderId();
     console.log(getOrderId());
-
+    //Sanity
     this.feed.getProducts().subscribe( products => {
       this.productsRaw = products;
       //do poprawienia przy >1 produkcie
       this.products.push(this.workResult(this.productsRaw.result[0]));
     });
-
+    //Commerce Layer
     this.token = JSON.parse(getToken());
-
     if(this.token){
       this.ecomm.getPrices(this.token.access_token).subscribe(p => {
         if(p){
@@ -141,6 +140,7 @@ export class ProductsComponent implements OnInit {
     setCart(cart.cart);
     console.log('dodano do koszyka');
     console.log(getCart());
+    setCheckoutButton(true.toString());
     this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
   }
 
@@ -160,6 +160,8 @@ export class ProductsComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       this.cart = JSON.parse(getCart());
       this.ord = getOrderId();
+      // var isTrueSet = (getCheckoutButton() === 'false');
+      // this.isCheckoutEnabled = isTrueSet;
     });
   }
   openSnackBar(message: string, action: string) {

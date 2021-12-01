@@ -23,6 +23,21 @@ export function setOrderId(orderId: string){
 export function getOrderId(): any {
   return localStorage.getItem('orderId');
 }
+//CHECKOUT BUTTON
+export function setCheckoutButton(isEnabled: string){
+  localStorage.setItem('isEnabled', isEnabled);
+}
+export function getCheckoutButton(): any {
+  return localStorage.getItem('isEnabled');
+}
+//SHIPMENT
+export function setShipment(shipment: string){
+  const jsonData = JSON.stringify(shipment);
+  localStorage.setItem('shipment', jsonData);
+}
+export function getShipment(): any {
+  return localStorage.getItem('shipment');
+}
 
 export function clear() {
   return localStorage.clear();

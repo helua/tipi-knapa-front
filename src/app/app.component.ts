@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Meta, MetaDefinition } from '@angular/platform-browser';
-import { getToken, clear, setCart, setOrderId } from '../app/localStorage'
+import { getToken, clear, setCart, setOrderId, setCheckoutButton, getCart, getOrderId, getCheckoutButton } from '../app/localStorage'
 import { TokenService } from './token.service';
 
 @Component({
@@ -17,13 +17,21 @@ export class AppComponent {
   ngOnInit(){
     // clear();
     this.metaService.updateTag(this.norobots);
-    setCart({
+
+    if(getCart() === null){
+      setCart({
       data: {
         attributes: {
           skus_count: 0,
         }
       }
     });
-    setOrderId('');
+    }
+    if(getOrderId() === null){
+      setOrderId('');
+    }
+    if(getCheckoutButton() === null){
+      setCheckoutButton('true');
+    }
   }
 }
