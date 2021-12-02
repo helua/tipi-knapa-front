@@ -1,5 +1,8 @@
  <main>
-  <h3>Koszyk</h3>
+  <h3>
+    <fa-icon id="cart" [icon]="cartIcon" (click)="onClose()"></fa-icon>
+    Koszyk
+  </h3>
   <div *ngIf="cart.data.attributes.skus_count !== 0; else emptyCart">
     <p class="cart_order-number">Zamówienie nr: {{cart.data.attributes.number}}<br>
       <span class="cart_count-total">(liczba produktów: {{cart.data.attributes.skus_count}})</span>
@@ -62,7 +65,7 @@
       >
     </app-button>
 
-    <fa-icon class="refresh"
+    <fa-icon id="refresh"
       *ngIf="isRefreshEnabled"
       [icon]="syncIcon"
       (click)="getCurrentOrder()"
@@ -72,8 +75,10 @@
     </fa-icon>
 
   </div>
-  <ng-template #emptyCart>Twój koszyk jest pusty</ng-template>
-  <fa-icon [icon]="closeIcon" (click)="onClose()"></fa-icon>
+  <ng-template #emptyCart>
+    <p class="cart_info">Twój koszyk jest pusty</p>
+  </ng-template>
+  <fa-icon id="close" [icon]="closeIcon" (click)="onClose()"></fa-icon>
  </main>
 
 

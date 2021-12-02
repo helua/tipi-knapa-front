@@ -12,6 +12,7 @@
     background-color: $color;
     border-style: solid;
     box-shadow: black 5px 5px;
+    font-family: $brygBoldItalic;
 }
 
 nav{
@@ -26,7 +27,8 @@ nav{
         list-style-type: none;
 
         & a{
-            padding: 2px;
+            padding: 2.5px;
+            letter-spacing: .1rem;
 
         }
     }
@@ -74,6 +76,7 @@ nav .nav-tri{
 }
 
 nav .nav-qua{
+  font-family: $f2;
   font-size: 11px;
   line-height: 11px;
   position: fixed;

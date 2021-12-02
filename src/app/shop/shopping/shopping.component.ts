@@ -16,11 +16,11 @@ const sanity = sanityClient({
   useCdn: true,
 });
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  selector: 'app-shopping',
+  templateUrl: './shopping.component.html',
+  styleUrls: ['./shopping.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ShoppingComponent implements OnInit {
 
   cartIcon = faShoppingCart;
   badgeHidden: boolean = false;

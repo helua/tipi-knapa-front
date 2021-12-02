@@ -14,25 +14,35 @@
       color: $metal;
       font-size: .9rem;
       line-height: 1.4rem;
+      @include respond(phone){
+        font-size: .8rem;
+      }
     }
     & fa-icon{
+      position: relative;
+    }
+
+    & fa-icon#close{
       position: absolute;
       top: -12px;
       right: 1%;
     }
-    & fa-icon.refresh{
+    & fa-icon#refresh{
       bottom: 4%;
       right: unset;
       top: unset;
       left: 4%;
       font-size: 1.4rem;
       z-index: 1;
-      position: relative;
     }
 
-    & h3{
+    & h3, fa-icon#cart{
         font-size: 2rem;
         padding: 1rem 0;
+        @include respond(phone){
+          font-size: 1.5rem;
+
+        }
 
     }
     & .cart_product{
@@ -42,6 +52,10 @@
       flex-direction: row;
       & .cart_product-image{
         width: 27%;
+        @include respond(phone){
+          width: 20%;
+
+        }
         & img{
           width: 100%;
         }
@@ -97,6 +111,19 @@
         & span{
           font-family: $tech;
         }
+        @include respond(phone){
+          margin-bottom: 1rem;
+          & p{
+            font-size: .9rem;
+            line-height: .9rem;
+
+          }
+
+        }
+      }
+      .cart_info{
+        font-family: $techLight;
+
       }
   }
 

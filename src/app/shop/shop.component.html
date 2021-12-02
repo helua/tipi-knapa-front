@@ -1,5 +1,5 @@
 <main *ngIf="token | async ; else loadingBlock">
-  <app-products [token]="token"></app-products>
+  <app-shopping [token]="token"></app-shopping>
 </main>
 <ng-template #loadingBlock>
   <app-loading></app-loading>

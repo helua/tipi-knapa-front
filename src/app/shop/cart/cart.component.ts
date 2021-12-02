@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CartData } from '../Product';
-import { faTimes, faSync } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faSync, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -17,6 +17,7 @@ export class CartComponent implements OnInit {
 
   closeIcon = faTimes;
   trashIcon = faTrashAlt;
+  cartIcon = faShoppingCart;
   syncIcon = faSync;
   @Input() cart: any;
   @Input() ord: any;

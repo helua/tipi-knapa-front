@@ -12,7 +12,7 @@ import { NavMobileComponent } from './nav-mobile/nav-mobile.component';
 import { AboutComponent } from './about/about.component';
 import { ShopComponent } from './shop/shop.component';
 import { MainComponent } from './main/main.component';
-import { ProductsComponent } from './shop/products/products.component';
+import { ShoppingComponent } from './shop/shopping/shopping.component';
 import { ProductComponent } from './shop/product/product.component';
 import { CartComponent } from './shop/cart/cart.component';
 import { LoadingComponent } from './components/loading/loading.component';
@@ -39,7 +39,7 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
     AboutComponent,
     ShopComponent,
     MainComponent,
-    ProductsComponent,
+    ShoppingComponent,
     ProductComponent,
     SlideshowComponent,
     ButtonComponent,

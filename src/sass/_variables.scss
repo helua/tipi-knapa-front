@@ -10,12 +10,13 @@ $metal: #bbb7b7;
 $selection: #bbb7b7;
 
 $gap: 0px;
-// $f: 'Times New Roman';
-// $f2: 'Times New Roman';
 $f: 'Bahnschrift';
 $f2: 'Lucida Console';
 $tech: 'Sudo Regular';
 $techLight: 'Sudo Light';
+$bryg: 'Brygada 1918';
+$brygSemiBoldItalic: 'Brygada 1918 Semi Bold Italic';
+$brygBoldItalic: 'Brygada 1918 Bold Italic';
 $router: calc(100vh - 13rem);
 
 
@@ -48,3 +49,25 @@ $router: calc(100vh - 13rem);
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Brygada 1918';
+  src: url('https://tipi-knapa.netlify.app/assets/fonts/Brygada\ 1918-Regular.otf');
+  src: url('https://tipi-knapa.netlify.app/assets/fonts/Brygada\ 1918-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Brygada 1918 Semi Bold Italic';
+  src: url('https://tipi-knapa.netlify.app/assets/fonts/Brygada\ 1918-SemiBolditalic.otf');
+  src: url('https://tipi-knapa.netlify.app/assets/fonts/Brygada\ 1918-SemiBolditalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Brygada 1918 Bold Italic';
+  src: url('https://tipi-knapa.netlify.app/assets/fonts/Brygada\ 1918-Bolditalic.otf');
+  src: url('https://tipi-knapa.netlify.app/assets/fonts/Brygada\ 1918-Bolditalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
