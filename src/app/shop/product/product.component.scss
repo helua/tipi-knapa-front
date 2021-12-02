@@ -1,5 +1,9 @@
 @import '../../../sass/styles';
-
+// main{
+//   background: wheat;
+//   position: relative;
+//   z-index: 50;
+// }
 h2{
   @include respond(tab-port){
     padding: 1rem 5%;
@@ -19,9 +23,10 @@ p.code{
 }
 p.price{
   font-size: 1.5rem;
-  @include respond(tab-port){
-    text-align: right;
-  }
+  text-align: right;
+
+  // @include respond(tab-port){
+  // }
   @include respond(phone){
     font-size: 1.2rem;
   }

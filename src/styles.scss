@@ -35,10 +35,11 @@ $tipi-knapa-theme: mat.define-light-theme((
 
 @import '/src/sass/styles';
 
-//fix cart popup jump
-html.cdk-global-scrollblock{
-  position: initial !important;
-}
+// fix cart popup jump
+// html.cdk-global-scrollblock{
+//   position: initial !important;
+//   top: -22px !important;
+// }
 
 body{
     font-family: $bryg;
@@ -154,8 +155,11 @@ table{
   width: 100%;
   padding: 1rem 8%;
   font-size: 1.5rem;
-  & tr{
-    border-bottom: 1pt solid black;
+  line-height: 1.5rem;
+
+  & td {
+      padding-bottom: .5rem;
+      border-bottom: .5px dotted $metal;
   }
   & tr td:first-child{
     font-family: $techLight;
@@ -163,7 +167,6 @@ table{
   }
   & tr td:last-child{
     font-family: $tech;
-
     text-align: end;
   }
   @include respond(phone){
@@ -175,16 +178,16 @@ table{
 
 blockquote{
   color: $metal;
-  font-family: $tech;
-  font-size: 1.4rem;
+  font-family: $techLight;
+  font-size: 1.1rem;
   margin: 2% 12%;
   // text-align: justify;
   @include respond(tab-land){
     margin: 1% 13%;
   }
   @include respond(phone){
-    font-size: 1.1rem;
-    text-align:left;
+    font-size: 1rem;
+    text-align: left;
     margin: 2% 6%;
   }
 }

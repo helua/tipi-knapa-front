@@ -12,10 +12,11 @@
   position: fixed;
   top: 7.6%;
   right: 3%;
+  z-index: 12;
+
   @include respond(tab-port){
     right: 4%;
     top: 3%;
-    z-index: 10;
   }
 }
 
