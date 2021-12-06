@@ -74,6 +74,16 @@
       matTooltipHideDelay="100">
     </fa-icon>
 
+    <fa-icon id="delete"
+      *ngIf="!isCheckoutEnabled && shipment"
+      [icon]="trashIcon"
+      (click)="clearLocalStorage()"
+      matTooltip="Usuń potwierdzenie i zamów jeszcze raz"
+      matTooltipShowDelay="200"
+      matTooltipHideDelay="100">
+    </fa-icon>
+
+
   </div>
   <ng-template #emptyCart>
     <p class="cart_info">Twój koszyk jest pusty</p>

@@ -153,6 +153,7 @@ export class ShoppingComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(CartComponent, {
       width: '466px',
+      maxWidth: '97vw',
       data: { ord: this.ord },
     });
 

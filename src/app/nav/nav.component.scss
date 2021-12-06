@@ -37,7 +37,8 @@ nav{
 nav .nav-main{
     display: inline-block;
     position: fixed;
-    top: calc(5% + 3rem);
+    top: 0%;
+    margin-top: 6.5rem;
     line-height: 0rem;
     right: 10%;
     @include respond(tab-port){

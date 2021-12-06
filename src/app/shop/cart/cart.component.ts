@@ -6,7 +6,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { EcommerceService } from 'src/app/ecommerce.service';
-import { getCart, getCheckoutButton, getShipment, getToken, setCart, setCheckoutButton, setOrderId, setShipment } from 'src/app/localStorage';
+import { clear, getCart, getCheckoutButton, getShipment, getToken, setCart, setCheckoutButton, setOrderId, setShipment } from 'src/app/localStorage';
 
 @Component({
   selector: 'app-cart',
@@ -115,6 +115,9 @@ export class CartComponent implements OnInit {
         this.isCheckoutUnfinished = true;
       }
     });
+  }
+  clearLocalStorage(){
+    clear();
   }
 
 }

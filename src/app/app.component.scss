@@ -7,9 +7,12 @@ img{
 
   &#tablet{
     left: 5%;
-    top: 3%;
+    top: 0%;
+    margin-top: 23.25px;
+    // margin-top: calc(8% - 80.68px);
     position: fixed;
     z-index: 5;
+    // transform: translateY(-50%);
 
 
     @include respond(tab-port){

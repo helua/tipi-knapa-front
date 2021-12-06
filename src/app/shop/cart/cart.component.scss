@@ -27,13 +27,20 @@
       top: -12px;
       right: 1%;
     }
-    & fa-icon#refresh{
+    & fa-icon#refresh, fa-icon#delete{
       bottom: 4%;
       right: unset;
       top: unset;
-      left: 4%;
       font-size: 1.4rem;
       z-index: 1;
+    }
+    & fa-icon#refresh{
+
+      left: 4%;
+    }
+    & fa-icon#delete{
+
+      left: 87%;
     }
 
     & h3, fa-icon#cart{
