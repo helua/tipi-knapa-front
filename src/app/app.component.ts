@@ -27,7 +27,6 @@ export class AppComponent {
       }
     });
     }
-    console.log(getOrderId());
     if(getOrderId() === null){
       setOrderId('');
     }

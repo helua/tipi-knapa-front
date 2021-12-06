@@ -118,6 +118,19 @@ export class CartComponent implements OnInit {
   }
   clearLocalStorage(){
     clear();
+    this.onClose();
+    setOrderId('');
+    setCart({
+      data: {
+        attributes: {
+          skus_count: 0,
+        }
+      }
+    });
+    setCheckoutButton('true');
+    this.router.navigate(['/']);
+
+
   }
 
 }
