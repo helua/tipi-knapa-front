@@ -35,11 +35,6 @@ $tipi-knapa-theme: mat.define-light-theme((
 
 @import '/src/sass/styles';
 
-// fix cart popup jump
-// html.cdk-global-scrollblock{
-//   position: initial !important;
-//   top: -22px !important;
-// }
 
 body{
     font-family: $bryg;
@@ -130,7 +125,7 @@ h2{
 p{
   font-size: 1.5rem;
   padding: 1rem 8%;
-  line-height: 1.7rem;
+  line-height: 1.9rem;
   text-align: justify;
 
   @include respond(tab-land){
@@ -212,4 +207,9 @@ fa-icon{
   }
 }
 
+
+
+.mat-dialog-container{
+  height: auto !important;
+}
 

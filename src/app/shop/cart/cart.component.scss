@@ -60,7 +60,7 @@
       & .cart_product-image{
         width: 27%;
         @include respond(phone){
-          width: 23%;
+          width: 46px;
         }
         & img{
           width: 100%;
