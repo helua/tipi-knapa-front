@@ -10,6 +10,10 @@
   transition: 2s;
   animation: enter 1.66s ease-in-out .01s backwards;
   position: relative;
+  @include respond(tab-port){
+    height: 60vh;
+
+  }
   @include respond(phone){
     background-image: url('../../assets/TIPI-KNAPA_bg-mobile.jpg');
 
@@ -18,11 +22,13 @@
 
 .tooltip{
   position: relative !important;
-  top: 75vh !important;
-  // background-color: $color;
+  top: calc(100vh - 14.2rem ) !important;
   font-size: 1.2rem;
   height: 1.2rem;
   font-family: $f2;
+  border-radius: 0px;
+  // border-style: solid;
+  box-shadow: black 5px 5px;
 }
 
 @keyframes enter {

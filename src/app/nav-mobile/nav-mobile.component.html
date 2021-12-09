@@ -11,22 +11,25 @@
           <a (click)="sidenav.toggle()" mat-list-item routerLink="/kontakt" routerLinkActive="active">KONTAKT</a>
           <a (click)="sidenav.toggle()" mat-list-item routerLink="/sklep" routerLinkActive="active">SKLEP</a>
         </mat-nav-list>
-        <ul class="social">
-          <li>
-            <a href="https://www.facebook.com/tipiknapa" target="_blank">
-              <fa-icon [icon]="facebookIcon"></fa-icon>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/tipiknapa" target="_blank">
-              <fa-icon [icon]="instagramIcon"></fa-icon>
-            </a>
-          </li>
-        </ul>
+        <div class="social-holder">
+          <ul class="social">
+            <li>
+              <a href="https://www.facebook.com/tipiknapa" target="_blank">
+                <fa-icon [icon]="facebookIcon"></fa-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/tipiknapa" target="_blank">
+                <fa-icon [icon]="instagramIcon"></fa-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </mat-sidenav>
     <mat-sidenav-content>
         <div class="router-wrapper">
-          <img src="../../assets/TIPI-KNAPA_logo-triangle.png" alt="TIPI KNAPA" id="triangle">
+          <img src="../../assets/TIPI-KNAPA_logo-triangle.png" alt="tipiKnapa logo" id="triangle">
 
           <router-outlet></router-outlet>
         </div>

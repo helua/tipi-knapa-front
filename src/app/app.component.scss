@@ -1,19 +1,15 @@
 @import '../sass/styles';
 
 img{
-  width: 510px;
+  width: 475px;
   mix-blend-mode: difference;
-
 
   &#tablet{
     left: 5%;
     top: 0%;
-    margin-top: 23.25px;
-    // margin-top: calc(8% - 80.68px);
+    margin-top: 28.8835px;
     position: fixed;
     z-index: 5;
-    // transform: translateY(-50%);
-
 
     @include respond(tab-port){
       width: 414px;
@@ -24,5 +20,4 @@ img{
       cursor: pointer;
     }
   }
-
 }

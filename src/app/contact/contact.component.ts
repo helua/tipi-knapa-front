@@ -7,7 +7,7 @@ import { faCopyright, faCode, faImages } from '@fortawesome/free-solid-svg-icons
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  title = 'KONTAKT | TIPI KNAPA';
+  title = 'tipiKnapa | Kontakt';
   description: MetaDefinition = {name: 'description', content: 'Masz pytania dotyczące sklepu Tipiknapa? A może potrzebujesz dopytać się o szczegóły konkretnego produktu? Podbijaj do nas, coś na pewno zaradzimy.'};
 
   copyIcon = faCopyright;

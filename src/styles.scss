@@ -39,7 +39,7 @@ $tipi-knapa-theme: mat.define-light-theme((
 body{
     font-family: $bryg;
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 599;
     letter-spacing: 0;
     margin: 0px;
     @include respond(phone){
@@ -54,15 +54,21 @@ body{
 .router-wrapper{
     margin: 13rem 0 0 0;
     @include respond(tab-port){
-      margin: 65% 0 0 0;
+      margin: 40vh 0 0 0;
     }
     & img#triangle{
       position: absolute;
-      z-index: 5;
-      width: 60%;
-      left: 20%;
       top: 2rem;
-      @media screen and (min-width: 900px){
+      z-index: 5;
+      @media screen and (orientation: portrait) {
+        width: 50%;
+        left: 25%;
+      }
+      @media screen and (orientation: landscape) {
+        width: 30%;
+        left: 35%;
+      }
+      @media screen and (min-width: 1119px){
         display: none;
       }
     }
@@ -96,7 +102,7 @@ h1{
   z-index: 2;
   mix-blend-mode: difference;
   color: $metal;
-  @media screen and (max-width: 900px){
+  @include respond(tab-port){
     font-size: 4.5rem;
     letter-spacing: .45rem;
   }
@@ -123,23 +129,23 @@ h2{
   }
 }
 p{
-  font-size: 1.5rem;
-  padding: 1rem 8%;
-  line-height: 1.9rem;
-  text-align: justify;
+  text-align: left;
+  padding: 1rem 4%;
+  font-size: 1.18rem;
+  line-height: 1.3rem;
+  @include respond(big-desktop){
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    padding: 1rem 8%;
 
-  @include respond(tab-land){
-    font-size: 1.35rem;
-    line-height: 1.5rem;
-    padding: 1rem 12%;
   }
   @include respond(tab-port){
     font-size: 1.2rem;
-    line-height: 1.3rem;
+    line-height: 1.4rem;
     padding: 1rem 5%;
   }
   @include respond(phone){
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.2rem;
     padding: 1rem 1.5%;
     text-align: left;
@@ -149,11 +155,11 @@ p{
 table{
   width: 100%;
   padding: 1rem 8%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 1.5rem;
 
   & td {
-      padding-bottom: .5rem;
+      padding-bottom: .2rem;
       border-bottom: .5px dotted $metal;
   }
   & tr td:first-child{
@@ -173,10 +179,9 @@ table{
 
 blockquote{
   color: $metal;
-  font-family: $techLight;
-  font-size: 1.1rem;
+  font-family: $tech;
+  font-size: 1.2rem;
   margin: 2% 12%;
-  // text-align: justify;
   @include respond(tab-land){
     margin: 1% 13%;
   }

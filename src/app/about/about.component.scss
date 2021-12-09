@@ -6,20 +6,26 @@ img
 }
 h2{
   margin: 2rem 0;
+  padding-left: 15%;
 
 }
 p{
-  padding: 3rem 10%;
+  padding: 3rem 15%;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  text-align: justify;
+
   @include respond(phone){
     padding: 3rem 6%;
     font-size: 1.15rem;
     line-height: 1.5rem;
-
+    text-align: left;
   }
-  & mark{
+  & span.bold{
     font-family: $brygBoldItalic;
-    background-color: unset;
-
+  }
+  & span.semibold{
+    font-family: $brygSemiBoldItalic;
   }
 }
 

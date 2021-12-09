@@ -1,7 +1,7 @@
 
 <main>
   <h2>{{ product.title }}</h2>
-  <p class="code">{{ product.sku }}</p>
+  <p class="code">{{product.vendor}} / {{ product.sku }}</p>
   <a class="add-to-cart" (click)="createOrder()" >
     Dodaj do koszyka
     <fa-icon  [icon]="cartIcon" ></fa-icon>
@@ -16,11 +16,10 @@
     </div>
 
     <div class="holder-info">
-      <!-- <h3>{{product.vendor}}</h3> -->
       <div class="body-wrapper" [innerHTML]="product.body"></div>
         <table>
           <!-- <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</td></li> -->
-          <tr><td>waga:</td><td>{{product.weight}} g</td></tr>
+          <tr><td>waga noża:</td><td>{{product.weight}} g</td></tr>
           <tr><td>długość całkowita:</td> <td>{{product.length}} mm</td></tr>
           <tr><td>długość ostrza:</td> <td>{{product.bladeLength}} mm</td></tr>
           <tr><td>szerokość ostrza:</td> <td>{{product.bladeWidth}} mm</td></tr>

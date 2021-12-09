@@ -8,7 +8,7 @@
   left:4%;
   top: 3%;
 
-  @media only screen and (min-width: 900px) {
+  @media only screen and (min-width: 1119px) {
   display: none;
   visibility: hidden;
   }
@@ -40,15 +40,23 @@ mat-sidenav img{
   width: 97px;
 }
 .mat-list-item{
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   letter-spacing: .05rem;
   margin-top: 3%;
-  font-family: $f2;
+  font-family: $bryg;
+  @include respond(phone){
+    font-size: 1.55rem;
+
+  }
 }
 .mat-list-item:hover{
   background-color: $color;
 }
-
+.social-holder{
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
 ul.social{
   display: flex;
   flex-direction: row;
