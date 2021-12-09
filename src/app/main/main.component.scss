@@ -1,14 +1,14 @@
 @import '../../sass/styles';
 
 .background{
+  background-size: cover;
   background-image: url('../../assets/TIPI-KNAPA_bg.jpg');
   background-position: center;
-  background-size: cover;
   width: 100%;
   height: calc(100vh  - 13rem);
   cursor: pointer;
   transition: 2s;
-  animation: enter 1.66s ease-in-out .01s backwards;
+  animation: enter 1.66s ease .01s forwards;
   position: relative;
   @include respond(tab-port){
     height: 60vh;
@@ -43,6 +43,10 @@
       }
   100%{
     height: calc(100vh  - 13rem);
+    @include respond(tab-port){
+      height: 60vh;
+
+    }
     filter: grayscale(0);
   }
 

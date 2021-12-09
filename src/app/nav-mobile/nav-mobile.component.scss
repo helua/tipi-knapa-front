@@ -36,13 +36,13 @@ mat-sidenav img{
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  top: 2rem;
+  top: 2.5vh;
   width: 97px;
 }
 .mat-list-item{
   font-size: 1.8rem;
   letter-spacing: .05rem;
-  margin-top: 3%;
+  margin-top: 1.7vh;
   font-family: $brygBoldItalic;
   @include respond(phone){
     font-size: 1.55rem;

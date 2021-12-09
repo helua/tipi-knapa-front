@@ -89,6 +89,10 @@ a.add-to-cart{
     max-width: 100%;
 
   }
+  @include respond(big-desktop){
+    width: 86vw;
+  }
+
 
   & fa-icon{
     margin-left: 1rem;

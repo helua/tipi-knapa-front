@@ -54,7 +54,7 @@ body{
 .router-wrapper{
     margin: 13rem 0 0 0;
     @include respond(tab-port){
-      margin: 40vh 0 0 0;
+      margin: 55% 0 0 0;
     }
     & img#triangle{
       position: absolute;
@@ -134,8 +134,8 @@ p{
   font-size: 1.18rem;
   line-height: 1.3rem;
   @include respond(big-desktop){
-    font-size: 1.5rem;
-    line-height: 1.7rem;
+    font-size: 1.5vw;
+    line-height: 1.6vw;
     padding: 1rem 8%;
 
   }
@@ -148,7 +148,6 @@ p{
     font-size: 1rem;
     line-height: 1.2rem;
     padding: 1rem 1.5%;
-    text-align: left;
   }
 }
 
@@ -174,6 +173,9 @@ table{
     font-size: 1.2rem;
     padding: .5rem 3%;
     letter-spacing: 0px;
+  }
+  @include respond(big-desktop){
+    padding: 2rem 20%;
   }
 }
 
