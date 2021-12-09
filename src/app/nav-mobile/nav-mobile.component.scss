@@ -43,7 +43,7 @@ mat-sidenav img{
   font-size: 1.8rem;
   letter-spacing: .05rem;
   margin-top: 3%;
-  font-family: $bryg;
+  font-family: $brygBoldItalic;
   @include respond(phone){
     font-size: 1.55rem;
 
@@ -62,6 +62,5 @@ ul.social{
   flex-direction: row;
   justify-content: space-around;
   list-style-type: none;
-  margin-bottom: 33px;
 }
 

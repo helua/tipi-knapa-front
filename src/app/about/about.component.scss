@@ -7,6 +7,10 @@ img
 h2{
   margin: 2rem 0;
   padding-left: 15%;
+  @include respond(phone){
+    padding-left: 6%;
+
+  }
 
 }
 p{

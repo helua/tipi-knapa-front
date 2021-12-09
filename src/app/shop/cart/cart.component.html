@@ -12,7 +12,10 @@
         <img [src]="line_items.attributes.image_url" alt="">
       </div>
       <div class="cart_product-title">
-        <h4>{{line_items.attributes.name}}</h4>
+        <h4>{{line_items.attributes.name}}<br>
+          <span class="cart_count-total">{{line_items.attributes.sku_code}}</span></h4>
+
+
         <fa-icon
           *ngIf="isCheckoutEnabled"
           [icon]="trashIcon"
