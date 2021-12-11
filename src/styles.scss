@@ -54,11 +54,11 @@ body{
 .router-wrapper{
     margin: 13rem 0 0 0;
     @include respond(tab-port){
-      margin: 55% 0 0 0;
+      margin: 40vh 0 0 0;
     }
     & img#triangle{
       position: absolute;
-      top: 2rem;
+      top: calc(2rem + 4vw);
       z-index: 5;
       @media screen and (orientation: portrait) {
         width: 50%;

@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   @Input() token: any;
   line_items: any;
   shipment: any;
-  checkout: string = 'https://tipi-knapa-checkout.netlify.app/';
+  checkout: string = 'https://checkout.tipiknapa.pl/';
   isRefreshEnabled: boolean = true;
   isCheckoutEnabled: boolean = true;
   isCheckoutUnfinished: boolean = false;

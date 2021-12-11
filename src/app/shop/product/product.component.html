@@ -54,7 +54,7 @@
         <div *ngIf="ord">
           <app-button
             text="idź do checkoutu"
-            link="https://tipi-knapa-checkout.netlify.app/"
+            [link]="checkout"
             [orderId]="ord">
           </app-button>
         </div>

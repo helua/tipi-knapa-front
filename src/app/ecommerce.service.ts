@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class EcommerceService {
 
   url: string = 'https://tipi-knapa-shop.commercelayer.io'
-  checkoutUrl: string = 'https://tipi-knapa-checkout.netlify.app/';
+  //checkoutUrl: string = 'https://checkout.tipiknapa.pl/';
   orderCreated: string = '';
 
   constructor(private http: HttpClient ) { }
@@ -103,7 +103,5 @@ export class EcommerceService {
     return this.http.delete(this.url+'/api/line_items/'+lineItemId,
       headers);
   }
-  goToCheckout(id: string){
-    return this.http.get(this.checkoutUrl+id);
-  }
+
 }
