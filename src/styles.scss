@@ -58,7 +58,7 @@ body{
     }
     & img#triangle{
       position: absolute;
-      top: calc(2rem + 4vw);
+      top: calc(2rem + 1vw);
       z-index: 5;
       @media screen and (orientation: portrait) {
         width: 50%;

@@ -16,7 +16,7 @@ export class AppComponent {
 
   ngOnInit(){
     // clear();
-    this.metaService.updateTag(this.norobots);
+    // this.metaService.updateTag(this.norobots);
 
     if(getCart() === null){
       setCart({
