@@ -49,7 +49,7 @@ a.add-to-cart{
   display: flex;
   margin: 0% 7%;
   @include respond(tab-land){
-    width: 100%;
+    width: 96%;
     margin: 0;
   }
   @include respond(tab-port){

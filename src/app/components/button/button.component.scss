@@ -14,7 +14,7 @@
   right: 5%;
   bottom: 5px;
   padding: 10px 15px;
-  border-radius: 3px;
+  border-radius: 0;
   background-color: $color;
   color: black;
   text-transform: uppercase;
@@ -38,6 +38,6 @@
     background-color: $selection;
     color: $contrast;
     transform: scale(1.1);
-    box-shadow: $color -5px -5px;
+    box-shadow: $contrast -5px -5px;
   }
 }
