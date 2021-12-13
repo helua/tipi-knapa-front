@@ -48,7 +48,7 @@ a.add-to-cart{
   width: 86%;
   display: flex;
   margin: 0% 7%;
-  @include respond(tab-land){
+  @media screen and (max-width: 1300px){
     width: 96%;
     margin: 0;
   }
@@ -73,8 +73,8 @@ a.add-to-cart{
 }
 .holder-info{
   max-width: calc(86vw - 500px);
-  @include respond(tab-land){
-    max-width: calc(100vw - 500px);
+  @media screen and (max-width: 1300px){
+    max-width: calc(96vw - 500px);
 
   }
   @include respond(tab-port){
@@ -121,6 +121,10 @@ table{
   @media screen and (min-width: 900px){
     padding:  1rem 150px;
   }
+  @media screen and (min-width: 1370px){
+    padding:  1rem 180px;
+
+  }
 }
 .info{
 
@@ -134,5 +138,8 @@ table{
     width: 300px;
     background-color: rgba(#fffff2, .9);
 
+  }
+  @media screen and (min-width: 1370px){
+    width: 176px;
   }
 }
