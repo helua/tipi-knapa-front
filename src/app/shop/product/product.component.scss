@@ -118,16 +118,21 @@ a.add-to-cart{
   }
 }
 table{
-  padding:  1rem 150px;
+  @media screen and (min-width: 900px){
+    padding:  1rem 150px;
+  }
 }
 .info{
 
-  width: 130px;
-  font-size: 1.1rem;
+  width: 136px;
+  font-size: 1rem;
   font-family: $tech;
-  background-color: rgba(#fffff1, .9);
-  color: $contrast;
-  @include respond(phone){
+  background-color: rgba(#ffffff, 1);
+  color: #210d91 !important;
+  @media screen and (max-width: 900px){
     font-size: 1rem;
+    width: 300px;
+    background-color: rgba(#fffff2, .9);
+
   }
 }
