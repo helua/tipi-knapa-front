@@ -56,6 +56,9 @@ p{
 .pic-4{
   background-image: url('../../assets/about/big/5.jpg');
 }
+.pic-5{
+  background-image: url('../../assets/about/big/6.jpg');
+}
 @include respond(phone){
   .pic-1{
     background-image: url('../../assets/about/small/2.jpg');
@@ -68,6 +71,9 @@ p{
   }
   .pic-4{
     background-image: url('../../assets/about/small/5.jpg');
+  }
+  .pic-5{
+    background-image: url('../../assets/about/small/6.jpg');
   }
 }
 

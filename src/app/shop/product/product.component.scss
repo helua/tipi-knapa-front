@@ -118,9 +118,11 @@ a.add-to-cart{
   }
 }
 .info{
+
+  width: 50%;
   font-size: 1.3rem;
   font-family: $tech;
-  background-color: rgba($metal, .9);
+  background-color: rgba(#fffff1, .9);
   color: $contrast;
   @include respond(phone){
     font-size: 1rem;
