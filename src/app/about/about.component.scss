@@ -45,15 +45,18 @@ p{
 }
 
 .pic-1{
-  background-image: url('../../assets/about/big/2.jpg');
+  background-image: url('../../assets/about/big/2a.jpg');
 }
 .pic-2{
   background-image: url('../../assets/about/big/3.jpg');
 }
 .pic-3{
+  width: 70%;
+  margin: auto;
   background-image: url('../../assets/about/big/4.jpg');
 }
 .pic-4{
+  height: 75vh;
   background-image: url('../../assets/about/big/5.jpg');
 }
 .pic-5{
@@ -61,15 +64,17 @@ p{
 }
 @include respond(phone){
   .pic-1{
-    background-image: url('../../assets/about/small/2.jpg');
+    background-image: url('../../assets/about/small/2a.jpg');
   }
   .pic-2{
     background-image: url('../../assets/about/small/3.jpg');
   }
   .pic-3{
+    width: 88%;
     background-image: url('../../assets/about/small/4.jpg');
   }
   .pic-4{
+    height: 50vh;
     background-image: url('../../assets/about/small/5.jpg');
   }
   .pic-5{

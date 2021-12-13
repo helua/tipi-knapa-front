@@ -117,10 +117,13 @@ a.add-to-cart{
     text-shadow: 2px 2px rgba($color, 0.9);
   }
 }
+table{
+  padding:  1rem 150px;
+}
 .info{
 
-  width: 50%;
-  font-size: 1.3rem;
+  width: 130px;
+  font-size: 1.1rem;
   font-family: $tech;
   background-color: rgba(#fffff1, .9);
   color: $contrast;
