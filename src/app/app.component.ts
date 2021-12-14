@@ -17,7 +17,9 @@ export class AppComponent {
   ngOnInit(){
     // clear();
     // this.metaService.updateTag(this.norobots);
-
+    this.metaService.addTags([
+      {property: 'og:image', content: 'https://tipiknapa.pl/assets/TIPI-KNAPA_share.jpg'}
+    ]);
     if(getCart() === null){
       setCart({
       data: {
