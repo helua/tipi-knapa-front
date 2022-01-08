@@ -33,7 +33,7 @@ export class AppComponent {
       setOrderId('');
     }
     if(getCheckoutButton() === null){
-      setCheckoutButton('true');
+      setCheckoutButton('false');
     }
   }
 }

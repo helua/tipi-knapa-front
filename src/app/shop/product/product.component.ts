@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
   @Output() updateCart = new EventEmitter<any>();
   @Input() ord: string = '';
   checkout: string = 'https://checkout.tipiknapa.pl/';
-
+  // isCheckoutEnabled: boolean = true;
   cartIcon = faCartPlus;
 
   constructor(private ecomm: EcommerceService) { }
@@ -29,6 +29,11 @@ export class ProductComponent implements OnInit {
     if(getOrderId() !== undefined){
       this.ord = getOrderId();
     }
+    // console.log(getCheckoutButton())
+    // console.log('pobieram daną o Checkout Button z localStorage');
+    //   var isTrueSet = (getCheckoutButton() === 'true');
+    //   this.isCheckoutEnabled = isTrueSet;
+    //   console.log(this.isCheckoutEnabled);
   }
 
   createOrder(){

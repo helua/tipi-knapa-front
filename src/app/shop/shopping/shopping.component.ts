@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { getCart, getOrderId, getToken, setCart, setCheckoutButton, setOrderId } from 'src/app/localStorage';
+import { getCart, getCheckoutButton, getOrderId, getToken, setCart, setCheckoutButton, setOrderId } from 'src/app/localStorage';
 
 const sanityClient = require("@sanity/client");
 const sanity = sanityClient({
@@ -23,7 +23,7 @@ const sanity = sanityClient({
 export class ShoppingComponent implements OnInit {
 
   cartIcon = faShoppingCart;
-  badgeHidden: boolean = false;
+  badgeHidden: boolean = true;
 
   productsRaw: any = [];
   products: Product[] = [
@@ -67,7 +67,10 @@ export class ShoppingComponent implements OnInit {
   ngOnInit(): void {
     this.cart = JSON.parse(getCart());
     this.ord = getOrderId();
-    console.log(getOrderId());
+        // console.log(getOrderId());
+    var isTrueSet = (getCheckoutButton() === 'false');
+    this.badgeHidden = isTrueSet;
+    // console.log(getCheckoutButton());
     //Sanity
     this.feed.getProducts().subscribe( products => {
       this.productsRaw = products;
@@ -81,14 +84,14 @@ export class ShoppingComponent implements OnInit {
         if(p){
           //do poprawienia przy >1 produkcie
           this.price = p.included[0].attributes.formatted_amount;
-          console.log(this.price);
+          // console.log(this.price);
         }
       });
       this.ecomm.getStock(this.token.access_token).subscribe(p => {
         if(p){
           //do poprawienia przy >1 produkcie
           this.stock = p.data[0].attributes.quantity;
-          console.log(this.stock);
+          // console.log(this.stock);
         }
       });
     }
@@ -134,14 +137,15 @@ export class ShoppingComponent implements OnInit {
   onUpdatedCart(cart: any){
     this.ord = cart.ord;
     setOrderId(cart.ord);
-    console.log(cart.ord);
-    console.log(getOrderId());
+    // console.log(getOrderId());
     this.cart = cart.cart;
     setCart(cart.cart);
-    console.log('dodano do koszyka');
-    console.log(getCart());
+    // console.log('dodano do koszyka');
+    // console.log(getCart());
     setCheckoutButton(true.toString());
     this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
+    var isTrueSet = (getCheckoutButton() === 'false');
+    this.badgeHidden = isTrueSet;
   }
 
   toggleBadgeVisibility() {
@@ -158,11 +162,10 @@ export class ShoppingComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
       this.cart = JSON.parse(getCart());
       this.ord = getOrderId();
-      // var isTrueSet = (getCheckoutButton() === 'false');
-      // this.isCheckoutEnabled = isTrueSet;
+      // console.log(this.ord);
     });
   }
   openSnackBar(message: string, action: string) {

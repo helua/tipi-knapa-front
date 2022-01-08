@@ -28,6 +28,7 @@ export class CartComponent implements OnInit {
   isRefreshEnabled: boolean = true;
   isCheckoutEnabled: boolean = true;
   isCheckoutUnfinished: boolean = false;
+  isPaymentCaptured: boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<CartComponent>,
@@ -38,41 +39,36 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.ord = this.data.ord;
-    console.log('pobieram koszyk z localStorage');
+    // console.log(this.ord);
+    // console.log('pobieram koszyk z localStorage');
     this.cart = JSON.parse(getCart());
-    console.log(this.cart);
-    console.log('pobieram dane o wysyłce z localStorage');
+    // console.log(this.cart);
+    // console.log('pobieram dane o wysyłce z localStorage');
     this.shipment = JSON.parse(getShipment());
-    console.log(this.shipment);
-    console.log('pobieram daną o Checkout Button z localStorage');
+    // console.log(this.shipment);
+    // console.log('pobieram daną o Checkout Button z localStorage');
       var isTrueSet = (getCheckoutButton() === 'true');
       this.isCheckoutEnabled = isTrueSet;
-      console.log(this.isCheckoutEnabled);
+      // console.log(this.isCheckoutEnabled);
 
     if(this.cart.data.attributes.skus_count != 0){
       this.line_items = this.cart.included.find((e: { attributes: { item_type: string; }; }) => e.attributes.item_type === 'skus');
-      console.log(this.line_items);
+      // console.log(this.line_items);
     }
 
   }
-  // ngAfterViewChecked(): void{
-  //   this.ecomm.getCart(getToken(), this.ord).subscribe(c => {
-  //     console.log(c);
-  //     console.log(JSON.parse(getCart()));
-  //   });
-  // }
 
   onClose(): void {
     this.dialogRef.close();
   }
   trashItem(id: string){
     this.token = JSON.parse(getToken());
-    console.log('usuwam line item');
-    console.log(id);
+    // console.log('usuwam line item');
+    // console.log(id);
     this.ecomm.deleteLineItem(this.token.access_token, id).toPromise().then(result => {
       this.ecomm.getCart(this.token.access_token, this.data.ord).subscribe(o =>{
-        console.log('koszyk po usunięciu');
-        console.log(o);
+        // console.log('koszyk po usunięciu');
+        // console.log(o);
         setCart(o);
         this.cart = JSON.parse(getCart());
         setOrderId('');
@@ -99,8 +95,8 @@ export class CartComponent implements OnInit {
   getCurrentOrder(){
     this.token = JSON.parse(getToken());
     this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
-      console.log('pobieram koszyk z CL');
-      console.log(c);
+      // console.log('pobieram koszyk z CL');
+      // console.log(c);
       setCart(c);
       this.cart = c;
       if(c.included.length === 3){
@@ -109,7 +105,7 @@ export class CartComponent implements OnInit {
         this.shipment = this.cart.included.find((e: { attributes: { item_type: string; }; }) => e.attributes.item_type === 'shipments');
         setShipment(this.shipment);
         this.isCheckoutUnfinished = false;
-        setOrderId('');
+        setOrderId('');//wtfuck
       }
       else{
         this.isCheckoutUnfinished = true;

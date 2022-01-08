@@ -23,34 +23,34 @@ export class TokenService {
         scope: this.scope,
       })
       if(tokenAPI){
-        console.log('nowy token utworzony');
-        console.log(tokenAPI);
+        // console.log('nowy token utworzony');
+        // console.log(tokenAPI);
         setToken(tokenAPI);
-        console.log('nowy token w localStorage');
-        console.log(getToken());
+        // console.log('nowy token w localStorage');
+        // console.log(getToken());
         return getToken();
       }
 
     }
     else{
-      
+
       return getToken();
     }
 
   }
   checkIfTokenValid(): boolean{
     const tokObject = JSON.parse(getToken());
-    console.log('token zastały');
-    console.log(tokObject);
+    // console.log('token zastały');
+    // console.log(tokObject);
     if(tokObject === null){
       return false;
     }
     let currentDate = Math.round(new Date().getTime() / 1000);
-    console.log(currentDate);
+    // console.log(currentDate);
     const tokenValidTimeRemaing =  tokObject.expires_in;
     // const tokenValidTimeRemaing =  tokObject.expires_in - ( currentDate - tokObject.created_at ) ;
-    console.log(tokenValidTimeRemaing);
-    console.log(currentDate - tokObject.created_at)
+    // console.log(tokenValidTimeRemaing);
+    // console.log(currentDate - tokObject.created_at)
     if(tokenValidTimeRemaing > 0 && currentDate - tokObject.created_at < 14400){
       return true;
     }

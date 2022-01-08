@@ -19,7 +19,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.token = this.tok.getToken();
-    console.log('Token pobrany = sklep otwarty')
+    // console.log('Token pobrany = sklep otwarty')
 
 
 
