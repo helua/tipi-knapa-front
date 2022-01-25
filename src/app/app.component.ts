@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(private metaService: Meta){};
 
   ngOnInit(){
-    // clear();
+    clear();
     // this.metaService.updateTag(this.norobots);
     this.metaService.addTags([
       {property: 'og:image', content: 'https://tipiknapa.pl/assets/TIPI-KNAPA_share.jpg'}
