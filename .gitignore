@@ -64,4 +64,4 @@ scullyStats.json
 src/assets/scully-routes.json
 
 # CommerceLayer ClientID
-# src/app/models/Secret.ts
+src/app/models/Secret.ts
