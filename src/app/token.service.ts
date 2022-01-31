@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { getSalesChannelToken } from '@commercelayer/js-auth';
 import { EcommerceService } from './ecommerce.service';
 import { clear, getToken, setToken } from './localStorage';
+import { Secret } from './models/secret';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { clear, getToken, setToken } from './localStorage';
 export class TokenService {
 
   url: string = 'https://tipi-knapa-shop.commercelayer.io'
-  clientID: string = 'N7V8FFNMG8ylXYju_6RrcH7qRostvS8MY8ahWlulJVE';
+  clientID: string = Secret.cliendID;
   scope: string ="market:7273";
   stock: string = "stock_location:6551";
   token: string = "";
