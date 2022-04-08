@@ -1,7 +1,10 @@
-import { AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, HostListener } from '@angular/core';
 import { Image } from 'src/app/shop/Product';
 
-
+export enum KEY_CODE {
+  RIGHT_ARROW = 39,
+  LEFT_ARROW = 37
+}
 @Component({
   selector: 'app-slideshow',
   templateUrl: './slideshow.component.html',
@@ -55,5 +58,30 @@ export class SlideshowComponent implements AfterViewInit, OnInit{
     }
     slides[this.slideIndex - 1].style.display = 'block';
     dotsCurrent[this.slideIndex - 1].className += ' active';
+  }
+  
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    console.log(event);
+    if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
+      this.plusSlides(1);
+    }
+    if (event.keyCode === KEY_CODE.LEFT_ARROW) {
+      this.plusSlides(-1);
+    }
+  }
+
+  //navigate on swipe right / left event
+  onSwipe(evt: any) {
+  const x = Math.abs(evt.deltaX) > 40 ? (evt.deltaX > 0 ? 'right' : 'left'):'';
+  // posible usage of up / down swipe event
+  // const y = Math.abs(evt.deltaY) > 40 ? (evt.deltaY > 0 ? 'down' : 'up') : '';
+  console.log(x);
+  if(x === 'right'){
+    this.plusSlides(-1);
+  }
+  if(x === 'left'){
+    this.plusSlides(1);
+  }
   }
 }
