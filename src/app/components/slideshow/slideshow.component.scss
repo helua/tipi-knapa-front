@@ -6,6 +6,7 @@
 .slideshow-onclick {
   position: relative;
   margin: 1rem auto;
+  touch-action: auto !important;
 }
 
 /* Hide the images by default */
