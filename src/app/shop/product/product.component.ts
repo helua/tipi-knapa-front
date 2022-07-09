@@ -29,6 +29,7 @@ export class ProductComponent implements OnInit {
     if(getOrderId() !== undefined){
       this.ord = getOrderId();
     }
+    console.log(this.stock);
     // console.log(getCheckoutButton())
     // console.log('pobieram daną o Checkout Button z localStorage');
     //   var isTrueSet = (getCheckoutButton() === 'true');

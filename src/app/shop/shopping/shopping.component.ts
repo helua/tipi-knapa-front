@@ -104,6 +104,7 @@ export class ShoppingComponent implements OnInit {
       title: p.title,
       slug: p.slug.current,
       categories: p.categoryTitles,
+      statuses: p.statusTitles,
       vendor: p.vendor,
       body: blocksToHtml({ blocks: p.body }),
       sku: p.defaultProductVariant.sku,

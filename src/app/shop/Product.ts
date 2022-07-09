@@ -7,6 +7,7 @@ export interface Product {
   title?: string;
   slug?: string;
   categories?: string[];
+  statuses?: string[];
   vendor?: string;
   body?: string;
   images?: string[];

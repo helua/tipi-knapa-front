@@ -18,7 +18,7 @@
     <div class="holder-info">
       <div class="body-wrapper" [innerHTML]="product.body"></div>
         <table class="tech">
-          <!-- <li>kategoria: <span *ngFor="let category of product.categories" class="label category-label">{{ category }}</td></li> -->
+          <!-- <tr><td>kategoria:</td> <td><span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></td></tr> -->
           <tr><td>waga noża:</td><td>{{product.weight}} g</td></tr>
           <tr><td>długość całkowita:</td> <td>{{product.length}} mm</td></tr>
           <tr><td>długość ostrza:</td> <td>{{product.bladeLength}} mm</td></tr>
@@ -44,8 +44,9 @@
           </tr>
           <tr><td>pochwa:</td> <td>{{product.sheath}}</td></tr>
           <tr><td>stan magazynu:</td><td>{{this.stock}}/20 sztuk</td></tr>
+          <tr><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
-      <p class="price">
+      <p class="price" *ngIf="this.stock !== 0">
         cena: <b>{{productPrice()}} </b>
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Dodaj do koszyka"

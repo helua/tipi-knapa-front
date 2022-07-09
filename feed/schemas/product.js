@@ -69,6 +69,17 @@ export default {
       ],
     },
     {
+      name: 'statuses',
+      title: 'Statuses',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: {type: 'status'},
+        },
+      ],
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
